@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="h" prefHeight="500.0" prefWidth="750.0" style="-fx-background-color: #1c1c1c;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.project.controller.WelcomeController">
+   <children>
+      <ImageView fx:id="imgLogo" fitHeight="300.0" fitWidth="350.0" layoutX="205.0" layoutY="100.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../../../../../../Users/user/Downloads/logo_enhanced.jpg" />
+         </image>
+      </ImageView>
+      <ProgressBar fx:id="loading" layoutX="12.0" layoutY="461.0" prefHeight="26.0" prefWidth="735.0" progress="0.0" />
+   </children>
+</AnchorPane>
