@@ -16,7 +16,7 @@ public class AppInitalizer extends Application {
         Parent load = FXMLLoader.load(getClass().getResource("/view/welcome.fxml"));
         Scene scene = new Scene(load);
         stage.setScene(scene);
-        stage.setTitle("AutoLanka PVT (LTD)");
+        stage.setTitle("Main page");
         stage.show();
     }
 }

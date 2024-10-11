@@ -52,9 +52,9 @@ public class WelcomeController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Login.fxml"));
             Parent root = loader.load();
-            Stage stage = (Stage) loading.getScene().getWindow(); // Get the stage from the progress bar scene
+            Stage stage = (Stage) loading.getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.setTitle("Login");
+            stage.setTitle("Login Form");
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
