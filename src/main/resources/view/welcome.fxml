@@ -20,7 +20,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <ImageView fitHeight="24.0" fitWidth="30.0" layoutX="956.0" layoutY="434.0" pickOnBounds="true">
+      <ImageView fitHeight="24.0" fitWidth="30.0" layoutX="956.0" layoutY="434.0" pickOnBounds="true" AnchorPane.bottomAnchor="42.799999999999955" AnchorPane.leftAnchor="956.0" AnchorPane.rightAnchor="14.399999999999977" AnchorPane.topAnchor="434.0">
          <image>
             <Image url="@../image/loading-animation.gif" />
          </image>
