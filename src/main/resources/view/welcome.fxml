@@ -7,20 +7,20 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="h" prefHeight="500.0" prefWidth="1000.0" style="-fx-background-color: #1c1c1c;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.project.controller.WelcomeController">
+<AnchorPane fx:id="h" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #1c1c1c;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.project.controller.WelcomeController">
    <children>
-      <ImageView fx:id="imgLogo" fitHeight="299.0" fitWidth="300.0" layoutX="350.0" layoutY="92.0" pickOnBounds="true">
+      <ImageView fx:id="imgLogo" fitHeight="337.0" fitWidth="354.0" layoutX="331.0" layoutY="97.0" pickOnBounds="true">
          <image>
             <Image url="@../image/business logo.png" />
          </image>
       </ImageView>
-      <ProgressBar fx:id="loading" layoutX="12.0" layoutY="461.0" prefHeight="26.0" prefWidth="972.0" progress="0.0" />
-      <Text fill="WHITE" layoutX="888.0" layoutY="453.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loading" wrappingWidth="67.7366943359375" AnchorPane.topAnchor="433.576171875">
+      <ProgressBar fx:id="loading" layoutX="15.0" layoutY="566.0" prefHeight="26.0" prefWidth="972.0" progress="0.0" />
+      <Text fill="WHITE" layoutX="885.0" layoutY="557.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loading" wrappingWidth="92.53662109375" AnchorPane.topAnchor="537.576171875">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <ImageView fitHeight="24.0" fitWidth="30.0" layoutX="956.0" layoutY="434.0" pickOnBounds="true" AnchorPane.bottomAnchor="42.799999999999955" AnchorPane.leftAnchor="956.0" AnchorPane.rightAnchor="14.399999999999977" AnchorPane.topAnchor="434.0">
+      <ImageView fitHeight="16.0" fitWidth="30.0" layoutX="956.0" layoutY="550.0" pickOnBounds="true" AnchorPane.bottomAnchor="36.39999999999998" AnchorPane.leftAnchor="956.0" AnchorPane.rightAnchor="15.200000000000045" AnchorPane.topAnchor="550.0">
          <image>
             <Image url="@../image/loading-animation.gif" />
          </image>

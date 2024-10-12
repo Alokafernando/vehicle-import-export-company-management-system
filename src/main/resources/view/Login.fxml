@@ -11,34 +11,40 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="loginPage" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.project.controller.LoginController">
+<AnchorPane fx:id="loginPage" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.project.controller.LoginController">
    <children>
-      <AnchorPane prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #a4b0be;">
+      <AnchorPane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #a4b0be;">
          <children>
-            <ImageView fitHeight="238.0" fitWidth="349.0" layoutX="56.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="238.0" fitWidth="349.0" layoutX="77.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/login page pic.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="500.0" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #57606f;">
+      <AnchorPane layoutX="500.0" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #57606f;">
          <children>
-            <TextField fx:id="txtUserName" layoutX="165.0" layoutY="203.0" prefHeight="26.0" prefWidth="187.0" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #0598ff;">
+            <TextField fx:id="txtUserName" layoutX="179.0" layoutY="254.0" prefHeight="28.0" prefWidth="220.0" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #0598ff;">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
-            <PasswordField fx:id="txtPassword" layoutX="165.0" layoutY="303.0" prefHeight="26.0" prefWidth="187.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+            <PasswordField fx:id="txtPassword" layoutX="179.0" layoutY="346.0" prefHeight="28.0" prefWidth="220.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </PasswordField>
-            <Label layoutX="168.0" layoutY="184.0" prefHeight="18.0" prefWidth="73.0" text="username" />
-            <Label layoutX="165.0" layoutY="284.0" prefHeight="18.0" prefWidth="73.0" text="password" />
-            <Label fx:id="lblCheckUsername" alignment="CENTER_RIGHT" layoutX="251.0" layoutY="230.0" prefHeight="18.0" prefWidth="95.0" />
-            <Label fx:id="lblCheckPassword" alignment="CENTER_RIGHT" layoutX="259.0" layoutY="331.0" prefHeight="18.0" prefWidth="95.0" />
-            <Button fx:id="btnLogin" layoutX="221.0" layoutY="374.0" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="74.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-radius: 10;" text="login">
+            <Label layoutX="181.0" layoutY="234.0" prefHeight="18.0" prefWidth="73.0" text="username">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+            <Label layoutX="181.0" layoutY="322.0" prefHeight="18.0" prefWidth="73.0" text="password">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+            <Label fx:id="lblCheckUsername" alignment="CENTER_RIGHT" layoutX="303.0" layoutY="282.0" prefHeight="18.0" prefWidth="95.0" />
+            <Label fx:id="lblCheckPassword" alignment="CENTER_RIGHT" layoutX="303.0" layoutY="374.0" prefHeight="18.0" prefWidth="95.0" />
+            <Button fx:id="btnLogin" layoutX="252.0" layoutY="443.0" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="74.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-radius: 10;" text="login">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -53,12 +59,12 @@
                   <Image url="@../../../../../../../../Users/user/Downloads/icons8-users-96.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="27.0" fitWidth="28.0" layoutX="131.0" layoutY="204.0" pickOnBounds="true">
+            <ImageView fitHeight="27.0" fitWidth="28.0" layoutX="140.0" layoutY="254.0" pickOnBounds="true">
                <image>
                   <Image url="@../image/user icon.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="27.0" fitWidth="28.0" layoutX="131.0" layoutY="304.0" pickOnBounds="true">
+            <ImageView fitHeight="27.0" fitWidth="28.0" layoutX="140.0" layoutY="347.0" pickOnBounds="true">
                <image>
                   <Image url="@../image/password icon.png" />
                </image>

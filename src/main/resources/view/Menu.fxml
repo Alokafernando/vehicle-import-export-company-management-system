@@ -11,13 +11,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="manuPage" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.project.controller.MenuController">
+<AnchorPane fx:id="manuPage" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.project.controller.MenuController">
    <children>
-      <SplitPane dividerPositions="0.29797979797979796" prefHeight="500.0" prefWidth="1000.0">
+      <SplitPane dividerPositions="0.29797979797979796" prefHeight="600.0" prefWidth="1000.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="270.0" style="-fx-background-color: #227093;">
                <children>
-                  <AnchorPane fx:id="slider" layoutX="14.0" layoutY="84.0" prefHeight="390.0" prefWidth="235.0" style="-fx-background-color: #0A4969; -fx-background-radius: 15;">
+                  <AnchorPane fx:id="slider" layoutX="29.0" layoutY="81.0" prefHeight="478.0" prefWidth="235.0" style="-fx-background-color: #0A4969; -fx-background-radius: 15;">
                      <children>
                         <VBox alignment="TOP_CENTER" layoutX="38.0" layoutY="39.0" prefHeight="310.0" prefWidth="142.0" spacing="20.0" style="-fx-background-color: transparent;">
                            <children>
