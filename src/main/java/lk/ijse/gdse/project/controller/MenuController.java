@@ -206,7 +206,7 @@ public class MenuController implements Initializable {
     private Button btnCustomer;
 
     @FXML
-    private Button btnTesting;
+    private Button btnVehicle;
 
     @FXML
     private AnchorPane contentPanel;
@@ -220,6 +220,51 @@ public class MenuController implements Initializable {
     @FXML
     void OpenCustomerPanel(ActionEvent event) throws IOException {
         getFilePath("/view/Customer.fxml");
+    }
+
+    @FXML
+    void openVehiclePanel(ActionEvent event) throws IOException {
+        getFilePath("/view/Vehicle.fxml");
+    }
+
+    public void openExportCompanyPanel(ActionEvent actionEvent) throws IOException {
+        getFilePath("/view/ExportCompanies.fxml");
+    }
+
+    public void openImportCompanyPanel(ActionEvent actionEvent) throws IOException {
+        getFilePath("/view/ImportCompany.fxml");
+    }
+
+    public void openStaffPanel(ActionEvent actionEvent) throws IOException {
+        getFilePath("/view/staff.fxml");
+    }
+
+    public void openSupplierPanel(ActionEvent actionEvent) throws IOException {
+        getFilePath("/view/Supplier.fxml");
+    }
+
+    public void openPartPanel(ActionEvent actionEvent) throws IOException {
+        getFilePath("/view/Parts.fxml");
+    }
+
+    public void openReservationPanel(ActionEvent actionEvent) throws IOException {
+        getFilePath("/view/Reservation.fxml");
+    }
+
+    public void openPaymentPanel(ActionEvent actionEvent) throws IOException {
+        getFilePath("/view/Payment.fxml");
+    }
+
+    public void openTaxPanel(ActionEvent actionEvent) throws IOException {
+        getFilePath("/view/Tax.fxml");
+    }
+
+    public void openTransportDetailPanel(ActionEvent actionEvent) throws IOException {
+        getFilePath("/view/Transport.fxml");
+    }
+
+    public void openDriverDetailPanel(ActionEvent actionEvent) throws IOException {
+        getFilePath("/view/Driver.fxml");
     }
 
     @Override
@@ -264,6 +309,8 @@ public class MenuController implements Initializable {
         AnchorPane pane = FXMLLoader.load(getClass().getResource(filePath));
         contentPanel.getChildren().add(pane);
     }
+
+
 }
 
 

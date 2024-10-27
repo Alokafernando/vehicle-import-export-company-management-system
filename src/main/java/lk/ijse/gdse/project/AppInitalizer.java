@@ -17,7 +17,7 @@ public class AppInitalizer extends Application {
         Parent load = FXMLLoader.load(getClass().getResource("/view/welcome.fxml"));
         Scene scene = new Scene(load);
         stage.setScene(scene);
-        stage.setTitle("Main page");
+        stage.setTitle("Auto Lanka (PVT) LTD");
 
         Image image = new Image(getClass().getResourceAsStream("/image/application.png"));
         stage.getIcons().add(image);

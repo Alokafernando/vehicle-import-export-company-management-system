@@ -38,7 +38,7 @@ public class WelcomeController implements Initializable {
     }
 
     private void simulateLoadingAnimation() {
-        Duration animationDuration = Duration.seconds(5);
+        Duration animationDuration = Duration.seconds(3);
         double endProgress = 1.0;
 
         KeyFrame startFrame = new KeyFrame(Duration.ZERO, new KeyValue(loading.progressProperty(), 0));
@@ -55,7 +55,6 @@ public class WelcomeController implements Initializable {
             Parent root = loader.load();
             Stage stage = (Stage) loading.getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.setTitle("Login Form");
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #ecf0f1;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.project.controller.CustomerController">
+<AnchorPane prefHeight="740.0" prefWidth="1140.0" style="-fx-background-color: #ecf0f1;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.project.controller.CustomerController">
    <children>
-      <HBox alignment="CENTER_LEFT" layoutX="18.0" layoutY="35.0" prefHeight="35.0" prefWidth="667.0" spacing="30.0">
+      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="58.0" prefHeight="35.0" prefWidth="1020.0" spacing="30.0">
          <children>
             <Label prefHeight="24.0" prefWidth="87.0" text="customer ID">
                <font>
@@ -26,65 +26,73 @@
             </Label>
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" layoutX="18.0" layoutY="71.0" prefHeight="35.0" prefWidth="667.0" spacing="30.0">
+      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="103.0" prefHeight="35.0" prefWidth="1020.0" spacing="30.0">
          <children>
             <Label prefHeight="24.0" prefWidth="87.0" text="Name">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="txtName" prefHeight="28.0" prefWidth="539.0" promptText="customer" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #1e3799;">
+            <TextField fx:id="txtName" prefHeight="28.0" prefWidth="550.0" promptText="customer" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #1e3799;">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" layoutX="16.0" layoutY="117.0" prefHeight="35.0" prefWidth="667.0" spacing="30.0">
+      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="158.0" prefHeight="35.0" prefWidth="1020.0" spacing="30.0">
          <children>
             <Label prefHeight="24.0" prefWidth="87.0" text="Address">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="txtAddress" prefHeight="28.0" prefWidth="537.0" promptText="panadura" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #1e3799;">
+            <TextField fx:id="txtAddress" prefHeight="28.0" prefWidth="550.0" promptText="panadura" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #1e3799;">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" layoutX="18.0" layoutY="162.0" prefHeight="35.0" prefWidth="667.0" spacing="30.0">
+      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="215.0" prefHeight="35.0" prefWidth="1020.0" spacing="30.0">
          <children>
             <Label prefHeight="24.0" prefWidth="87.0" text="Contact">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="txtContact" prefHeight="28.0" prefWidth="538.0" promptText="0777777777" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #1e3799;">
+            <TextField fx:id="txtContact" prefHeight="28.0" prefWidth="550.0" promptText="0777777777" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #1e3799;">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" layoutX="18.0" layoutY="207.0" prefHeight="35.0" prefWidth="667.0" spacing="30.0">
+      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="272.0" prefHeight="35.0" prefWidth="1020.0" spacing="30.0">
          <children>
             <Label prefHeight="24.0" prefWidth="87.0" text="Email">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="txtEmail" prefHeight="28.0" prefWidth="540.0" promptText="customer@gmail.com" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #1e3799;">
+            <TextField fx:id="txtEmail" prefHeight="28.0" prefWidth="550.0" promptText="customer@gmail.com" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #1e3799;">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
          </children>
       </HBox>
-      <HBox alignment="CENTER" layoutX="16.0" layoutY="264.0" onDragDetected="#generateReport" prefHeight="35.0" prefWidth="667.0" spacing="50.0">
+      <HBox alignment="CENTER" layoutX="16.0" layoutY="361.0" onDragDetected="#generateReport" prefHeight="35.0" prefWidth="1020.0" spacing="50.0">
          <children>
-            <Button fx:id="btnReport" mnemonicParsing="false" prefWidth="150.0" style="-fx-background-color: #747d8c;" text="Generate Report" textFill="WHITE">
+            <Button fx:id="btnReport1" layoutX="220.0" layoutY="14.0" mnemonicParsing="false" prefWidth="150.0" style="-fx-background-color: #747d8c;" text="customer reservation" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnReport" mnemonicParsing="false" prefWidth="150.0" style="-fx-background-color: #747d8c;" text="All customers report" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -118,13 +126,13 @@
             </Button>
          </children>
       </HBox>
-      <TableView fx:id="tblCustomer" layoutX="18.0" layoutY="327.0" onMouseClicked="#onClickTable" prefHeight="248.0" prefWidth="667.0" style="-fx-border-color: #2c3e50;">
+      <TableView fx:id="tblCustomer" layoutX="16.0" layoutY="439.0" onMouseClicked="#onClickTable" prefHeight="287.0" prefWidth="1040.0" style="-fx-border-color: #2c3e50;">
         <columns>
-          <TableColumn fx:id="colCustID" prefWidth="85.59997367858887" style="-fx-border-color: #2c3e50;" text="Cust ID" />
-          <TableColumn fx:id="colName" prefWidth="159.20001983642578" style="-fx-border-color: #2c3e50;" text="Name" />
-            <TableColumn fx:id="colAddress" prefWidth="135.20001220703125" style="-fx-border-color: #2c3e50;" text="Address" />
-            <TableColumn fx:id="colContact" prefWidth="130.39993286132812" style="-fx-border-color: #2c3e50;" text="Contact" />
-            <TableColumn fx:id="colEmail" prefWidth="159.199951171875" style="-fx-border-color: #2c3e50;" text="Email" />
+          <TableColumn fx:id="colCustID" prefWidth="117.59997940063477" style="-fx-border-color: #2c3e50;" text="Cust ID" />
+          <TableColumn fx:id="colName" prefWidth="200.7999725341797" style="-fx-border-color: #2c3e50;" text="Name" />
+            <TableColumn fx:id="colAddress" prefWidth="243.20001220703125" style="-fx-border-color: #2c3e50;" text="Address" />
+            <TableColumn fx:id="colContact" prefWidth="208.79998779296875" style="-fx-border-color: #2c3e50;" text="Contact" />
+            <TableColumn fx:id="colEmail" prefWidth="265.5999755859375" style="-fx-border-color: #2c3e50;" text="Email" />
         </columns>
          <cursor>
             <Cursor fx:constant="HAND" />

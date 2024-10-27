@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="h" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #1c1c1c;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.project.controller.WelcomeController">
+<AnchorPane fx:id="h" prefHeight="750.0" prefWidth="1500.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.project.controller.WelcomeController">
    <children>
-      <ImageView fx:id="imgLogo" fitHeight="337.0" fitWidth="354.0" layoutX="331.0" layoutY="97.0" pickOnBounds="true">
+      <ImageView fx:id="imgLogo" fitHeight="372.0" fitWidth="490.0" layoutX="514.0" layoutY="189.0" pickOnBounds="true">
          <image>
-            <Image url="@../image/business logo.png" />
+            <Image url="@../image/channels4_profile.jpg" />
          </image>
       </ImageView>
-      <ProgressBar fx:id="loading" layoutX="15.0" layoutY="566.0" prefHeight="26.0" prefWidth="972.0" progress="0.0" />
-      <Text fill="WHITE" layoutX="885.0" layoutY="557.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loading" wrappingWidth="92.53662109375" AnchorPane.topAnchor="537.576171875">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <ImageView fitHeight="16.0" fitWidth="30.0" layoutX="956.0" layoutY="550.0" pickOnBounds="true" AnchorPane.bottomAnchor="36.39999999999998" AnchorPane.leftAnchor="956.0" AnchorPane.rightAnchor="15.200000000000045" AnchorPane.topAnchor="550.0">
+      <ProgressBar fx:id="loading" layoutX="19.0" layoutY="709.0" prefHeight="26.0" prefWidth="1466.0" progress="0.0" />
+      <ImageView fitHeight="18.0" fitWidth="34.0" layoutX="1450.0" layoutY="691.0" pickOnBounds="true" AnchorPane.bottomAnchor="41.0" AnchorPane.leftAnchor="1450.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="691.0">
          <image>
             <Image url="@../image/loading-animation.gif" />
          </image>
       </ImageView>
+      <Label layoutX="1386.0" layoutY="686.0" text="Loading" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
