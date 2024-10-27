@@ -34,56 +34,34 @@ public class LoginController {
     @FXML
     private TextField txtUserName;
 
-   /* @FXML
+    @FXML
     void login(ActionEvent event) throws IOException {
         String u = txtUserName.getText();
         String p = txtPassword.getText();
 
-        txtPassword.setStyle("-fx-border-color: #ffffff; -fx-background-radius: 25; -fx-border-radius: 15; -fx-background-color: transparent; -fx-text-fill: #ffffff;");
-        txtUserName.setStyle("-fx-border-color: #ffffff; -fx-background-radius: 25; -fx-border-radius: 15; -fx-background-color: transparent; -fx-text-fill: #ffffff;");
+        final String baseStyle = "-fx-border-color: #ffffff; -fx-background-radius: 25; -fx-border-radius: 15; -fx-background-color: transparent; -fx-text-fill: #ffffff;";
+        final String errorStyle = "-fx-border-color: #ff5e57; -fx-background-radius: 25; -fx-border-radius: 15; -fx-background-color: transparent; -fx-text-fill: #ffffff;";
+        final String errorTextColor = "-fx-text-fill: #ff5e57;";
+
+        txtPassword.setStyle(baseStyle);
+        txtUserName.setStyle(baseStyle);
+        lblCheckUsername.setText("");
+        lblCheckPassword.setText("");
 
         try {
-            if (u.isEmpty() || p.isEmpty() || !username.equals(u) || !password.equals(p)) {
-                if (u.isEmpty()) {
-                    txtUserName.setStyle("-fx-border-color: #ff5e57; -fx-background-radius: 25; -fx-border-radius: 15;  -fx-background-color: transparent; -fx-text-fill: #ffffff;");
-                    lblCheckUsername.setText("required");
-                    lblCheckUsername.setStyle("-fx-text-fill: #ff5e57;");
-                } else {
-                    lblCheckUsername.setText("");
-                  //  txtUserName.setStyle("");
-                    if (!username.equals(u)) {
-                        lblCheckUsername.setText("wrong username");
-                        lblCheckUsername.setStyle("-fx-text-fill: #ff5e57;");
-                        txtUserName.setStyle("-fx-border-color: #ff5e57; -fx-background-radius: 25; -fx-border-radius: 15; -fx-background-color: transparent; -fx-text-fill: #ffffff;");
-                    } else {
-                        lblCheckUsername.setStyle("");
-                      //  txtUserName.setStyle("");
-                    }
-                }
-                if (p.isEmpty()) {
-                    lblCheckPassword.setText("required");
-                    lblCheckPassword.setStyle("-fx-text-fill: #ff5e57;");
-                    txtPassword.setStyle("-fx-border-color: #ff5e57; -fx-background-radius: 25; -fx-border-radius: 15; -fx-background-color: transparent; -fx-text-fill: #ffffff;");
-                } else {
-                    lblCheckPassword.setText("");
-               //     txtPassword.setStyle("");
-                    if (!password.equals(p)) {
-                        lblCheckPassword.setText("wrong password");
-                        lblCheckPassword.setStyle("-fx-text-fill: #ff5e57;");
-                        txtPassword.setStyle("-fx-border-color: #ff5e57; -fx-background-radius: 25; -fx-border-radius: 15; -fx-background-color: transparent; -fx-text-fill: #ffffff;");
-                    } else {
-                        lblCheckPassword.setStyle("");
-                   //     txtPassword.setStyle("");
-                    }
-                }
-            } else {
-                lblCheckUsername.setText("");
-                lblCheckPassword.setText("");
-                txtUserName.setStyle("");
-                txtPassword.setStyle("");
-                txtPassword.setStyle("-fx-border-color: #ffffff; -fx-background-radius: 25; -fx-border-radius: 15; -fx-background-color: transparent; -fx-text-fill: #ffffff;");
-                txtUserName.setStyle("-fx-border-color: #ffffff; -fx-background-radius: 25; -fx-border-radius: 15; -fx-background-color: transparent; -fx-text-fill: #ffffff;");
+            if (u.isEmpty()) {
+                setUsernameError("required", errorStyle, errorTextColor);
+            } else if (!username.equals(u)) {
+                setUsernameError("wrong username", errorStyle, errorTextColor);
+            }
 
+            if (p.isEmpty()) {
+                setPasswordError("required", errorStyle, errorTextColor);
+            } else if (!password.equals(p)) {
+                setPasswordError("wrong password", errorStyle, errorTextColor);
+            }
+
+            if (username.equals(u) && password.equals(p)) {
                 AnchorPane load = FXMLLoader.load(getClass().getResource("/view/Menu.fxml"));
                 Scene scene = new Scene(load);
                 Stage stage = (Stage) txtUserName.getScene().getWindow();
@@ -93,44 +71,7 @@ public class LoginController {
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK).show();
         }
-    }*/
-   @FXML
-   void login(ActionEvent event) throws IOException {
-       String u = txtUserName.getText();
-       String p = txtPassword.getText();
-
-       final String baseStyle = "-fx-border-color: #ffffff; -fx-background-radius: 25; -fx-border-radius: 15; -fx-background-color: transparent; -fx-text-fill: #ffffff;";
-       final String errorStyle = "-fx-border-color: #ff5e57; -fx-background-radius: 25; -fx-border-radius: 15; -fx-background-color: transparent; -fx-text-fill: #ffffff;";
-       final String errorTextColor = "-fx-text-fill: #ff5e57;";
-
-       txtPassword.setStyle(baseStyle);
-       txtUserName.setStyle(baseStyle);
-       lblCheckUsername.setText("");
-       lblCheckPassword.setText("");
-
-       try {
-           if (u.isEmpty()) {
-               setUsernameError("required", errorStyle, errorTextColor);
-           } else if (!username.equals(u)) {
-               setUsernameError("wrong username", errorStyle, errorTextColor);
-           }
-
-           if (p.isEmpty()) {
-               setPasswordError("required", errorStyle, errorTextColor);
-           } else if (!password.equals(p)) {
-               setPasswordError("wrong password", errorStyle, errorTextColor);
-           }
-
-           if (username.equals(u) && password.equals(p)) {
-               AnchorPane load = FXMLLoader.load(getClass().getResource("/view/Menu.fxml"));
-               Scene scene = new Scene(load);
-               Stage stage = (Stage) txtUserName.getScene().getWindow();
-               stage.setScene(scene);
-           }
-       } catch (Exception e) {
-           new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK).show();
-       }
-   }
+    }
 
     private void setUsernameError(String message, String style, String textColor) {
         lblCheckUsername.setText(message);
@@ -143,6 +84,5 @@ public class LoginController {
         lblCheckPassword.setStyle(textColor);
         txtPassword.setStyle(style);
     }
-
 
 }

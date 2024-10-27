@@ -19,7 +19,7 @@ public class AppInitalizer extends Application {
         stage.setScene(scene);
         stage.setTitle("Auto Lanka (PVT) LTD");
 
-        Image image = new Image(getClass().getResourceAsStream("/image/application.png"));
+        Image image = new Image(getClass().getResourceAsStream("/image/car-logo-illustration_910054-55266.jpg"));
         stage.getIcons().add(image);
 
         stage.show();

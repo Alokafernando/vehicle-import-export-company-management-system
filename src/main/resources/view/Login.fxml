@@ -67,7 +67,7 @@
                </font></Label>
             <ImageView fitHeight="114.0" fitWidth="171.0" layoutX="325.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../image/usericon%20(main).png" />
+                  <Image url="@../image/user%20icon%20(main).png" />
                </image>
             </ImageView>
          </children>
