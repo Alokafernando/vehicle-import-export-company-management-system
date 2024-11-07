@@ -9,7 +9,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
-public class ExportCompaniesController {
+public class ImportCompaniesController {
 
     @FXML
     private Button btnDelete;
@@ -45,7 +45,7 @@ public class ExportCompaniesController {
     private Label lblCompanyID;
 
     @FXML
-    private TableView<?> tblExport;
+    private TableView<?> tblImport;
 
     @FXML
     private TextField txtCompanyName;
@@ -60,17 +60,17 @@ public class ExportCompaniesController {
     private TextField txtEmail;
 
     @FXML
-    void deleteExportCompany(ActionEvent event) {
+    void deleteImportCompany(ActionEvent event) {
 
     }
 
     @FXML
-    void generateExportComapanyDetailsReport(ActionEvent event) {
+    void generateImportComapanyDetailsReport(ActionEvent event) {
 
     }
 
     @FXML
-    void generateExportVehicleReport(ActionEvent event) {
+    void generateImportVehicleReport(ActionEvent event) {
 
     }
 
@@ -80,12 +80,12 @@ public class ExportCompaniesController {
     }
 
     @FXML
-    void saveExportCompany(ActionEvent event) {
+    void saveImportCompany(ActionEvent event) {
 
     }
 
     @FXML
-    void updateExportCompany(ActionEvent event) {
+    void updateImportCompany(ActionEvent event) {
 
     }
 

@@ -6,10 +6,10 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="740.0" prefWidth="1140.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.project.controller.VehicleController">
    <children>
@@ -43,7 +43,7 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" layoutX="37.0" layoutY="56.0" prefHeight="41.0" prefWidth="714.0" spacing="30.0">
          <children>
-            <Label text="vehicle id">
+            <Label prefHeight="20.0" prefWidth="125.0" text="vehicle id">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -53,7 +53,7 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" layoutX="37.0" layoutY="98.0" prefHeight="41.0" prefWidth="714.0" spacing="30.0">
          <children>
-            <Label text="model">
+            <Label prefHeight="20.0" prefWidth="123.0" text="model">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -80,21 +80,24 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <RadioButton mnemonicParsing="false" text="RadioButton" />
-            <RadioButton layoutX="83.0" layoutY="22.0" mnemonicParsing="false" text="RadioButton" />
-            <RadioButton layoutX="171.0" layoutY="22.0" mnemonicParsing="false" text="RadioButton" />
-            <RadioButton layoutX="259.0" layoutY="22.0" mnemonicParsing="false" text="RadioButton" />
+            <RadioButton mnemonicParsing="false" text="RadioButton">
+               <toggleGroup>
+                  <ToggleGroup fx:id="btnGroup" />
+               </toggleGroup></RadioButton>
+            <RadioButton layoutX="83.0" layoutY="22.0" mnemonicParsing="false" text="RadioButton" toggleGroup="$btnGroup" />
+            <RadioButton layoutX="171.0" layoutY="22.0" mnemonicParsing="false" text="RadioButton" toggleGroup="$btnGroup" />
+            <RadioButton layoutX="259.0" layoutY="22.0" mnemonicParsing="false" text="RadioButton" toggleGroup="$btnGroup" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" layoutX="37.0" layoutY="182.0" prefHeight="42.0" prefWidth="822.0" spacing="30.0">
          <children>
-            <Label prefHeight="20.0" prefWidth="94.0" text="import date">
+            <Label prefHeight="20.0" prefWidth="117.0" text="import date">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
             <TextField prefHeight="26.0" prefWidth="168.0" />
-            <Label prefHeight="20.0" prefWidth="92.0" text="export date">
+            <Label prefHeight="20.0" prefWidth="103.0" text="export date">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>

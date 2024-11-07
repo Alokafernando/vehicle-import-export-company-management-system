@@ -269,16 +269,16 @@ public class MenuController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        slider.setTranslateX(-176);
+        slider.setTranslateX(-250);
         Menu.setOnMouseClicked(event -> {
             TranslateTransition slide = new TranslateTransition();
-            slide.setDuration(Duration.seconds(0.3));
+            slide.setDuration(Duration.seconds(0.4));
             slide.setNode(slider);
 
             slide.setToX(0);
             slide.play();
 
-            slider.setTranslateX(-176);
+            slider.setTranslateX(-250);
 
             slide.setOnFinished((ActionEvent e) -> {
                 Menu.setVisible(false);
@@ -288,10 +288,10 @@ public class MenuController implements Initializable {
 
         MenuBack.setOnMouseClicked(event -> {
             TranslateTransition slide = new TranslateTransition();
-            slide.setDuration(Duration.seconds(0.3));
+            slide.setDuration(Duration.seconds(0.4));
             slide.setNode(slider);
 
-            slide.setToX(-176);
+            slide.setToX(-250);//-176
             slide.play();
 
             slider.setTranslateX(0);

@@ -12,21 +12,21 @@
 
 <AnchorPane prefHeight="740.0" prefWidth="1140.0" style="-fx-background-color: #ecf0f1;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.project.controller.CustomerController">
    <children>
-      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="58.0" prefHeight="35.0" prefWidth="1020.0" spacing="30.0">
+      <HBox alignment="CENTER_LEFT" layoutX="48.0" layoutY="53.0" prefHeight="35.0" prefWidth="1020.0" spacing="30.0">
          <children>
             <Label prefHeight="24.0" prefWidth="87.0" text="customer ID">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="lblCustomerID" prefHeight="24.0" prefWidth="87.0" style="-fx-background-color: transparent;" text="1">
+            <Label fx:id="lblCustomerID" prefHeight="24.0" prefWidth="87.0" style="-fx-background-color: transparent; -fx-border-width: 0px 0px   2px 0px; -fx-border-color: #1e3799;" text="1">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="103.0" prefHeight="35.0" prefWidth="1020.0" spacing="30.0">
+      <HBox alignment="CENTER_LEFT" layoutX="48.0" layoutY="103.0" prefHeight="35.0" prefWidth="1020.0" spacing="30.0">
          <children>
             <Label prefHeight="24.0" prefWidth="87.0" text="Name">
                <font>
@@ -40,7 +40,7 @@
             </TextField>
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="158.0" prefHeight="35.0" prefWidth="1020.0" spacing="30.0">
+      <HBox alignment="CENTER_LEFT" layoutX="48.0" layoutY="156.0" prefHeight="35.0" prefWidth="1020.0" spacing="30.0">
          <children>
             <Label prefHeight="24.0" prefWidth="87.0" text="Address">
                <font>
@@ -54,7 +54,7 @@
             </TextField>
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="215.0" prefHeight="35.0" prefWidth="1020.0" spacing="30.0">
+      <HBox alignment="CENTER_LEFT" layoutX="48.0" layoutY="215.0" prefHeight="35.0" prefWidth="1020.0" spacing="30.0">
          <children>
             <Label prefHeight="24.0" prefWidth="87.0" text="Contact">
                <font>
@@ -68,7 +68,7 @@
             </TextField>
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="272.0" prefHeight="35.0" prefWidth="1020.0" spacing="30.0">
+      <HBox alignment="CENTER_LEFT" layoutX="48.0" layoutY="273.0" prefHeight="35.0" prefWidth="1020.0" spacing="30.0">
          <children>
             <Label prefHeight="24.0" prefWidth="87.0" text="Email">
                <font>
@@ -126,13 +126,13 @@
             </Button>
          </children>
       </HBox>
-      <TableView fx:id="tblCustomer" layoutX="16.0" layoutY="439.0" onMouseClicked="#onClickTable" prefHeight="287.0" prefWidth="1040.0" style="-fx-border-color: #2c3e50;">
+      <TableView fx:id="tblCustomer" layoutX="36.0" layoutY="439.0" onMouseClicked="#onClickTable" prefHeight="287.0" prefWidth="1058.0" style="-fx-border-color: #2c3e50;">
         <columns>
-          <TableColumn fx:id="colCustID" prefWidth="117.59997940063477" style="-fx-border-color: #2c3e50;" text="Cust ID" />
-          <TableColumn fx:id="colName" prefWidth="200.7999725341797" style="-fx-border-color: #2c3e50;" text="Name" />
-            <TableColumn fx:id="colAddress" prefWidth="243.20001220703125" style="-fx-border-color: #2c3e50;" text="Address" />
-            <TableColumn fx:id="colContact" prefWidth="208.79998779296875" style="-fx-border-color: #2c3e50;" text="Contact" />
-            <TableColumn fx:id="colEmail" prefWidth="265.5999755859375" style="-fx-border-color: #2c3e50;" text="Email" />
+          <TableColumn fx:id="colCustID" prefWidth="149.60000038146973" style="-fx-border-color: #2c3e50;" text="Cust ID" />
+          <TableColumn fx:id="colName" prefWidth="208.80001831054688" style="-fx-border-color: #2c3e50;" text="Name" />
+            <TableColumn fx:id="colAddress" prefWidth="238.4000244140625" style="-fx-border-color: #2c3e50;" text="Address" />
+            <TableColumn fx:id="colContact" prefWidth="225.5999755859375" style="-fx-border-color: #2c3e50;" text="Contact" />
+            <TableColumn fx:id="colEmail" prefWidth="253.5999755859375" style="-fx-border-color: #2c3e50;" text="Email" />
         </columns>
          <cursor>
             <Cursor fx:constant="HAND" />
