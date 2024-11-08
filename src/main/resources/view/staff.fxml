@@ -85,7 +85,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#deleteImportCompany" prefWidth="100.0" style="-fx-background-color: #c0392b;" text="Delete" textFill="WHITE">
+            <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#deletStaff" prefWidth="100.0" style="-fx-background-color: #c0392b;" text="Delete" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -93,7 +93,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#updateImportCompany" prefWidth="100.0" style="-fx-background-color: #3498db;" text="Update" textFill="WHITE">
+            <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#updateStaff" prefWidth="100.0" style="-fx-background-color: #3498db;" text="Update" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -101,7 +101,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btnSave" alignment="CENTER" mnemonicParsing="false" onAction="#saveImportCompany" prefWidth="100.0" style="-fx-background-color: #78e08f;" text="Save" textFill="WHITE">
+            <Button fx:id="btnSave" alignment="CENTER" mnemonicParsing="false" onAction="#saveStaff" prefWidth="100.0" style="-fx-background-color: #78e08f;" text="Save" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>

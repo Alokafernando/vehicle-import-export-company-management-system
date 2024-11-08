@@ -37,7 +37,7 @@ public class StaffController {
     private TextField txtCompanyName111;
 
     @FXML
-    void deleteImportCompany(ActionEvent event) {
+    void deletStaff(ActionEvent event) {
 
     }
 
@@ -52,12 +52,12 @@ public class StaffController {
     }
 
     @FXML
-    void saveImportCompany(ActionEvent event) {
+    void saveStaff(ActionEvent event) {
 
     }
 
     @FXML
-    void updateImportCompany(ActionEvent event) {
+    void updateStaff(ActionEvent event) {
 
     }
 
