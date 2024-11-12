@@ -196,4 +196,10 @@ public class CustomerController implements Initializable {
         String nextCustomerID = customerModel.getNextCustomerId();
         lblCustomerID.setText(nextCustomerID);
     }
+
+    public void generateCustomerReservReport(ActionEvent actionEvent) {
+    }
+
+    public void generateCistomerReport(ActionEvent actionEvent) {
+    }
 }

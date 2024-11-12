@@ -14,7 +14,7 @@ public class AppInitalizer extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent load = FXMLLoader.load(getClass().getResource("/view/welcome.fxml"));
+        Parent load = FXMLLoader.load(getClass().getResource("/view/Welcome.fxml"));
         Scene scene = new Scene(load);
         stage.setScene(scene);
         stage.setTitle("Auto Lanka (PVT) LTD");

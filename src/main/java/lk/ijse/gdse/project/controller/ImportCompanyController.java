@@ -7,30 +7,29 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 
-public class ImportCompaniesController {
-
-    @FXML
-    private Button btnDelete;
+public class ImportCompanyController {
 
     @FXML
-    private Button btnExportCompanyRepo;
+    private Button btnDeleteImport;
 
     @FXML
-    private Button btnExportVehicleRepo;
+    private Button btnImportCompanyRepo;
 
     @FXML
-    private Button btnSave;
+    private Button btnImportVehicleRepo;
 
     @FXML
-    private Button btnUpdate;
+    private Button btnSaveImport;
 
     @FXML
-    private TableColumn<?, ?> colCOmpanyName;
+    private Button btnUpdateImport;
 
     @FXML
     private TableColumn<?, ?> colCompanyID;
+
+    @FXML
+    private TableColumn<?, ?> colCompanyName;
 
     @FXML
     private TableColumn<?, ?> colContact;
@@ -65,17 +64,12 @@ public class ImportCompaniesController {
     }
 
     @FXML
-    void generateImportComapanyDetailsReport(ActionEvent event) {
+    void generateImportComapnyDetailsReport(ActionEvent event) {
 
     }
 
     @FXML
     void generateImportVehicleReport(ActionEvent event) {
-
-    }
-
-    @FXML
-    void generateReport(MouseEvent event) {
 
     }
 

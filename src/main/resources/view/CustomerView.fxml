@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="860.0" style="-fx-background-color: #bdc3c7;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.project.controller.CustomerController">
+   <children>
+      <VBox alignment="CENTER" layoutX="30.0" layoutY="2.0" prefHeight="650.0" prefWidth="800.0" spacing="40.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="242.0" spacing="30.0">
+                     <children>
+                        <Label prefHeight="26.0" prefWidth="95.0" text="customer ID">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblCustomerID" alignment="CENTER" prefHeight="24.0" prefWidth="80.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;" text="1">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="343.0" spacing="30.0">
+                     <children>
+                        <Label prefHeight="24.0" prefWidth="87.0" text="Name">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtName" prefHeight="28.0" prefWidth="276.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="343.0" spacing="30.0">
+                     <children>
+                        <Label prefHeight="24.0" prefWidth="87.0" text="Address">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtAddress" prefHeight="28.0" prefWidth="276.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="343.0" spacing="30.0">
+                     <children>
+                        <Label prefHeight="24.0" prefWidth="87.0" text="Contact">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtContact" prefHeight="28.0" prefWidth="276.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="175.0" prefHeight="35.0" prefWidth="343.0" spacing="30.0">
+                     <children>
+                        <Label prefHeight="24.0" prefWidth="87.0" text="Email">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtEmail" prefHeight="28.0" prefWidth="276.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" onDragDetected="#generateReport" prefHeight="35.0" prefWidth="835.0" spacing="30.0">
+               <children>
+                  <Button fx:id="btnCustReservRepo" layoutX="220.0" layoutY="14.0" mnemonicParsing="false" onAction="#generateCustomerReservReport" prefHeight="27.0" prefWidth="184.0" style="-fx-background-color: #747d8c;" text="customer reservation" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnCustomerRepo" mnemonicParsing="false" onAction="#generateCistomerReport" prefWidth="150.0" style="-fx-background-color: #747d8c;" text="customers repo" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#deleteCustomer" prefWidth="166.0" style="-fx-background-color: #c0392b;" text="Delete" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#updateCustomer" prefWidth="166.0" style="-fx-background-color: #3498db;" text="Update" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnSave" alignment="CENTER" mnemonicParsing="false" onAction="#saveCustomer" prefWidth="166.0" style="-fx-background-color: #27ae60;" text="Save" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </HBox>
+            <TableView fx:id="tblCustomer" onMouseClicked="#onClickTable" prefHeight="287.0" prefWidth="835.0">
+               <columns>
+                  <TableColumn fx:id="colCustID" prefWidth="123.19997596740723" text="Cust ID" />
+                  <TableColumn fx:id="colName" prefWidth="162.39999389648438" text="Name" />
+                  <TableColumn fx:id="colAddress" prefWidth="196.0" text="Address" />
+                  <TableColumn fx:id="colContact" prefWidth="167.19998168945312" text="Contact" />
+                  <TableColumn fx:id="colEmail" prefWidth="179.99993896484375" text="Email" />
+               </columns>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

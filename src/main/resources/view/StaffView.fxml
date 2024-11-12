@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="860.0" style="-fx-background-color: #bdc3c7;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.project.controller.StaffController">
+   <children>
+      <VBox layoutX="37.0" layoutY="14.0" prefHeight="650.0" prefWidth="800.0" spacing="25.0">
+         <children>
+            <VBox prefHeight="238.0" prefWidth="800.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="40.0" spacing="50.0">
+                     <children>
+                        <Label text="Staff ID">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblStaffID" alignment="CENTER" prefHeight="26.0" prefWidth="122.0" style="-fx-background-color: transparent; -fx-border-color: #1e3799; -fx-border-width: 0 0 1 0;" text="1">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="45.0" prefWidth="40.0" spacing="60.0">
+                     <children>
+                        <Label text="name">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtStaffName" prefHeight="28.0" prefWidth="276.0" style="-fx-background-color: transparent; -fx-border-color: #1e3799; -fx-border-width: 0 0 1 0;">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="56.0" prefHeight="45.0" prefWidth="40.0" spacing="45.0">
+                     <children>
+                        <Label text="Address">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtStaffAddress" prefHeight="28.0" prefWidth="276.0" style="-fx-background-color: transparent; -fx-border-color: #1e3799; -fx-border-width: 0 0 1 0;">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="147.0" prefHeight="45.0" prefWidth="40.0" spacing="60.0">
+                     <children>
+                        <Label text="Salary">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtStaffSalary" prefHeight="28.0" prefWidth="276.0" style="-fx-background-color: transparent; -fx-border-color: #1e3799; -fx-border-width: 0 0 1 0;">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="147.0" prefHeight="45.0" prefWidth="40.0" spacing="70.0">
+                     <children>
+                        <Label text="Role">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtStaffRole" prefHeight="28.0" prefWidth="276.0" promptText=" " style="-fx-background-color: transparent; -fx-border-color: #1e3799; -fx-border-width: 0 0 1 0;">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" onDragDetected="#generateReport" prefHeight="35.0" prefWidth="835.0" spacing="30.0">
+               <children>
+                  <Button fx:id="btnStaffDetails" layoutX="220.0" layoutY="14.0" mnemonicParsing="false" onAction="#generateStaffDetailRepo" prefHeight="27.0" prefWidth="166.0" style="-fx-background-color: #747d8c;" text="Staff Details" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnDeletestaff" mnemonicParsing="false" onAction="#deletStaff" prefWidth="166.0" style="-fx-background-color: #c0392b;" text="Delete" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnUpdatestaff" mnemonicParsing="false" onAction="#updateStaff" prefWidth="166.0" style="-fx-background-color: #3498db;" text="Update" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnSaveStaff" alignment="CENTER" mnemonicParsing="false" onAction="#saveStaff" prefWidth="166.0" style="-fx-background-color: #27ae60;" text="Save" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </HBox>
+            <TableView fx:id="tblStaff" prefHeight="302.0" prefWidth="835.0">
+               <columns>
+                  <TableColumn fx:id="colStaffID" prefWidth="125.60000038146973" text="Staff ID" />
+                  <TableColumn fx:id="colName" prefWidth="173.5999755859375" text="Name" />
+                  <TableColumn fx:id="colAddress" prefWidth="221.60000610351562" text="Address" />
+                  <TableColumn fx:id="colSalary" prefWidth="168.00006103515625" text="Salary" />
+                  <TableColumn fx:id="colRole" prefWidth="149.5999755859375" text="Role" />
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

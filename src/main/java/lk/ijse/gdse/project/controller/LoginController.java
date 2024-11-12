@@ -62,7 +62,7 @@ public class LoginController {
             }
 
             if (username.equals(u) && password.equals(p)) {
-                AnchorPane load = FXMLLoader.load(getClass().getResource("/view/Menu.fxml"));
+                AnchorPane load = FXMLLoader.load(getClass().getResource("/view/MenuView.fxml"));
                 Scene scene = new Scene(load);
                 Stage stage = (Stage) txtUserName.getScene().getWindow();
                 stage.setScene(scene);

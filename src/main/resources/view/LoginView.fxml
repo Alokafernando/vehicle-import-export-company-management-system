@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="1060.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.project.controller.LoginController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="650.0" prefWidth="530.0" style="-fx-background-color: FBFCF8;">
+         <children>
+            <ImageView fitHeight="344.0" fitWidth="443.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../image/Computer%20login-pana.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <AnchorPane layoutX="530.0" prefHeight="650.0" prefWidth="530.0" style="-fx-background-color: #07143F;">
+         <children>
+            <TextField fx:id="txtUserName" layoutX="153.0" layoutY="265.0" prefHeight="35.0" prefWidth="266.0" promptText="username" style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-radius: 15; -fx-background-radius: 25;">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="txtPassword" layoutX="153.0" layoutY="335.0" prefHeight="35.0" prefWidth="266.0" promptText="password" style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-radius: 15; -fx-background-radius: 25;">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font>
+            </PasswordField>
+            <Button fx:id="btnLogin" layoutX="152.0" layoutY="412.0" mnemonicParsing="false" onAction="#login" prefHeight="35.0" prefWidth="266.0" style="-fx-background-color: #D7278B; -fx-border-radius: 15; -fx-background-radius: 25;" text="LOGIN" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Calibri Bold" size="16.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="383.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/user%20icon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="383.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/password%20icon.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lblCheckUsername" alignment="CENTER_RIGHT" layoutX="348.0" layoutY="300.0" prefHeight="20.0" prefWidth="122.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblCheckPassword" alignment="CENTER_RIGHT" layoutX="360.0" layoutY="370.0" prefHeight="20.0" prefWidth="122.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="100.0" fitWidth="104.0" layoutX="236.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/user%20icon%20(main).png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

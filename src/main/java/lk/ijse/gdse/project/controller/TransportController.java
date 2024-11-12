@@ -10,25 +10,23 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 
 public class TransportController {
 
     @FXML
-    private ToggleGroup TransportType;
+    private ToggleGroup TransportType1;
 
     @FXML
-    private Button btnDelete;
+    private Button btnDeleteTransport;
 
     @FXML
-    private Button btnSave;
+    private Button btnSaveTransport;
 
     @FXML
     private Button btnTransportDetail;
 
     @FXML
-    private Button btnUpdate;
+    private Button btnUpdateTransport;
 
     @FXML
     private ComboBox<?> cmdDriverID;
@@ -55,9 +53,6 @@ public class TransportController {
     private DatePicker dpStartDate;
 
     @FXML
-    private HBox lblTransporstID;
-
-    @FXML
     private Label lblTransportID;
 
     @FXML
@@ -70,15 +65,7 @@ public class TransportController {
     private TableView<?> tblTransport;
 
     @FXML
-    private HBox txtTransportType;
-
-    @FXML
     void deleteTransport(ActionEvent event) {
-
-    }
-
-    @FXML
-    void generateReport(MouseEvent event) {
 
     }
 

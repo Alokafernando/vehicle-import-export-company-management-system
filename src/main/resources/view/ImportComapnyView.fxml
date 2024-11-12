@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="860.0" style="-fx-background-color: #bdc3c7;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.project.controller.ImportCompanyController">
+   <children>
+      <VBox layoutX="30.0" layoutY="7.0" prefHeight="650.0" prefWidth="800.0" spacing="20.0">
+         <children>
+            <VBox prefHeight="254.0" prefWidth="800.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="40.0" spacing="50.0">
+                     <children>
+                        <Label text="Company ID">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblCompanyID" alignment="CENTER" prefHeight="20.0" prefWidth="80.0" style="-fx-background-color: transparent; -fx-border-color: #1e3799; -fx-border-width: 0 0 1 0;" text="1">
+                           <font>
+                              <Font name="Calibri" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="45.0" prefWidth="40.0" spacing="30.0">
+                     <children>
+                        <Label text="Company name">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtCompanyName" prefHeight="28.0" prefWidth="276.0" style="-fx-background-color: transparent; -fx-border-color: #1e3799; -fx-border-width: 0 0 1 0;">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="56.0" prefHeight="45.0" prefWidth="40.0" spacing="80.0">
+                     <children>
+                        <Label text="Country">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtCountry" prefHeight="28.0" prefWidth="276.0" style="-fx-background-color: transparent; -fx-border-color: #1e3799; -fx-border-width: 0 0 1 0;">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="101.0" prefHeight="45.0" prefWidth="40.0" spacing="80.0">
+                     <children>
+                        <Label text="Contact">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtContact" prefHeight="28.0" prefWidth="276.0" style="-fx-border-width: 0 0 1 0; -fx-background-color: transparent; -fx-border-color: #1e3799;">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="147.0" prefHeight="45.0" prefWidth="40.0" spacing="95.0">
+                     <children>
+                        <Label text="Email">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtEmail" prefHeight="28.0" prefWidth="276.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" prefHeight="35.0" prefWidth="835.0" spacing="30.0">
+               <children>
+                  <Button fx:id="btnImportCompanyRepo" layoutX="220.0" layoutY="14.0" mnemonicParsing="false" onAction="#generateImportComapnyDetailsReport" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #747d8c;" text="Import Comapnies" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnImportVehicleRepo" layoutX="212.0" layoutY="14.0" mnemonicParsing="false" onAction="#generateImportVehicleReport" prefHeight="27.0" prefWidth="166.0" style="-fx-background-color: #747d8c;" text="Import Vehicles" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnDeleteImport" mnemonicParsing="false" onAction="#deleteImportCompany" prefWidth="166.0" style="-fx-background-color: #c0392b;" text="Delete" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnUpdateImport" mnemonicParsing="false" onAction="#updateImportCompany" prefWidth="166.0" style="-fx-background-color: #3498db;" text="Update" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnSaveImport" alignment="CENTER" mnemonicParsing="false" onAction="#saveImportCompany" prefWidth="166.0" style="-fx-background-color: #27ae60;" text="Save" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </HBox>
+            <TableView fx:id="tblImport" prefHeight="307.0" prefWidth="800.0">
+               <columns>
+                  <TableColumn fx:id="colCompanyID" prefWidth="112.80001449584961" text="Company ID" />
+                  <TableColumn fx:id="colCompanyName" minWidth="0.79998779296875" prefWidth="148.0000762939453" text="Company Name" />
+                  <TableColumn fx:id="colCountry" prefWidth="167.99993896484375" text="Country" />
+                  <TableColumn fx:id="colContact" prefWidth="190.4000244140625" text="Contact" />
+                  <TableColumn fx:id="colEmail" prefWidth="212.79998779296875" text="Email" />
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

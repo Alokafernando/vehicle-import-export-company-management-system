@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="860.0" style="-fx-background-color: #d2dae2;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.project.controller.TransportController">
+   <children>
+      <VBox layoutX="30.0" layoutY="3.0" prefHeight="650.0" prefWidth="800.0" spacing="30.0">
+         <children>
+            <VBox prefHeight="259.0" prefWidth="800.0" spacing="10.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="40.0" spacing="55.0">
+                     <children>
+                        <Label text="Tranport ID">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblTransportID" alignment="CENTER" prefHeight="24.0" prefWidth="107.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;" text="1">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="45.0" prefWidth="40.0" spacing="45.0">
+                     <children>
+                        <Label text="Tranport Type">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <RadioButton fx:id="rbExport" mnemonicParsing="false" text="Export">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="TransportType1" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="rbImport" mnemonicParsing="false" text="Import" toggleGroup="$TransportType1">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="56.0" prefHeight="45.0" prefWidth="40.0" spacing="70.0">
+                     <children>
+                        <Label text="Start Date">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="dpStartDate" prefHeight="28.0" prefWidth="226.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="101.0" prefHeight="45.0" prefWidth="40.0" spacing="80.0">
+                     <children>
+                        <Label text="End Date">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="dpEndDate" prefHeight="26.0" prefWidth="222.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="147.0" prefHeight="45.0" prefWidth="40.0" spacing="80.0">
+                     <children>
+                        <Label text="Driver ID">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="cmdDriverID" prefHeight="28.0" prefWidth="137.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" prefHeight="35.0" prefWidth="835.0" spacing="50.0">
+               <children>
+                  <Button fx:id="btnTransportDetail" layoutX="220.0" layoutY="14.0" mnemonicParsing="false" onAction="#generateTransportRepo" prefWidth="150.0" style="-fx-background-color: #747d8c;" text="Transport Details" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnDeleteTransport" mnemonicParsing="false" onAction="#deleteTransport" prefWidth="150.0" style="-fx-background-color: #c0392b;" text="Delete" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnUpdateTransport" mnemonicParsing="false" onAction="#updateTranport" prefWidth="150.0" style="-fx-background-color: #3498db;" text="Update" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnSaveTransport" alignment="CENTER" mnemonicParsing="false" onAction="#saveTransport" prefWidth="150.0" style="-fx-background-color: #27ae60;" text="Save" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </HBox>
+            <TableView fx:id="tblTransport" prefHeight="278.0" prefWidth="835.0">
+               <columns>
+                  <TableColumn fx:id="colTransportID" prefWidth="125.5999698638916" text="Transport ID" />
+                  <TableColumn fx:id="colTransportType" prefWidth="177.60003662109375" text="Transport Type" />
+                  <TableColumn fx:id="colStartDate" prefWidth="182.39996337890625" text="Start Date" />
+                  <TableColumn fx:id="colEndDate" prefWidth="177.60006713867188" text="End Date" />
+                  <TableColumn fx:id="colDriverID" prefWidth="171.9999877929688" text="Driver ID" />
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

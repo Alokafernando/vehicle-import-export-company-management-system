@@ -1,14 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.gdse.project.controller.SupplierController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="740.0" prefWidth="860.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.project.controller.SupplierController">
+   <children>
+      <VBox layoutX="30.0" prefHeight="740.0" prefWidth="800.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <HBox prefHeight="40.0" prefWidth="860.0" spacing="40.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="375.0" spacing="40.0">
+                           <children>
+                              <Label text="Supply Order Id">
+                                 <font>
+                                    <Font name="Calibri" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefWidth="150.0" text="Label">
+                                 <font>
+                                    <Font name="Calibri" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="375.0" spacing="40.0">
+                           <children>
+                              <Label text="Supply Order Date">
+                                 <font>
+                                    <Font name="Calibri" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField />
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="800.0" spacing="40.0" style="-fx-border-width: 0 0 1 0; -fx-border-color: #000;">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="375.0" spacing="65.0">
+                           <children>
+                              <Label text="Supplier Id">
+                                 <font>
+                                    <Font name="Calibri" size="14.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox prefWidth="150.0" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="375.0" spacing="60.0">
+                           <children>
+                              <Label text="Supplier Name">
+                                 <font>
+                                    <Font name="Calibri" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField />
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="40.0" prefWidth="800.0" spacing="40.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="375.0" spacing="65.0">
+                           <children>
+                              <Label text="Part Id">
+                                 <font>
+                                    <Font name="Calibri" size="14.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox prefWidth="150.0" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="375.0" spacing="60.0">
+                           <children>
+                              <Label text="Part Name">
+                                 <font>
+                                    <Font name="Calibri" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefWidth="150.0" text="Label">
+                                 <font>
+                                    <Font name="Calibri" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>

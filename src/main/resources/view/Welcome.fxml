@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.project.controller.WelcomeController">
+   <children>
+      <ImageView fx:id="imgLogo" fitHeight="433.0" fitWidth="584.0" layoutX="197.0" layoutY="69.0" pickOnBounds="true">
+         <image>
+            <Image url="@../image/channels4_profile.jpg" />
+         </image>
+      </ImageView>
+      <ProgressBar fx:id="loading" layoutX="29.0" layoutY="594.0" prefHeight="26.0" prefWidth="1002.0" progress="0.0" />
+      <Label layoutX="934.0" layoutY="571.0" text="Loading" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="18.0" fitWidth="34.0" layoutX="998.0" layoutY="576.0" pickOnBounds="true">
+         <image>
+            <Image url="@../image/loading-animation.gif" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

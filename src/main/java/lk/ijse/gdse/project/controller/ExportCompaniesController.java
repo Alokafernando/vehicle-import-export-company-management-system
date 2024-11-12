@@ -12,7 +12,7 @@ import javafx.scene.input.MouseEvent;
 public class ExportCompaniesController {
 
     @FXML
-    private Button btnDelete;
+    private Button btnDeleteExport;
 
     @FXML
     private Button btnExportCompanyRepo;
@@ -21,10 +21,10 @@ public class ExportCompaniesController {
     private Button btnExportVehicleRepo;
 
     @FXML
-    private Button btnSave;
+    private Button btnSaveExport;
 
     @FXML
-    private Button btnUpdate;
+    private Button btnUpdateExport;
 
     @FXML
     private TableColumn<?, ?> colCOmpanyName;
