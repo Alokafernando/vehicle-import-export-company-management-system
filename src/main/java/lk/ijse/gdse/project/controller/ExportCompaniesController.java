@@ -217,6 +217,7 @@ public class ExportCompaniesController implements Initializable {
             btnDeleteExport.setDisable(false);
             btnUpdateExport.setDisable(false);
         }
+
     }
 
 }
