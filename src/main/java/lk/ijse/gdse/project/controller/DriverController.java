@@ -365,8 +365,8 @@ public class DriverController implements Initializable {
 
         DriverDTO driverDTO = new DriverDTO(driverId, driverName, contact);
 
-        boolean isSaved = driverModel.updateDriver(driverDTO);
-        if (isSaved) {
+        boolean isUpdated = driverModel.updateDriver(driverDTO);
+        if (isUpdated) {
             refeshPage();
             new Alert(Alert.AlertType.INFORMATION, "Driver updated...!").show();
         } else {
