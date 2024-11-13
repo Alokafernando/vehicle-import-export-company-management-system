@@ -73,46 +73,57 @@ public class MenuController implements Initializable {
     @FXML
     void openVehiclePanel(ActionEvent event) throws IOException {
         getFilePath("/view/VehicleView.fxml");
+        setButtonColor(btnVehicle);
     }
 
     public void openExportCompanyPanel(ActionEvent actionEvent) throws IOException {
         getFilePath("/view/ExportCompanyView.fxml");
+        setButtonColor(btnExport);
     }
 
     public void openImportCompanyPanel(ActionEvent actionEvent) throws IOException {
         getFilePath("/view/ImportComapnyView.fxml");
+        setButtonColor(btnImport);
     }
 
     public void openStaffPanel(ActionEvent actionEvent) throws IOException {
         getFilePath("/view/StaffView.fxml");
+        setButtonColor(btnStaff);
     }
 
     public void openSupplierPanel(ActionEvent actionEvent) throws IOException {
         getFilePath("/view/Supplier.fxml");
+        setButtonColor(btnSupplier);
     }
 
     public void openPartPanel(ActionEvent actionEvent) throws IOException {
         getFilePath("/view/Parts.fxml");
+        setButtonColor(btnPart);
     }
 
     public void openReservationPanel(ActionEvent actionEvent) throws IOException {
         getFilePath("/view/ReservationView.fxml");
+        setButtonColor(btnReservation);
     }
 
     public void openPaymentPanel(ActionEvent actionEvent) throws IOException {
         getFilePath("/view/PaymentView.fxml");
+        setButtonColor(btnPayment);
     }
 
     public void openTaxPanel(ActionEvent actionEvent) throws IOException {
         getFilePath("/view/TaxView.fxml");
+        setButtonColor(btnTax);
     }
 
     public void openTransportDetailPanel(ActionEvent actionEvent) throws IOException {
         getFilePath("/view/TransportView.fxml");
+        setButtonColor(btntransport);
     }
 
     public void openDriverDetailPanel(ActionEvent actionEvent) throws IOException {
         getFilePath("/view/DriverView.fxml");
+        setButtonColor(btnDriver);
     }
 
     @Override
@@ -157,15 +168,30 @@ public class MenuController implements Initializable {
         contentPanel.getChildren().add(pane);
     }
 
-    private void setButtonColor(Button button) {
-        btnExport.setStyle("");
-        btnImport.setStyle("");
-        btnStaff.setStyle("");
-        btnCustomer.setStyle("-fx-background-color: #000000;");
-        btnSupplier.setStyle("-fx-background-color: #000000;");
-        btnPart.setStyle("-fx-background-color: #000000;");
-    }
-}
+    private void setButtonColor(Button selectedButton) {
+        resetButtonStyles();
 
+        String selectedColor = "-fx-background-color: transparent; -fx-border-color: #c1121f; -fx-border-radius: 25;";
+        selectedButton.setStyle(selectedColor);
+    }
+
+    private void resetButtonStyles() {
+        String defaultStyle = "-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 25;";
+
+        btnCustomer.setStyle(defaultStyle);
+        btnDriver.setStyle(defaultStyle);
+        btnExport.setStyle(defaultStyle);
+        btnImport.setStyle(defaultStyle);
+        btnPart.setStyle(defaultStyle);
+        btnPayment.setStyle(defaultStyle);
+        btnReservation.setStyle(defaultStyle);
+        btnStaff.setStyle(defaultStyle);
+        btnSupplier.setStyle(defaultStyle);
+        btnTax.setStyle(defaultStyle);
+        btnVehicle.setStyle(defaultStyle);
+        btntransport.setStyle(defaultStyle);
+    }
+
+}
 
 
