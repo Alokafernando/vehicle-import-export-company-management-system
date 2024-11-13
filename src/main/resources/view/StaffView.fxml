@@ -125,7 +125,7 @@
                   </Button>
                </children>
             </HBox>
-            <TableView fx:id="tblStaff" prefHeight="302.0" prefWidth="835.0">
+            <TableView fx:id="tblStaff" onMouseClicked="#onClickedtable" prefHeight="302.0" prefWidth="835.0">
                <columns>
                   <TableColumn fx:id="colStaffID" prefWidth="125.60000038146973" text="Staff ID" />
                   <TableColumn fx:id="colName" prefWidth="173.5999755859375" text="Name" />

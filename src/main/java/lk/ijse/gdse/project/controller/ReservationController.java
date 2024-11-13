@@ -238,6 +238,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ReservationController implements Initializable {
@@ -258,13 +259,13 @@ public class ReservationController implements Initializable {
     private ComboBox<String> cmdCustID;
 
     @FXML
-    private TableColumn<?, ?> colCustID;
+    private TableColumn<ReservationTM, String> colCustID;
 
     @FXML
-    private TableColumn<?, ?> colReservDate;
+    private TableColumn<ReservationTM, String> colReservDate;
 
     @FXML
-    private TableColumn<?, ?> colReserveID;
+    private TableColumn<ReservationTM, String> colReserveID;
 
     @FXML
     private Label lblResreveID;
@@ -301,13 +302,21 @@ public class ReservationController implements Initializable {
     @FXML
     void deleteReservation(ActionEvent event) throws SQLException, ClassNotFoundException {
         String reservationID = lblResreveID.getText();
-        boolean isDeleted = reservationModel.deleteReservation(reservationID);
-        if (isDeleted) {
-            refeshPage();
-            new Alert(Alert.AlertType.INFORMATION, "Reservation deleted").show();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Fail to delete Reservation").show();
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure?", ButtonType.YES, ButtonType.NO);
+        Optional<ButtonType> optionalButtonType = alert.showAndWait();
+
+        if (optionalButtonType.get() == ButtonType.YES) {
+            boolean isDeleted = reservationModel.deleteReservation(reservationID);
+            if (isDeleted) {
+                refeshPage();
+                new Alert(Alert.AlertType.INFORMATION, "Reservation deleted").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Fail to delete Reservation").show();
+            }
         }
+
+
     }
 
     @FXML

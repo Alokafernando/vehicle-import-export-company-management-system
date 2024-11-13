@@ -17,6 +17,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class PaymentController implements Initializable {
@@ -80,7 +81,21 @@ public class PaymentController implements Initializable {
     private final ReservationModel reservationModel = new ReservationModel();
 
     @FXML
-    void deletePayment(ActionEvent event) {
+    void deletePayment(ActionEvent event) throws SQLException, ClassNotFoundException {
+        String PayID = lblPayID.getText();
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure?", ButtonType.YES, ButtonType.NO);
+        Optional<ButtonType> optionalButtonType = alert.showAndWait();
+
+        if (optionalButtonType.get() == ButtonType.YES) {
+            boolean isDeleted = paymentModel.deletePayment(PayID);
+            if (isDeleted) {
+                refeshPage();
+                new Alert(Alert.AlertType.INFORMATION, "Payment deleted").show();
+            }else{
+                new Alert(Alert.AlertType.ERROR, "Fail to delete payment").show();
+            }
+        }
 
     }
 
@@ -173,7 +188,51 @@ public class PaymentController implements Initializable {
     }
 
     @FXML
-    void updatePayment(ActionEvent event) {
+    void updatePayment(ActionEvent event) throws SQLException, ClassNotFoundException {
+        String reservationId = cmbReservationID.getValue();
+        String payId = lblPayID.getText();
+
+        if (reservationId == null || reservationId.isEmpty()) {
+            new Alert(Alert.AlertType.WARNING, "Please select a reservation ID.").show();
+            return;
+        }
+
+        double deposit, totalAmount, remainingAmount;
+        try {
+            deposit = Double.parseDouble(txtDeposite.getText());
+            totalAmount = Double.parseDouble(txtTotalAmount.getText());
+            remainingAmount = totalAmount - deposit;
+        } catch (NumberFormatException e) {
+            new Alert(Alert.AlertType.WARNING, "Please enter valid amounts for deposit and total amount.").show();
+            return;
+        }
+
+        String payMethod;
+        if (rbCash.isSelected()) {
+            payMethod = "cash";
+        } else if (rbCheque.isSelected()) {
+            payMethod = "cheque";
+        } else {
+            new Alert(Alert.AlertType.WARNING, "Please select a payment method.").show();
+            return;
+        }
+
+        PaymentDTO paymentDTO = new PaymentDTO(
+                reservationId,
+                payId,
+                payMethod,
+                deposit,
+                totalAmount,
+                remainingAmount
+        );
+
+        boolean isUpdated = paymentModel.updatePayment(paymentDTO);
+        if (isUpdated) {
+            refeshPage();
+            new Alert(Alert.AlertType.INFORMATION, "Payment updated..!").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Failed to update payment.").show();
+        }
 
     }
 
