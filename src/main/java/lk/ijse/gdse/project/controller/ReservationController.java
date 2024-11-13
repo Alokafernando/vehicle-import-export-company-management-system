@@ -1,13 +1,246 @@
+//package lk.ijse.gdse.project.controller;
+//
+//import javafx.collections.FXCollections;
+//import javafx.collections.ObservableList;
+//import javafx.event.ActionEvent;
+//import javafx.fxml.FXML;
+//import javafx.fxml.Initializable;
+//import javafx.scene.control.*;
+//import javafx.scene.control.cell.PropertyValueFactory;
+//import javafx.scene.input.MouseEvent;
+//import lk.ijse.gdse.project.Model.CustomerModel;
+//import lk.ijse.gdse.project.Model.ReservationModel;
+//import lk.ijse.gdse.project.dto.ReservationDTO;
+//import lk.ijse.gdse.project.dto.tm.ReservationTM;
+//
+//import java.net.URL;
+//import java.sql.SQLException;
+//import java.time.LocalDate;
+//import java.util.ArrayList;
+//import java.util.List;
+//import java.util.Optional;
+//import java.util.ResourceBundle;
+//
+//public class ReservationController implements Initializable {
+//
+//
+//    @FXML
+//    private Button btnDeleteResetvation;
+//
+//    @FXML
+//    private Button btnResercDetails;
+//
+//    @FXML
+//    private Button btnSaveReservation;
+//
+//    @FXML
+//    private Button btnUpdateReservation;
+//
+//    @FXML
+//    private ComboBox<String> cmdCustID;
+//
+//    @FXML
+//    private TableColumn<ReservationTM, String> colCustID;
+//
+//    @FXML
+//    private TableColumn<ReservationTM, String> colReservDate;
+//
+//    @FXML
+//    private TableColumn<ReservationTM, String> colReserveID;
+//
+//    @FXML
+//    private Label lblResreveID;
+//
+//    @FXML
+//    private TableView<ReservationTM> tblReservation;
+//
+//    @FXML
+//    private TextField txtReservDate;
+//
+//    private final ReservationModel reservationModel = new ReservationModel();
+//    private final CustomerModel customerModel = new CustomerModel();
+//
+//    @FXML
+//    void clickedOnTable(MouseEvent event) throws SQLException, ClassNotFoundException {
+//        ReservationTM reservationTM = tblReservation.getSelectionModel().getSelectedItem();
+//        if (reservationTM != null) {
+//            cmdCustID.getItems().clear();
+//
+//            List<String> customerIds = customerModel.getAllCustomerIds();
+//            if (customerIds != null && !customerIds.isEmpty()) {
+//                cmdCustID.getItems().addAll(customerIds);
+//                cmdCustID.setValue(reservationTM.getCust_id());
+//            } else {
+//                System.out.println("No customer IDs found.");
+//            }
+//
+//            lblResreveID.setText(reservationTM.getReservation_id());
+//            txtReservDate.setText(reservationTM.getReservation_date());
+//
+//            btnSaveReservation.setDisable(true);
+//            btnDeleteResetvation.setDisable(false);
+//            btnUpdateReservation.setDisable(false);
+//        }
+//
+//    }
+//
+//    @FXML
+//    void deleteReservation(ActionEvent event) throws SQLException, ClassNotFoundException {
+////       String reservationID = lblResreveID.getText();
+////
+////        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure?", ButtonType.YES, ButtonType.NO);
+////        Optional<ButtonType> optionalButtonType = alert.showAndWait();
+////
+////        if (optionalButtonType.get() == ButtonType.YES) {
+////            boolean isDeleted = reservationModel.deleteReservation(reservationID);
+////            if (isDeleted) {
+////                refeshPage();
+////                new Alert(Alert.AlertType.INFORMATION, "Reservation deleted").show();
+////            } else {
+////                new Alert(Alert.AlertType.ERROR, "Fail to delete Reservation").show();
+////            }
+////        }
+//
+//    }
+//
+//    @FXML
+//    void generateReport(MouseEvent event) {
+//
+//    }
+//
+//    @FXML
+//    void generateReservDetailReport(ActionEvent event) {
+//
+//    }
+//
+//    @FXML
+//    void saveReservation(ActionEvent event) throws SQLException, ClassNotFoundException {
+//       String custID = cmdCustID.getValue();
+//       String reservationID = lblResreveID.getText();
+//       String reservationDate = txtReservDate.getText();
+//
+//       ReservationDTO reservationDTO = new ReservationDTO(
+//               custID,
+//               reservationID,
+//               reservationDate
+//       );
+//
+//       boolean isSave = reservationModel.saveReservation(reservationDTO);
+//       if (isSave) {
+//           refeshPage();
+//           new Alert(Alert.AlertType.INFORMATION, "Reservation saved..!").show();
+//       }else{
+//           new Alert(Alert.AlertType.ERROR, "Reservation not saved..!").show();
+//       }
+//
+//    }
+//
+//    @FXML
+//    void updateReservation(ActionEvent event) throws SQLException, ClassNotFoundException {
+////        String custID = cmdCustID.getValue();
+////        String reservationID = lblResreveID.getText();
+////        String reservationDate = txtReservDate.getText();
+////
+////        ReservationDTO reservationDTO = new ReservationDTO(
+////                custID,
+////                reservationID,
+////                reservationDate
+////        );
+////
+////        boolean isUpdated = reservationModel.updateReservation(reservationDTO);
+////        if (isUpdated) {
+////            refeshPage();
+////            new Alert(Alert.AlertType.INFORMATION, "Reservation updated..!").show();
+////        }else{
+////            new Alert(Alert.AlertType.ERROR, "Reservation not updated..!").show();
+////        }
+//    }
+//
+//    @Override
+//    public void initialize(URL location, ResourceBundle resources) {
+//        setCellValues();
+//        try{
+//            refeshPage();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            new Alert(Alert.AlertType.ERROR, "Fail to load reservtion id").show();
+//        }
+//
+//    }
+//
+//    private void setCellValues(){
+//        colCustID.setCellValueFactory(new PropertyValueFactory<>("cust_id"));
+//        colReserveID.setCellValueFactory(new PropertyValueFactory<>("reservation_id"));
+//        colReservDate.setCellValueFactory(new PropertyValueFactory<>("reservation_date"));
+//    }
+//
+//    private void refeshPage() throws SQLException, ClassNotFoundException {
+//        lblResreveID.setText(reservationModel.getNextreservatinoID());
+//        txtReservDate.setText(LocalDate.now().toString());
+//        loadCustomerIds();
+//
+//        cmdCustID.getSelectionModel().clearSelection();
+//        txtReservDate.clear(); // Clear the reservation date field
+//
+//        btnSaveReservation.setDisable(false);
+//        btnUpdateReservation.setDisable(true);
+//        btnDeleteResetvation.setDisable(true);
+//
+//        loadTableData(); // Ensure the table is updated after any action
+//    }
+//
+//
+//    private void loadCustomerIds() throws SQLException, ClassNotFoundException {
+//        ArrayList<String> customerIds = customerModel.getAllCustomerIds();
+//        ObservableList<String> observableList = FXCollections.observableArrayList();
+//        observableList.addAll(customerIds);
+//        cmdCustID.setItems(observableList);
+//    }
+//
+//    private void loadTableData() throws SQLException, ClassNotFoundException {
+//        ArrayList<ReservationDTO> reservationDTOS = reservationModel.getAllReservations();
+//        ObservableList<ReservationTM> reservationTMS = FXCollections.observableArrayList();
+//
+//            for (ReservationDTO reservationDTO : reservationDTOS) {
+//                ReservationTM reservationTM = new ReservationTM(
+//                        reservationDTO.getCust_id(),
+//                        reservationDTO.getReservation_id(),
+//                        reservationDTO.getReservation_date()
+//                );
+//                reservationTMS.add(reservationTM);
+//            }
+//            tblReservation.setItems(reservationTMS);
+//    }
+//
+//    private void loadNextReservationID() throws SQLException, ClassNotFoundException {
+//        String reservationID = reservationModel.getNextreservatinoID();
+//        lblResreveID.setText(reservationID);
+//    }
+//}
+
 package lk.ijse.gdse.project.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import lk.ijse.gdse.project.Model.CustomerModel;
+import lk.ijse.gdse.project.Model.ReservationModel;
+import lk.ijse.gdse.project.dto.ReservationDTO;
+import lk.ijse.gdse.project.dto.tm.ReservationTM;
 
-public class ReservationController {
+import java.net.URL;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+
+public class ReservationController implements Initializable {
 
     @FXML
     private Button btnDeleteResetvation;
@@ -22,7 +255,7 @@ public class ReservationController {
     private Button btnUpdateReservation;
 
     @FXML
-    private ComboBox<?> cmdCustID;
+    private ComboBox<String> cmdCustID;
 
     @FXML
     private TableColumn<?, ?> colCustID;
@@ -34,8 +267,47 @@ public class ReservationController {
     private TableColumn<?, ?> colReserveID;
 
     @FXML
-    void deleteReservation(ActionEvent event) {
+    private Label lblResreveID;
 
+    @FXML
+    private TableView<ReservationTM> tblReservation;
+
+    @FXML
+    private TextField txtReservDate;
+
+    private final ReservationModel reservationModel = new ReservationModel();
+    private final CustomerModel customerModel = new CustomerModel();
+
+    @FXML
+    void clickedOnTable(MouseEvent event) throws SQLException, ClassNotFoundException {
+        ReservationTM reservationTM = tblReservation.getSelectionModel().getSelectedItem();
+        if (reservationTM != null) {
+            cmdCustID.getItems().clear();
+            List<String> customerIds = customerModel.getAllCustomerIds();
+            if (customerIds != null && !customerIds.isEmpty()) {
+                cmdCustID.getItems().addAll(customerIds);
+                cmdCustID.setValue(reservationTM.getCust_id());
+            }
+
+            lblResreveID.setText(reservationTM.getReservation_id());
+            txtReservDate.setText(reservationTM.getReservation_date());
+
+            btnSaveReservation.setDisable(true);
+            btnDeleteResetvation.setDisable(false);
+            btnUpdateReservation.setDisable(false);
+        }
+    }
+
+    @FXML
+    void deleteReservation(ActionEvent event) throws SQLException, ClassNotFoundException {
+        String reservationID = lblResreveID.getText();
+        boolean isDeleted = reservationModel.deleteReservation(reservationID);
+        if (isDeleted) {
+            refeshPage();
+            new Alert(Alert.AlertType.INFORMATION, "Reservation deleted").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Fail to delete Reservation").show();
+        }
     }
 
     @FXML
@@ -49,13 +321,111 @@ public class ReservationController {
     }
 
     @FXML
-    void saveReservation(ActionEvent event) {
+    void saveReservation(ActionEvent event) throws SQLException, ClassNotFoundException {
+        String custID = cmdCustID.getValue();
+        String reservationID = lblResreveID.getText();
+        String reservationDate = txtReservDate.getText();
 
+        if (custID == null || custID.isEmpty()) {
+            new Alert(Alert.AlertType.WARNING, "Please select a customer ID before saving the reservation.").show();
+            return;
+        }
+
+        ReservationDTO reservationDTO = new ReservationDTO(
+                custID, reservationID, reservationDate
+        );
+
+
+        boolean isSave = reservationModel.saveReservation(reservationDTO);
+        if (isSave) {
+            refeshPage();
+            new Alert(Alert.AlertType.INFORMATION, "Reservation saved..!").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Reservation not saved..!").show();
+        }
     }
 
     @FXML
-    void updateReservation(ActionEvent event) {
+    void updateReservation(ActionEvent event) throws SQLException, ClassNotFoundException {
+        String custID = cmdCustID.getValue();
+        String reservationID = lblResreveID.getText();
+        String reservationDate = txtReservDate.getText();
+
+        if (custID == null || custID.isEmpty()) {
+            new Alert(Alert.AlertType.WARNING, "Please select a customer ID before saving the reservation.").show();
+            return;
+        }
+
+        ReservationDTO reservationDTO = new ReservationDTO(
+                custID, reservationID, reservationDate
+        );
+
+        boolean isUpdated = reservationModel.updateReservation(reservationDTO);
+        if (isUpdated) {
+            refeshPage();
+            new Alert(Alert.AlertType.INFORMATION, "Reservation updated..!").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Reservation not updated..!").show();
+        }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        setCellValues();
+        try {
+            refeshPage();
+        } catch (Exception e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Fail to load Reservation id").show();
+        }
+    }
+
+    private void setCellValues() {
+        colCustID.setCellValueFactory(new PropertyValueFactory<>("cust_id"));
+        colReserveID.setCellValueFactory(new PropertyValueFactory<>("reservation_id"));
+        colReservDate.setCellValueFactory(new PropertyValueFactory<>("reservation_date"));
 
     }
 
+    private void refeshPage() throws SQLException, ClassNotFoundException {
+        lblResreveID.setText(reservationModel.getNextReservationID());
+        txtReservDate.setText(LocalDate.now().toString());
+        cmdCustID.getSelectionModel().clearSelection();
+        txtReservDate.clear();
+
+        btnSaveReservation.setDisable(false);
+        btnUpdateReservation.setDisable(true);
+        btnDeleteResetvation.setDisable(true);
+        loadCustomerIds();
+        loadTableData();
+    }
+
+    private void loadTableData() throws SQLException, ClassNotFoundException {
+        ArrayList<ReservationDTO> reservationDTOS = reservationModel.getAllReservations();
+        ObservableList<ReservationTM> reservationTMS = FXCollections.observableArrayList();
+
+        for (ReservationDTO reservationDTO : reservationDTOS) {
+            ReservationTM reservationTM = new ReservationTM(
+                    reservationDTO.getCust_id(),
+                    reservationDTO.getReservation_id(),
+                    reservationDTO.getReservation_date()
+            );
+            reservationTMS.add(reservationTM);
+        }
+        tblReservation.setItems(reservationTMS);
+
+    }
+
+    private void loadCustomerIds() throws SQLException, ClassNotFoundException {
+        ArrayList<String> customerIds = customerModel.getAllCustomerIds();
+        ObservableList<String> observableList = FXCollections.observableArrayList();
+        observableList.addAll(customerIds);
+        cmdCustID.setItems(observableList);
+    }
+
+
+    private  void loadNextReservationID() throws SQLException, ClassNotFoundException {
+        String reseID = reservationModel.getNextReservationID();
+        lblResreveID.setText(reseID);
+    }
 }

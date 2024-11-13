@@ -10,7 +10,10 @@ import lombok.*;
 
 
 public class PaymentDTO {
-    private String part_id;
-    private String vehicle_id;
-    private int quantity;
+    private String reservation_id;
+    private String pay_id;
+    private String payment_method;
+    private double deposite;
+    private double amount;
+    private double remain_amount;
 }

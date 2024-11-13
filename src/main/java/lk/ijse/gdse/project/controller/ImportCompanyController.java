@@ -74,18 +74,18 @@ public class ImportCompanyController implements Initializable {
     void deleteImportCompany(ActionEvent event) throws SQLException, ClassNotFoundException {
         String companyID = lblCompanyID.getText();
 
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure?", ButtonType.YES, ButtonType.NO);
-                Optional<ButtonType> optionalButtonType = alert.showAndWait();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure?", ButtonType.YES, ButtonType.NO);
+        Optional<ButtonType> optionalButtonType = alert.showAndWait();
 
-                if (optionalButtonType.get() == ButtonType.YES) {
-                    boolean isDeleted = importCompanyModel.deleteImportCompany(companyID);
-                    if (isDeleted) {
-                        refeshPage();
-                        new Alert(Alert.AlertType.INFORMATION, "Import Company deleted").show();
-                    } else {
-                        new Alert(Alert.AlertType.ERROR, "Fail to delete Import Company").show();
-                    }
-                }
+        if (optionalButtonType.get() == ButtonType.YES) {
+            boolean isDeleted = importCompanyModel.deleteImportCompany(companyID);
+            if (isDeleted) {
+                refeshPage();
+                new Alert(Alert.AlertType.INFORMATION, "Import Company deleted").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Fail to delete Import Company").show();
+            }
+        }
     }
 
     @FXML
@@ -118,7 +118,7 @@ public class ImportCompanyController implements Initializable {
 
     @FXML
     void saveImportCompany(ActionEvent event) throws SQLException, ClassNotFoundException {
-        String importCompanyID = lblCompanyID.getText();
+                String importCompanyID = lblCompanyID.getText();
                 String importCompanyName = txtCompanyName.getText();
                 String importCompanyContact = txtContact.getText();
                 String importCompanyCountry = txtCountry.getText();
