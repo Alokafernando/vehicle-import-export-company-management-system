@@ -92,7 +92,7 @@
                   </HBox>
                </children>
             </VBox>
-            <HBox alignment="CENTER" onDragDetected="#generateReport" prefHeight="35.0" prefWidth="835.0" spacing="30.0">
+            <HBox alignment="CENTER" prefHeight="35.0" prefWidth="835.0" spacing="30.0">
                <children>
                   <Button fx:id="btnExportCompanyRepo" layoutX="220.0" layoutY="14.0" mnemonicParsing="false" onAction="#generateExportComapanyDetailsReport" prefHeight="27.0" prefWidth="166.0" style="-fx-background-color: #747d8c;" text=" Comapny Details" textFill="WHITE">
                      <font>
@@ -136,7 +136,7 @@
                   </Button>
                </children>
             </HBox>
-            <TableView fx:id="tblExport" prefHeight="299.0" prefWidth="800.0">
+            <TableView fx:id="tblExport" onMouseClicked="#onClckedTable" prefHeight="299.0" prefWidth="800.0">
                <columns>
                   <TableColumn fx:id="colCompanyID" prefWidth="138.3999900817871" text="Company ID" />
                   <TableColumn fx:id="colCOmpanyName" minWidth="0.79998779296875" prefWidth="165.59999084472656" text="Company Name" />
