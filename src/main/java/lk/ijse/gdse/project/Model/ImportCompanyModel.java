@@ -59,5 +59,6 @@ public class ImportCompanyModel {
     public boolean deleteImportCompany(String importCompanyID) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("delete from import_company where company_ID=?", importCompanyID);
     }
+
 }
 

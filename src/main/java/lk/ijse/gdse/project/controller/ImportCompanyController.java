@@ -224,4 +224,5 @@ public class ImportCompanyController implements Initializable {
         String importCompanyID = importCompanyModel.getNextImportComapnyID();
                 lblCompanyID.setText(importCompanyID);
     }
+
 }
