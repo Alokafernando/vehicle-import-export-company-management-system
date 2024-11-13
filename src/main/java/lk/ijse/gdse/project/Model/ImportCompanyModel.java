@@ -60,3 +60,4 @@ public class ImportCompanyModel {
         return CrudUtil.execute("delete from import_company where company_ID=?", importCompanyID);
     }
 }
+
