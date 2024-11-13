@@ -83,7 +83,7 @@ public class ExportCompaniesController implements Initializable {
            refeshPage();
        } catch (Exception e) {
            e.printStackTrace();
-           new Alert(Alert.AlertType.ERROR, "Fail to load company id").show();
+           new Alert(Alert.AlertType.ERROR, "Fail to load Export company id").show();
        }
 
     }
@@ -135,9 +135,9 @@ public class ExportCompaniesController implements Initializable {
             boolean isDeleted = exportCompanyModel.deleteExportCompany(companyID);
             if (isDeleted) {
                 refeshPage();
-                new Alert(Alert.AlertType.INFORMATION, "Driver deleted").show();
+                new Alert(Alert.AlertType.INFORMATION, "Export company deleted").show();
             } else {
-                new Alert(Alert.AlertType.ERROR, "Fail to delete driver").show();
+                new Alert(Alert.AlertType.ERROR, "Fail to delete Export company").show();
             }
         }
 

@@ -133,7 +133,7 @@
                   </Button>
                </children>
             </HBox>
-            <TableView fx:id="tblImport" prefHeight="307.0" prefWidth="800.0">
+            <TableView fx:id="tblImport" onMouseClicked="#onClickedTable" prefHeight="307.0" prefWidth="800.0">
                <columns>
                   <TableColumn fx:id="colCompanyID" prefWidth="112.80001449584961" text="Company ID" />
                   <TableColumn fx:id="colCompanyName" minWidth="0.79998779296875" prefWidth="148.0000762939453" text="Company Name" />
