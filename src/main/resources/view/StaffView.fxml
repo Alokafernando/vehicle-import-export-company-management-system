@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="860.0" style="-fx-background-color: #bdc3c7;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.project.controller.StaffController">
+<AnchorPane prefHeight="650.0" prefWidth="860.0" style="-fx-background-color: #dcdde1;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.project.controller.StaffController">
    <children>
       <VBox layoutX="37.0" layoutY="14.0" prefHeight="650.0" prefWidth="800.0" spacing="25.0">
          <children>
@@ -42,6 +42,9 @@
                            <font>
                               <Font name="Calibri" size="14.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
                         </TextField>
                      </children>
                   </HBox>
@@ -56,6 +59,9 @@
                            <font>
                               <Font name="Calibri" size="14.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
                         </TextField>
                      </children>
                   </HBox>
@@ -70,6 +76,9 @@
                            <font>
                               <Font name="Calibri" size="14.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
                         </TextField>
                      </children>
                   </HBox>
@@ -84,6 +93,9 @@
                            <font>
                               <Font name="Calibri" size="14.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
                         </TextField>
                      </children>
                   </HBox>
@@ -128,11 +140,14 @@
             <TableView fx:id="tblStaff" onMouseClicked="#onClickedtable" prefHeight="302.0" prefWidth="835.0">
                <columns>
                   <TableColumn fx:id="colStaffID" prefWidth="125.60000038146973" text="Staff ID" />
-                  <TableColumn fx:id="colName" prefWidth="173.5999755859375" text="Name" />
-                  <TableColumn fx:id="colAddress" prefWidth="221.60000610351562" text="Address" />
-                  <TableColumn fx:id="colSalary" prefWidth="168.00006103515625" text="Salary" />
-                  <TableColumn fx:id="colRole" prefWidth="149.5999755859375" text="Role" />
+                  <TableColumn fx:id="colName" prefWidth="162.4000244140625" text="Name" />
+                  <TableColumn fx:id="colAddress" prefWidth="168.800048828125" text="Address" />
+                  <TableColumn fx:id="colSalary" prefWidth="181.60000610351562" text="Salary" />
+                  <TableColumn fx:id="colRole" prefWidth="157.5999755859375" text="Role" />
                </columns>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
             </TableView>
          </children>
       </VBox>

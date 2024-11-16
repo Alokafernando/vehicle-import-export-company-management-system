@@ -171,12 +171,12 @@ public class MenuController implements Initializable {
     private void setButtonColor(Button selectedButton) {
         resetButtonStyles();
 
-        String selectedColor = "-fx-background-color: transparent; -fx-border-color: #c1121f; -fx-border-radius: 25;";
+        String selectedColor = "-fx-background-color: transparent; -fx-border-color: #000; -fx-border-radius: 25; -fx-text-fill: #000;";
         selectedButton.setStyle(selectedColor);
     }
 
     private void resetButtonStyles() {
-        String defaultStyle = "-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 25;";
+        String defaultStyle = "-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 25; -fx-text-fill: #fff;";
 
         btnCustomer.setStyle(defaultStyle);
         btnDriver.setStyle(defaultStyle);

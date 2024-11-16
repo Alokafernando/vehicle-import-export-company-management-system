@@ -14,11 +14,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="860.0" style="-fx-background-color: #bdc3c7;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.project.controller.VehicleController">
+<AnchorPane prefHeight="650.0" prefWidth="860.0" style="-fx-background-color: #dcdde1;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.project.controller.VehicleController">
    <children>
       <VBox layoutX="30.0" layoutY="14.0" prefHeight="650.0" prefWidth="800.0" spacing="30.0">
          <children>
-            <VBox prefHeight="311.0" prefWidth="800.0" spacing="10.0">
+            <VBox prefHeight="311.0" prefWidth="800.0" spacing="15.0">
                <children>
                   <HBox prefHeight="45.0" prefWidth="40.0">
                      <children>
@@ -29,7 +29,10 @@
                                     <Font name="Calibri" size="14.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cmdImportCompanyID" prefHeight="27.0" prefWidth="130.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;" visibleRowCount="5" />
+                              <ComboBox fx:id="cmdImportCompanyID" prefHeight="27.0" prefWidth="130.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;" visibleRowCount="5">
+                                 <cursor>
+                                    <Cursor fx:constant="CLOSED_HAND" />
+                                 </cursor></ComboBox>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="375.0" spacing="30.0">
@@ -39,8 +42,14 @@
                                     <Font name="Calibri" size="14.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cmdExportCompanyID" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;" visibleRowCount="5" />
-                              <Button fx:id="btnExportIdClear" mnemonicParsing="false" onAction="#clearExportId" text="clear" />
+                              <ComboBox fx:id="cmdExportCompanyID" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;" visibleRowCount="5">
+                                 <cursor>
+                                    <Cursor fx:constant="CLOSED_HAND" />
+                                 </cursor></ComboBox>
+                              <Button fx:id="btnExportIdClear" mnemonicParsing="false" onAction="#clearExportId" text="clear">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
                            </children>
                         </HBox>
                      </children>
@@ -72,6 +81,9 @@
                                  <font>
                                     <Font name="Calibri" size="14.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
                               </TextField>
                            </children>
                         </HBox>
@@ -86,6 +98,9 @@
                                  <font>
                                     <Font name="Calibri" size="14.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
                               </TextField>
                            </children>
                         </HBox>
@@ -100,6 +115,9 @@
                                  <font>
                                     <Font name="Calibri" size="14.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
                               </TextField>
                            </children>
                         </HBox>
@@ -112,8 +130,14 @@
                               <Font name="Calibri" size="14.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="cmdRevervationID" prefHeight="27.0" prefWidth="124.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;" visibleRowCount="5" />
-                        <Button fx:id="btnclearReservation" mnemonicParsing="false" onAction="#clearreservationId" text="clear" />
+                        <ComboBox fx:id="cmdRevervationID" prefHeight="27.0" prefWidth="124.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;" visibleRowCount="5">
+                           <cursor>
+                              <Cursor fx:constant="CLOSED_HAND" />
+                           </cursor></ComboBox>
+                        <Button fx:id="btnclearReservation" mnemonicParsing="false" onAction="#clearreservationId" text="clear">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
                      </children>
                   </HBox>
                   <HBox layoutX="10.0" layoutY="130.0" prefHeight="45.0" prefWidth="40.0">
@@ -132,21 +156,33 @@
                                  <font>
                                     <Font name="Calibri" size="14.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="CLOSED_HAND" />
+                                 </cursor>
                               </RadioButton>
                               <RadioButton fx:id="rbRepair" layoutX="83.0" layoutY="22.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="81.0" text="repair" toggleGroup="$btnGroup">
                                  <font>
                                     <Font name="Calibri" size="14.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="CLOSED_HAND" />
+                                 </cursor>
                               </RadioButton>
                               <RadioButton fx:id="rbSale" layoutX="171.0" layoutY="22.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="69.0" text="sale" toggleGroup="$btnGroup">
                                  <font>
                                     <Font name="Calibri" size="14.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="CLOSED_HAND" />
+                                 </cursor>
                               </RadioButton>
                               <RadioButton fx:id="rbExport" layoutX="259.0" layoutY="22.0" mnemonicParsing="false" text="export" toggleGroup="$btnGroup">
                                  <font>
                                     <Font name="Calibri" size="14.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="CLOSED_HAND" />
+                                 </cursor>
                               </RadioButton>
                            </children>
                         </HBox>
@@ -165,6 +201,9 @@
                                  <font>
                                     <Font name="Calibri" size="14.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
                               </TextField>
                               <Label prefHeight="20.0" prefWidth="103.0" text="export date">
                                  <font>
@@ -175,6 +214,9 @@
                                  <font>
                                     <Font name="Calibri" size="14.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
                               </TextField>
                               <Label prefHeight="18.0" prefWidth="78.0" text="sale date">
                                  <font>
@@ -185,6 +227,9 @@
                                  <font>
                                     <Font name="Calibri" size="14.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
                               </TextField>
                            </children>
                         </HBox>
@@ -203,6 +248,9 @@
                                  <font>
                                     <Font name="Calibri" size="14.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
                               </TextField>
                            </children>
                         </HBox>
@@ -217,6 +265,9 @@
                                  <font>
                                     <Font name="Calibri" size="14.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
                               </TextField>
                            </children>
                         </HBox>
@@ -231,7 +282,10 @@
                                     <Font name="Calibri" size="14.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cmbTransportID" prefHeight="27.0" prefWidth="130.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;" visibleRowCount="5" />
+                              <ComboBox fx:id="cmbTransportID" prefHeight="27.0" prefWidth="130.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;" visibleRowCount="5">
+                                 <cursor>
+                                    <Cursor fx:constant="CLOSED_HAND" />
+                                 </cursor></ComboBox>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="326.0" spacing="20.0" />
@@ -283,6 +337,9 @@
                   <TableColumn fx:id="colColor" prefWidth="164.80001831054688" text="color" />
                   <TableColumn fx:id="colStatus" prefWidth="169.59991455078125" text="status" />
                </columns>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
             </TableView>
          </children>
       </VBox>
