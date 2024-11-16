@@ -60,5 +60,14 @@ public class ImportCompanyModel {
         return CrudUtil.execute("delete from import_company where company_ID=?", importCompanyID);
     }
 
+    public ArrayList<String> getAllImportCompantIDs() throws SQLException, ClassNotFoundException {
+        ResultSet rst = CrudUtil.execute("select company_ID from import_company");
+        ArrayList<String> importIDS = new ArrayList<>();
+
+        while (rst.next()) {
+            importIDS.add(rst.getString(1));
+        }
+        return importIDS;
+    }
 }
 

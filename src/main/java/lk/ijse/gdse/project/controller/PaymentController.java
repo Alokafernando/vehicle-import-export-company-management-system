@@ -249,18 +249,6 @@ public class PaymentController implements Initializable {
     }
 
     private void refeshPage() throws SQLException, ClassNotFoundException {
-//        lblPayID.setText(paymentModel.getNextPayId());
-//        payMethod.selectToggle(null);
-//        txtDeposite.clear();
-//        txtTotalAmount.clear();
-//        cmbReservationID.getSelectionModel().clearSelection();
-//
-//        btnSave.setDisable(false);
-//        btnUpdate.setDisable(true);
-//        btnDelete.setDisable(true);
-//
-//        loadReservationIDS();
-//        loadTableData();
         lblPayID.setText(paymentModel.getNextPayId());
         payMethod.selectToggle(null);
         txtDeposite.clear();
@@ -275,28 +263,6 @@ public class PaymentController implements Initializable {
         loadTableData();
     }
 
-//    private void loadTableData() throws SQLException, ClassNotFoundException {
-//        ArrayList<PaymentDTO> paymentDTOS = paymentModel.getAllPayments();
-//        ObservableList<PaymentTM> paymentTMS = FXCollections.observableArrayList();
-//
-//        for (PaymentDTO paymentDTO : paymentDTOS) {
-//            double remainAmount = paymentDTO.getAmount() - paymentDTO.getDeposite();
-//
-//            PaymentTM paymentTM = new PaymentTM(
-//                    paymentDTO.getReservation_id(),
-//                    paymentDTO.getPay_id(),
-//                    paymentDTO.getPayment_method(),
-//                    paymentDTO.getDeposite(),
-//                    paymentDTO.getAmount(),
-//                    remainAmount
-//            );
-//
-//            paymentTMS.add(paymentTM);
-//        }
-//
-//        tblPayment.setItems(paymentTMS);
-//        tblPayment.refresh();
-//    }
 private void loadTableData() throws SQLException, ClassNotFoundException {
     ArrayList<PaymentDTO> paymentDTOS = paymentModel.getAllPayments();
     ObservableList<PaymentTM> paymentTMS = FXCollections.observableArrayList();
@@ -327,25 +293,14 @@ private void loadTableData() throws SQLException, ClassNotFoundException {
         cmbReservationID.setItems(observableList);
     }
 
-//    private void setCellValues() {
-//        colReserID.setCellValueFactory(new PropertyValueFactory<>("reservation_id"));
-//        colPayID.setCellValueFactory(new PropertyValueFactory<>("pay_id"));
-//        colPayMethod.setCellValueFactory(new PropertyValueFactory<>("payment_method"));
-//        colDeposite.setCellValueFactory(new PropertyValueFactory<>("deposite"));
-//        colTotalAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
-//        colRemainAmount.setCellValueFactory(new PropertyValueFactory<>("remainingAmount"));
-//
-//    }
-private void setCellValues() {
-    colReserID.setCellValueFactory(new PropertyValueFactory<>("reservation_id"));
-    colPayID.setCellValueFactory(new PropertyValueFactory<>("pay_id"));
-    colPayMethod.setCellValueFactory(new PropertyValueFactory<>("payment_method"));
-    colDeposite.setCellValueFactory(new PropertyValueFactory<>("deposite"));
-    colTotalAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
-
-    // For remainingAmount, use PropertyValueFactory with correct property name
-    colRemainAmount.setCellValueFactory(new PropertyValueFactory<>("remainingAmount"));
-}
+    private void setCellValues() {
+        colReserID.setCellValueFactory(new PropertyValueFactory<>("reservation_id"));
+        colPayID.setCellValueFactory(new PropertyValueFactory<>("pay_id"));
+        colPayMethod.setCellValueFactory(new PropertyValueFactory<>("payment_method"));
+        colDeposite.setCellValueFactory(new PropertyValueFactory<>("deposite"));
+        colTotalAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        colRemainAmount.setCellValueFactory(new PropertyValueFactory<>("remainingAmount"));
+    }
 
 
     private void loadNextpayID() throws SQLException, ClassNotFoundException {

@@ -59,4 +59,14 @@ public class ExportCompanyModel {
     public boolean deleteExportCompany(String exportCompanyID) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("delete from export_company where company_ID  = ?", exportCompanyID);
     }
+
+    public ArrayList<String> getAllExportCompanyIDs() throws SQLException, ClassNotFoundException {
+        ResultSet rst = CrudUtil.execute("select company_ID from export_company");
+        ArrayList<String> exportIDS = new ArrayList<>();
+
+        while (rst.next()) {
+            exportIDS.add(rst.getString(1));
+        }
+        return exportIDS;
+    }
 }

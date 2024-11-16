@@ -1,18 +1,30 @@
 package lk.ijse.gdse.project.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import lk.ijse.gdse.project.Model.ExportCompanyModel;
+import lk.ijse.gdse.project.Model.ImportCompanyModel;
+import lk.ijse.gdse.project.Model.ReservationModel;
+import lk.ijse.gdse.project.Model.VehicleModel;
+import lk.ijse.gdse.project.dto.VehicleDTO;
+import lk.ijse.gdse.project.dto.tm.VehicleTM;
 
-public class VehicleController {
+import java.net.URL;
+import java.sql.SQLException;
+import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.ResourceBundle;
+
+public class VehicleController implements Initializable {
+
 
     @FXML
     private Button btnDelete;
@@ -30,28 +42,31 @@ public class VehicleController {
     private Button btnUpdate;
 
     @FXML
-    private ComboBox<?> cmdExportCompanyID;
+    private ComboBox<String> cmbTransportID;
 
     @FXML
-    private ComboBox<?> cmdImportCompanyID;
+    private ComboBox<String> cmdExportCompanyID;
 
     @FXML
-    private ComboBox<?> cmdRevervationID;
+    private ComboBox<String> cmdImportCompanyID;
 
     @FXML
-    private TableColumn<?, ?> colColor;
+    private ComboBox<String> cmdRevervationID;
 
     @FXML
-    private TableColumn<?, ?> colModel;
+    private TableColumn<VehicleTM, String> colColor;
 
     @FXML
-    private TableColumn<?, ?> colStatus;
+    private TableColumn<VehicleTM, String> colModel;
 
     @FXML
-    private TableColumn<?, ?> colVehicleID;
+    private TableColumn<VehicleTM, String> colStatus;
 
     @FXML
-    private TableColumn<?, ?> colYear;
+    private TableColumn<VehicleTM, String> colVehicleID;
+
+    @FXML
+    private TableColumn<VehicleTM, Integer> colYear;
 
     @FXML
     private Label lblVehicleID;
@@ -69,7 +84,7 @@ public class VehicleController {
     private RadioButton rbSale;
 
     @FXML
-    private TableView<?> tblVehicle;
+    private TableView<VehicleTM> tblVehicle;
 
     @FXML
     private TextField txtColor;
@@ -95,9 +110,28 @@ public class VehicleController {
     @FXML
     private TextField txtYear;
 
-    @FXML
-    void deleteVehicle(ActionEvent event) {
+    private final VehicleModel vehicle = new VehicleModel();
+    private final ReservationModel reservation = new ReservationModel();
+    private final ImportCompanyModel importCompany = new ImportCompanyModel();
+    private final ExportCompanyModel exportCompany = new ExportCompanyModel();
+    //private final TranportModel transport = new TranportModel();
 
+    @FXML
+    void deleteVehicle(ActionEvent event) throws SQLException, ClassNotFoundException {
+        String vId = lblVehicleID.getText();
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure?", ButtonType.YES, ButtonType.NO);
+        Optional<ButtonType> optionalButtonType = alert.showAndWait();
+
+        if (optionalButtonType.get() == ButtonType.YES) {
+            boolean isDeleted = vehicle.deleteVehicle(vId);
+            if (isDeleted) {
+                refeshPage();
+                new Alert(Alert.AlertType.INFORMATION, "Vehicle deleted").show();
+            }else{
+                new Alert(Alert.AlertType.ERROR, "Fail to delete vehicle").show();
+            }
+        }
     }
 
     @FXML
@@ -111,13 +145,377 @@ public class VehicleController {
     }
 
     @FXML
-    void saveVehicle(ActionEvent event) {
+    void onClickedTable(MouseEvent event) throws SQLException, ClassNotFoundException {
+        VehicleTM vehicleTM = tblVehicle.getSelectionModel().getSelectedItem();
+        if (vehicleTM != null) {
+            //Import Company Ids
+            cmdImportCompanyID.getItems().clear();
+            List<String> importCompantIDs = importCompany.getAllImportCompantIDs();
+            if (importCompantIDs != null && !importCompantIDs.isEmpty()) {
+                cmdImportCompanyID.getItems().addAll(importCompantIDs);
+                cmdImportCompanyID.setValue(vehicleTM.getImport_company_id());
+            }
+
+            //Export Comapny Ids
+            cmdExportCompanyID.getItems().clear();
+            List<String> expIDs = exportCompany.getAllExportCompanyIDs();
+            if (expIDs != null && !expIDs.isEmpty()) {
+                cmdExportCompanyID.getItems().addAll(expIDs);
+                cmdExportCompanyID.setValue(vehicleTM.getExport_company_id());
+            }
+
+            //Reservation Ids
+            cmdRevervationID.getItems().clear();
+            List<String> reservIds = reservation.getAllReservationIDS();
+            if (reservIds != null && !reservIds.isEmpty()) {
+                cmdRevervationID.getItems().addAll(reservIds);
+                cmdRevervationID.setValue(vehicleTM.getReservation_id());
+            }
+
+            //Transport Ids
+//            cmbTransportID.getItems().clear();
+//            List<String> transportIds = transport.getAllTransportIds();
+//            if (transportIds != null && !transportIds.isEmpty()) {
+//                cmbTransportID.getItems().addAll(transportIds);
+//                cmbTransportID.setValue(vehicleTM.getTransport_id());
+//            }
+
+            lblVehicleID.setText(vehicleTM.getVehicle_id());
+            txtModel.setText(vehicleTM.getModel());
+            txtYear.setText(String.valueOf(vehicleTM.getYear()));
+            txtColor.setText(vehicleTM.getColor());
+
+            String vehicleStatus = vehicleTM.getCurrent_status();
+            if ("Import".equalsIgnoreCase(vehicleStatus)) {
+                rbImport.setSelected(true);
+            } else if ("Repair".equalsIgnoreCase(vehicleStatus)) {
+                rbRepair.setSelected(true);
+            } else if ("Sale".equalsIgnoreCase(vehicleStatus)) {
+                rbSale.setSelected(true);
+            } else if ("Export".equalsIgnoreCase(vehicleStatus)) {
+                rbExport.setSelected(true);
+            }
+
+            txtExportDate.setText(vehicleTM.getExport_date());
+            txtImportDate.setText(vehicleTM.getImport_date());
+            txtSaleDate.setText(vehicleTM.getSale_date());
+            txtExportPrice.setText(String.valueOf(vehicleTM.getExport_price()));
+            txtImportPrice.setText(String.valueOf(vehicleTM.getImport_price()));
+
+            btnSave.setDisable(true);
+            btnUpdate.setDisable(false);
+            btnDelete.setDisable(false);
+        }
+    }
+
+
+    @FXML
+    void saveVehicle(ActionEvent event) throws SQLException, ClassNotFoundException {
+        try {
+            String importCompanyID = cmdImportCompanyID.getValue();
+            String exportCompanyID = cmdExportCompanyID.getValue();
+            String vehicelId = lblVehicleID.getText();
+            String model = txtModel.getText();
+            int year = Integer.parseInt(txtYear.getText());
+            String color = txtColor.getText();
+            String exportDate = txtExportDate.getText().isEmpty() ? null : txtExportDate.getText();
+            String importDate = txtImportDate.getText().isEmpty() ? null : txtImportDate.getText();
+            String saleDate = txtSaleDate.getText().isEmpty() ? null : txtSaleDate.getText();
+            Double exportPrice = txtExportPrice.getText().isEmpty() ? null : Double.valueOf(txtExportPrice.getText());
+            Double importPrice = txtImportPrice.getText().isEmpty() ? null : Double.valueOf(txtImportPrice.getText());
+            String reservationID = cmdRevervationID.getValue();
+            String transportID = cmbTransportID.getValue();
+
+            if (cmdImportCompanyID.getValue() == null) {
+                new Alert(Alert.AlertType.WARNING, "Please select an import company.").show();
+                return;
+            }
+
+            if (reservationID != null && exportCompanyID != null) {
+                new Alert(Alert.AlertType.WARNING, "You cannot add both Reservation ID and Export Company ID at the same time.").show();
+                return;
+            }
+
+            if (reservationID != null) {
+                if (rbExport.isSelected()) {
+                    new Alert(Alert.AlertType.WARNING, "Transport method cannot be 'Export' when a reservation ID is set.").show();
+                    return;
+                }
+
+                exportPrice = 0.0;
+                exportDate = null;
+            }
+
+            if (exportCompanyID != null) {
+                if (rbSale.isSelected()) {
+                    new Alert(Alert.AlertType.WARNING, "Transport method cannot be 'Sale' when an export company ID is set.").show();
+                    return;
+                }
+
+                if (!txtSaleDate.getText().isEmpty()) {
+                    new Alert(Alert.AlertType.WARNING, "Sale date cannot be added when an export company ID is set.").show();
+                    return;
+                }
+
+                if (reservationID != null) {
+                    new Alert(Alert.AlertType.WARNING, "Reservation ID cannot be added when an export company ID is set.").show();
+                    return;
+                }
+            }
+
+            String transportMethod;
+            if (rbImport.isSelected()) {
+                transportMethod = "Import";
+            } else if (rbRepair.isSelected()) {
+                transportMethod = "Repair";
+            } else if (rbExport.isSelected()) {
+                transportMethod = "Export";
+            } else if (rbSale.isSelected()) {
+                transportMethod = "Sale";
+            } else {
+                new Alert(Alert.AlertType.WARNING, "Please select a transport method.").show();
+                return;
+            }
+
+            VehicleDTO vehicleDTO = new VehicleDTO(
+                    importCompanyID,
+                    importDate,
+                    vehicelId,
+                    model,
+                    year,
+                    color,
+                    transportMethod,
+                    exportCompanyID,
+                    exportDate,
+                    saleDate,
+                    importPrice,
+                    exportPrice,
+                    reservationID,
+                    transportID
+            );
+
+            boolean isSaved = vehicle.saveVehicle(vehicleDTO);
+            if (isSaved) {
+                refeshPage();
+                new Alert(Alert.AlertType.INFORMATION, "Vehicle saved..!").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Failed to save vehicle.").show();
+            }
+        } catch (NumberFormatException e) {
+            new Alert(Alert.AlertType.WARNING, "Please enter valid numeric values where required.").show();
+        } catch (DateTimeParseException e) {
+            new Alert(Alert.AlertType.WARNING, "Invalid date format. Please enter a valid date.").show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "An unexpected error occurred: " + e.getMessage()).show();
+        }
+
 
     }
 
     @FXML
     void updateVehicle(ActionEvent event) {
+        try {
+            String importCompanyID = cmdImportCompanyID.getValue();
+            String exportCompanyID = cmdExportCompanyID.getValue();
+            String vehicelId = lblVehicleID.getText();
+            String model = txtModel.getText();
+            int year = Integer.parseInt(txtYear.getText());
+            String color = txtColor.getText();
+            String exportDate = (txtExportDate.getText() == null || txtExportDate.getText().isEmpty()) ? null : txtExportDate.getText();
+            String importDate = (txtImportDate.getText() == null || txtImportDate.getText().isEmpty()) ? null : txtImportDate.getText();
+            String saleDate = (txtSaleDate.getText() == null || txtSaleDate.getText().isEmpty()) ? null : txtSaleDate.getText();
+            Double exportPrice = (txtExportPrice.getText() == null || txtExportPrice.getText().isEmpty()) ? 0.0 : Double.valueOf(txtExportPrice.getText());
+            Double importPrice = (txtImportPrice.getText() == null || txtImportPrice.getText().isEmpty()) ? 0.0 : Double.valueOf(txtImportPrice.getText());
+            String reservationID = cmdRevervationID.getValue();
+            String transportID = cmbTransportID.getValue();
+
+            if (importCompanyID == null) {
+                new Alert(Alert.AlertType.WARNING, "Please select an import company.").show();
+                return;
+            }
+
+            if (reservationID != null && exportCompanyID != null) {
+                new Alert(Alert.AlertType.WARNING, "You cannot add both Reservation ID and Export Company ID at the same time.").show();
+                return;
+            }
+
+            if (reservationID != null) {
+                if (rbExport.isSelected()) {
+                    new Alert(Alert.AlertType.WARNING, "Transport method cannot be 'Export' when a reservation ID is set.").show();
+                    return;
+                }
+                exportPrice = 0.0;
+                exportDate = null;
+            }
+
+            if (exportCompanyID != null) {
+                if (rbSale.isSelected()) {
+                    new Alert(Alert.AlertType.WARNING, "Transport method cannot be 'Sale' when an export company ID is set.").show();
+                    return;
+                }
+                if (saleDate != null) {
+                    new Alert(Alert.AlertType.WARNING, "Sale date cannot be added when an export company ID is set.").show();
+                    return;
+                }
+            }
+
+            String transportMethod;
+            if (rbImport.isSelected()) {
+                transportMethod = "Import";
+            } else if (rbRepair.isSelected()) {
+                transportMethod = "Repair";
+            } else if (rbExport.isSelected()) {
+                transportMethod = "Export";
+            } else if (rbSale.isSelected()) {
+                transportMethod = "Sale";
+            } else {
+                new Alert(Alert.AlertType.WARNING, "Please select a transport method.").show();
+                return;
+            }
+
+            VehicleDTO vehicleDTO = new VehicleDTO(
+                    importCompanyID,
+                    importDate,
+                    vehicelId,
+                    model,
+                    year,
+                    color,
+                    transportMethod,
+                    exportCompanyID,
+                    exportDate,
+                    saleDate,
+                    importPrice,
+                    exportPrice,
+                    reservationID,
+                    transportID
+            );
+
+            // Save Operation
+            boolean isUpdate = vehicle.updateVehicle(vehicleDTO);
+            if (isUpdate) {
+                refeshPage();
+                new Alert(Alert.AlertType.INFORMATION, "Vehicle updated..!").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Failed to update vehicle.").show();
+            }
+        } catch (NumberFormatException e) {
+            new Alert(Alert.AlertType.WARNING, "Please enter valid numeric values where required.").show();
+        } catch (DateTimeParseException e) {
+            new Alert(Alert.AlertType.WARNING, "Invalid date format. Please enter a valid date.").show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "An unexpected error occurred: " + e.getMessage()).show();
+        }
 
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        setCellValues();
+        try{
+            refeshPage();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void refeshPage() throws SQLException, ClassNotFoundException {
+        lblVehicleID.setText(vehicle.getNextVehicleID());
+        btnGroup.selectToggle(null);
+        cmdImportCompanyID.getSelectionModel().clearSelection();
+        cmdExportCompanyID.getSelectionModel().clearSelection();
+        cmdRevervationID.getSelectionModel().clearSelection();
+        cmbTransportID.getSelectionModel().clearSelection();
+        txtModel.setText("");
+        txtYear.setText("");
+        txtColor.setText("");
+        txtExportDate.setText("");
+        txtExportPrice.setText("");
+        txtImportDate.setText("");
+        txtImportPrice.setText("");
+        txtSaleDate.setText("");
+
+        btnSave.setDisable(false);
+        btnUpdate.setDisable(true);
+        btnDelete.setDisable(true);
+
+        loadImportCompaniesID();
+        loadExportCompaniesID();
+        loadReservationID();
+       // loadTransportID();
+        loadTableData();
+    }
+
+    private void loadTableData() throws SQLException, ClassNotFoundException {
+        ArrayList<VehicleDTO> vehicleDTOS = vehicle.getAllVehicles();
+        ObservableList<VehicleTM> vehicleTMS = FXCollections.observableArrayList();
+
+            for (VehicleDTO vehicleDTO : vehicleDTOS) {
+                VehicleTM vehicleTM = new VehicleTM(
+                        vehicleDTO.getImport_company_id(),
+                        vehicleDTO.getImport_date(),
+                        vehicleDTO.getVehicle_id(),
+                        vehicleDTO.getModel(),
+                        vehicleDTO.getYear(),
+                        vehicleDTO.getColor(),
+                        vehicleDTO.getCurrent_status(),
+                        vehicleDTO.getExport_company_id(),
+                        vehicleDTO.getExport_date(),
+                        vehicleDTO.getSale_date(),
+                        vehicleDTO.getImport_price(),
+                        vehicleDTO.getExport_price(),
+                        vehicleDTO.getReservation_id(),
+                        vehicleDTO.getTransport_id()
+                );
+                vehicleTMS.add(vehicleTM);
+            }
+            tblVehicle.setItems(vehicleTMS);
+    }
+
+//    private void loadTransportID() {
+//        ArrayList<String> transportID = reservation.getAllReservationIDS();
+//        ObservableList<String> observableList = FXCollections.observableArrayList(transportID);
+//        cmdRevervationID.setItems(observableList);
+//    }
+
+    private void loadReservationID() throws SQLException, ClassNotFoundException {
+        ArrayList<String> reservID = reservation.getAllReservationIDS();
+        ObservableList<String> observableList = FXCollections.observableArrayList(reservID);
+        cmdRevervationID.setItems(observableList);
+    }
+
+
+    private void loadExportCompaniesID() throws SQLException, ClassNotFoundException {
+        ArrayList<String> exportIDS = exportCompany.getAllExportCompanyIDs();
+        ObservableList<String> observableList = FXCollections.observableArrayList(exportIDS);
+        cmdExportCompanyID.setItems(observableList);
+    }
+
+    private void loadImportCompaniesID() throws SQLException, ClassNotFoundException {
+        ArrayList<String> importIDS = importCompany.getAllImportCompantIDs();
+        ObservableList<String> observableList = FXCollections.observableArrayList(importIDS);
+        cmdImportCompanyID.setItems(observableList);
+    }
+
+    private void setCellValues() {
+        colVehicleID.setCellValueFactory(new PropertyValueFactory<>("vehicle_id"));
+        colModel.setCellValueFactory(new PropertyValueFactory<>("model"));
+        colYear.setCellValueFactory(new PropertyValueFactory<>("year"));
+        colColor.setCellValueFactory(new PropertyValueFactory<>("color"));
+        colStatus.setCellValueFactory(new PropertyValueFactory<>("current_status"));
+    }
+
+    private void loadNextVehicleID() throws SQLException, ClassNotFoundException {
+        String vehicleID = vehicle.getNextVehicleID();
+        lblVehicleID.setText(vehicleID);
+    }
+
+    public void clearExportId(ActionEvent actionEvent) {
+        cmdExportCompanyID.setValue(null);
+    }
+
+    public void clearreservationId(ActionEvent actionEvent) {
+        cmdRevervationID.setValue(null);
+    }
 }

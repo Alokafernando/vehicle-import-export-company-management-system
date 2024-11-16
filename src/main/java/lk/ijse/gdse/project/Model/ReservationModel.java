@@ -72,21 +72,4 @@ public class ReservationModel {
         return reservationIds;
     }
 
-    /*
-       public ArrayList<String> getAllReservationIDS() throws SQLException, ClassNotFoundException {
-        ResultSet rst = CrudUtil.execute("select reservation_id from reservation");
-        ArrayList<String> reservationIds = new ArrayList<>();
-
-        while (rst.next()) {
-            reservationIds.add(rst.getString(1));
-        }
-
-        if (reservationIds.isEmpty()) {
-            System.out.println("No reservation IDs found.");
-        }
-
-        return reservationIds;
-    }
-     */
-
 }
