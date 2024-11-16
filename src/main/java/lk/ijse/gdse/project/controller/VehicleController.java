@@ -8,10 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import lk.ijse.gdse.project.Model.ExportCompanyModel;
-import lk.ijse.gdse.project.Model.ImportCompanyModel;
-import lk.ijse.gdse.project.Model.ReservationModel;
-import lk.ijse.gdse.project.Model.VehicleModel;
+import lk.ijse.gdse.project.Model.*;
 import lk.ijse.gdse.project.dto.VehicleDTO;
 import lk.ijse.gdse.project.dto.tm.VehicleTM;
 
@@ -114,7 +111,7 @@ public class VehicleController implements Initializable {
     private final ReservationModel reservation = new ReservationModel();
     private final ImportCompanyModel importCompany = new ImportCompanyModel();
     private final ExportCompanyModel exportCompany = new ExportCompanyModel();
-    //private final TranportModel transport = new TranportModel();
+    private final TransportModel transportModel = new TransportModel();
 
     @FXML
     void deleteVehicle(ActionEvent event) throws SQLException, ClassNotFoundException {
@@ -173,12 +170,12 @@ public class VehicleController implements Initializable {
             }
 
             //Transport Ids
-//            cmbTransportID.getItems().clear();
-//            List<String> transportIds = transport.getAllTransportIds();
-//            if (transportIds != null && !transportIds.isEmpty()) {
-//                cmbTransportID.getItems().addAll(transportIds);
-//                cmbTransportID.setValue(vehicleTM.getTransport_id());
-//            }
+            cmbTransportID.getItems().clear();
+            List<String> transportIds = transportModel.getAllTransportIds();
+            if (transportIds != null && !transportIds.isEmpty()) {
+                cmbTransportID.getItems().addAll(transportIds);
+                cmbTransportID.setValue(vehicleTM.getTransport_id());
+            }
 
             lblVehicleID.setText(vehicleTM.getVehicle_id());
             txtModel.setText(vehicleTM.getModel());
@@ -221,8 +218,8 @@ public class VehicleController implements Initializable {
             String exportDate = txtExportDate.getText().isEmpty() ? null : txtExportDate.getText();
             String importDate = txtImportDate.getText().isEmpty() ? null : txtImportDate.getText();
             String saleDate = txtSaleDate.getText().isEmpty() ? null : txtSaleDate.getText();
-            Double exportPrice = txtExportPrice.getText().isEmpty() ? null : Double.valueOf(txtExportPrice.getText());
-            Double importPrice = txtImportPrice.getText().isEmpty() ? null : Double.valueOf(txtImportPrice.getText());
+            Double exportPrice = txtExportPrice.getText().isEmpty() ? 0.0 : Double.valueOf(txtExportPrice.getText());
+            Double importPrice = txtImportPrice.getText().isEmpty() ? 0.0 : Double.valueOf(txtImportPrice.getText());
             String reservationID = cmdRevervationID.getValue();
             String transportID = cmbTransportID.getValue();
 
@@ -391,7 +388,6 @@ public class VehicleController implements Initializable {
                     transportID
             );
 
-            // Save Operation
             boolean isUpdate = vehicle.updateVehicle(vehicleDTO);
             if (isUpdate) {
                 refeshPage();
@@ -443,7 +439,7 @@ public class VehicleController implements Initializable {
         loadImportCompaniesID();
         loadExportCompaniesID();
         loadReservationID();
-       // loadTransportID();
+        loadTransportID();
         loadTableData();
     }
 
@@ -473,11 +469,11 @@ public class VehicleController implements Initializable {
             tblVehicle.setItems(vehicleTMS);
     }
 
-//    private void loadTransportID() {
-//        ArrayList<String> transportID = reservation.getAllReservationIDS();
-//        ObservableList<String> observableList = FXCollections.observableArrayList(transportID);
-//        cmdRevervationID.setItems(observableList);
-//    }
+    private void loadTransportID() throws SQLException, ClassNotFoundException {
+        ArrayList<String> transportID = transportModel.getAllTransportIds();
+        ObservableList<String> observableList = FXCollections.observableArrayList(transportID);
+        cmbTransportID.setItems(observableList);
+    }
 
     private void loadReservationID() throws SQLException, ClassNotFoundException {
         ArrayList<String> reservID = reservation.getAllReservationIDS();

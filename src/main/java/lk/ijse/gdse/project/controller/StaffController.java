@@ -120,6 +120,8 @@ public class StaffController  implements Initializable {
         Double salary = Double.parseDouble(txtStaffSalary.getText());
         String role = txtStaffRole.getText();
 
+
+
         StaffDTO staffDTO = new StaffDTO(
                 staffID,
                 staffName,

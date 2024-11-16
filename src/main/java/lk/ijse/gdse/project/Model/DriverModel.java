@@ -54,4 +54,14 @@ public class DriverModel {
     public boolean deleteDriver(String driverID) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("delete from driver where driver_id =? ", driverID);
     }
+
+    public ArrayList<String> getAllDriverIds() throws SQLException, ClassNotFoundException {
+        ResultSet rst = CrudUtil.execute("select driver_id from driver");
+        ArrayList<String> driverIds = new ArrayList<>();
+
+        while (rst.next()) {
+            driverIds.add(rst.getString(1));
+        }
+        return driverIds;
+    }
 }

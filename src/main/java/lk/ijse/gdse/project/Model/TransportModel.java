@@ -11,18 +11,45 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class TransportModel {
-    public String getNextTransportID() throws SQLException, ClassNotFoundException {
-        ResultSet resultSet = CrudUtil.execute("select transport_id from transport order by transport_id desc limit 1");
+//    public String getNextTransportID() throws SQLException, ClassNotFoundException {
+//        ResultSet resultSet = CrudUtil.execute("select transport_id from transport order by transport_id desc limit 1");
+//
+//        if (resultSet.next()) {
+////            String lastID = resultSet.getString(1);
+////            String subString = lastID.substring(1);
+//            String lastID = resultSet.getString(1);
+//            String subString = lastID.substring(1);
+//
+////            int i = Integer.parseInt(subString);
+////            int newIndex = i+1;
+//            int i = Integer.parseInt(subString);
+//            int newIndex = i + 1;
+//
+//            return String.format("T%03d", newIndex);
+//        }
+//        return "T001";
+//    }
+public String getNextTransportID() throws SQLException, ClassNotFoundException {
+    ResultSet resultSet = CrudUtil.execute("select transport_id from transport order by transport_id desc limit 1");
 
-        if (resultSet.next()) {
-            String lastID = resultSet.getString(1);
-            String subString = lastID.substring(1);
-            int i = Integer.parseInt(subString);
-            int newIndex = i+1;
-            return String.format("Tr%04d", newIndex);
+    if (resultSet.next()) {
+        String lastID = resultSet.getString(1);
+
+        // Check if the ID has a prefix like "r" and remove it
+        String subString = lastID.replaceAll("[^0-9]", ""); // Remove all non-numeric characters
+
+        // Handle the case when there is no numeric part (e.g., "r001")
+        if (subString.isEmpty()) {
+            throw new SQLException("Invalid ID format in the database: " + lastID);
         }
-        return "Tr001";
+
+        int i = Integer.parseInt(subString);
+        int newIndex = i + 1;
+        return String.format("T%03d", newIndex); // Formatting the new transport ID
     }
+    return "T001"; // Default transport ID if no records exist
+}
+
 
     public ArrayList<TransportDTO> getAllTransports() throws SQLException, ClassNotFoundException {
         ResultSet resultSet = CrudUtil.execute("select * from transport");
@@ -44,7 +71,7 @@ public class TransportModel {
     }
 
     public boolean saveTransport(TransportDTO transportDTO) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("insert into transport values(?,?,?,?,?)",
+        return CrudUtil.execute("INSERT INTO transport (transport_id, transport_type, start_date, end_date, driver_id) VALUES (?, ?, ?, ?, ?)",
                 transportDTO.getTransport_id(),
                 transportDTO.getTransport_type(),
                 transportDTO.getStart_date(),
@@ -53,15 +80,26 @@ public class TransportModel {
     }
 
     public boolean updateTransport(TransportDTO transportDTO) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("update transport set transport_type =?, start_date =?, end_date=?, driver_id=? where driver_id=?" ,
+        return CrudUtil.execute("UPDATE transport SET transport_type = ?, start_date = ?, end_date = ?, driver_id = ? WHERE transport_id = ?",
                 transportDTO.getTransport_type(),
                 transportDTO.getStart_date(),
                 transportDTO.getEnd_date(),
                 transportDTO.getDriver_id(),
                 transportDTO.getTransport_id());
+
     }
 
     public boolean deleteTransport(String tranportId) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("delete from transport where transport_id=?", tranportId);
+    }
+
+    public ArrayList<String> getAllTransportIds() throws SQLException, ClassNotFoundException {
+        ResultSet rst = CrudUtil.execute("select transport_id from transport");
+        ArrayList<String> transportIds = new ArrayList<>();
+
+        while (rst.next()) {
+            transportIds.add(rst.getString(1));
+        }
+        return transportIds;
     }
 }
