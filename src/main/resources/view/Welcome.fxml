@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.project.controller.WelcomeController">
    <children>
-      <ImageView fx:id="imgLogo" fitHeight="433.0" fitWidth="584.0" layoutX="197.0" layoutY="69.0" pickOnBounds="true">
+      <ImageView fx:id="imgLogo" fitHeight="433.0" fitWidth="584.0" layoutX="238.0" layoutY="68.0" pickOnBounds="true" AnchorPane.bottomAnchor="149.0" AnchorPane.leftAnchor="238.0" AnchorPane.rightAnchor="238.0" AnchorPane.topAnchor="68.0">
          <image>
             <Image url="@../image/channels4_profile.jpg" />
          </image>

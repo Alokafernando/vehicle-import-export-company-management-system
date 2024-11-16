@@ -49,7 +49,6 @@ public class LoginController {
         txtUserName.setStyle(baseStyle);
         lblCheckUsername.setText("");
         lblCheckPassword.setText("");
-        setStyle(baseStyle);
 
         try {
             if (u.isEmpty()) {
@@ -88,8 +87,5 @@ public class LoginController {
         txtPassword.setStyle(style);
     }
 
-    private  void setStyle(String baseStyle){
-        txtUserName.setStyle(baseStyle);
-        txtPassword.setStyle(baseStyle);
-    }
+
 }

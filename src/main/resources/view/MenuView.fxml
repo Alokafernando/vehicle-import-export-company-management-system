@@ -25,65 +25,101 @@
                                  <font>
                                     <Font name="System Bold Italic" size="14.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="CLOSED_HAND" />
+                                 </cursor>
                               </Button>
                               <Button fx:id="btnImport" mnemonicParsing="false" onAction="#openImportCompanyPanel" style="-fx-background-color: transparent; -fx-border-radius: 25; -fx-border-color: #ffffff;" text="import  companies" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold Italic" size="14.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="CLOSED_HAND" />
+                                 </cursor>
                               </Button>
                               <Button fx:id="btnStaff" mnemonicParsing="false" onAction="#openStaffPanel" prefHeight="31.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-radius: 25;" text="staff" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold Italic" size="14.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="CLOSED_HAND" />
+                                 </cursor>
                               </Button>
                               <Button fx:id="btnCustomer" mnemonicParsing="false" onAction="#OpenCustomerPanel" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-radius: 25; -fx-border-color: #ffffff;" text="customer" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold Italic" size="14.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="CLOSED_HAND" />
+                                 </cursor>
                               </Button>
                               <Button fx:id="btnSupplier" mnemonicParsing="false" onAction="#openSupplierPanel" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: transparent; -fx-border-radius: 25; -fx-border-color: #ffffff;" text="supplier" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold Italic" size="14.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="CLOSED_HAND" />
+                                 </cursor>
                               </Button>
                               <Button fx:id="btnPart" mnemonicParsing="false" onAction="#openPartPanel" prefHeight="30.0" prefWidth="131.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-radius: 25;" text="part" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold Italic" size="14.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="CLOSED_HAND" />
+                                 </cursor>
                               </Button>
                               <Button fx:id="btnVehicle" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#openVehiclePanel" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-radius: 25;" text="vehicle" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold Italic" size="14.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="CLOSED_HAND" />
+                                 </cursor>
                               </Button>
                               <Button fx:id="btnReservation" mnemonicParsing="false" onAction="#openReservationPanel" prefHeight="31.0" prefWidth="127.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-radius: 25;" text="reservation" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold Italic" size="14.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="CLOSED_HAND" />
+                                 </cursor>
                               </Button>
                               <Button fx:id="btnPayment" mnemonicParsing="false" onAction="#openPaymentPanel" prefHeight="31.0" prefWidth="125.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-radius: 25;" text="payment" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold Italic" size="14.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="CLOSED_HAND" />
+                                 </cursor>
                               </Button>
                               <Button fx:id="btnTax" mnemonicParsing="false" onAction="#openTaxPanel" prefHeight="30.0" prefWidth="126.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-radius: 25;" text="tax" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold Italic" size="14.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="CLOSED_HAND" />
+                                 </cursor>
                               </Button>
                               <Button fx:id="btntransport" mnemonicParsing="false" onAction="#openTransportDetailPanel" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-radius: 25;" text="transport" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold Italic" size="14.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="CLOSED_HAND" />
+                                 </cursor>
                               </Button>
                               <Button fx:id="btnDriver" mnemonicParsing="false" onAction="#openDriverDetailPanel" prefHeight="30.0" prefWidth="126.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-radius: 25;" text="driver" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold Italic" size="14.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="CLOSED_HAND" />
+                                 </cursor>
                               </Button>
                            </children>
                            <cursor>
-                              <Cursor fx:constant="HAND" />
+                              <Cursor fx:constant="DEFAULT" />
                            </cursor>
                         </VBox>
                      </children>
