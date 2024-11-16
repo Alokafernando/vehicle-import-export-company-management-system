@@ -9,17 +9,28 @@ import java.util.ArrayList;
 
 public class TaxModel {
     public String getNextTaxID() throws SQLException, ClassNotFoundException {
-        ResultSet resultSet = CrudUtil.execute("select tax_id from tax order by tax_id desc limit 1");
+        ResultSet resultSet = CrudUtil.execute("SELECT tax_id FROM tax ORDER BY tax_id DESC LIMIT 1");
 
         if (resultSet.next()) {
             String lastID = resultSet.getString(1);
-            String subString = lastID.substring(1);
-            int i = Integer.parseInt(subString);
-            int newIndex = i+1;
-            return String.format("Ta%04d", newIndex);
+
+            if (lastID != null && lastID.startsWith("Ta")) {
+                try {
+                    String numericPart = lastID.substring(2);
+                    int currentIndex = Integer.parseInt(numericPart);
+                    int newIndex = currentIndex + 1;
+
+                    return String.format("Ta%03d", newIndex);
+                } catch (NumberFormatException e) {
+                    throw new RuntimeException("Invalid numeric part in tax ID: " + lastID, e);
+                }
+            } else {
+                throw new RuntimeException("Invalid tax ID format: " + lastID);
+            }
         }
         return "Ta001";
     }
+
 
     public ArrayList<TaxDTO> getAllTaxes() throws SQLException, ClassNotFoundException {
         ResultSet resultSet = CrudUtil.execute("select * from tax");
@@ -48,12 +59,13 @@ public class TaxModel {
     }
 
     public boolean updateTax(TaxDTO taxDTO) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("update tax set vehicle_id =?, import_tax =?, export_tax =? ground_tax =? where tax_id =?",
+        return CrudUtil.execute("update tax set vehicle_id =?, import_tax =?, export_tax =?, ground_tax =? where tax_id =?",
                 taxDTO.getVehicle_id(),
-                taxDTO.getTax_id(),
                 taxDTO.getImport_tax(),
                 taxDTO.getExport_tax(),
-                taxDTO.getGround_tax());
+                taxDTO.getGround_tax(),
+                taxDTO.getTax_id());
+
     }
     public boolean deleteTax(String  taxId) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("delete from tax where tax_id =?", taxId);
