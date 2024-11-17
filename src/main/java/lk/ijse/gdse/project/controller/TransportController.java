@@ -162,7 +162,7 @@ public class TransportController implements Initializable {
         String datePattern = "^\\d{4}/(0[1-9]|1[0-2])/(0[1-9]|[12]\\d|3[01])$";
 
         boolean isValidStartDate = startDate.matches(datePattern);
-        boolean isValidEndDate = true; // Default to true if endDate is null or empty
+        boolean isValidEndDate = true;
         if (endDate != null && !endDate.isEmpty()) {
             isValidEndDate = endDate.matches(datePattern);
         }

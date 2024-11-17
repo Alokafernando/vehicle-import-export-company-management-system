@@ -208,22 +208,206 @@ public class VehicleController implements Initializable {
 
     @FXML
     void saveVehicle(ActionEvent event) throws SQLException, ClassNotFoundException {
+//        try {
+//            String importCompanyID = cmdImportCompanyID.getValue();
+//            String exportCompanyID = cmdExportCompanyID.getValue();
+//            String vehicelId = lblVehicleID.getText();
+//            String model = txtModel.getText();
+//            String  year = txtYear.getText(); /////
+//            String color = txtColor.getText();
+//            String exportDate = txtExportDate.getText().isEmpty() ? null : txtExportDate.getText();
+//            String importDate = txtImportDate.getText().isEmpty() ? null : txtImportDate.getText();
+//            String saleDate = txtSaleDate.getText().isEmpty() ? null : txtSaleDate.getText();
+////            Double exportPrice = txtExportPrice.getText().isEmpty() ? 0.0 : Double.valueOf(txtExportPrice.getText());
+////            Double importPrice = txtImportPrice.getText().isEmpty() ? 0.0 : Double.valueOf(txtImportPrice.getText());
+//            String exportPrice = txtExportPrice.getText().isEmpty() ? "0.0" : txtExportPrice.getText();
+//            String importPrice = txtExportPrice.getText().isEmpty() ? "0.0" : txtImportPrice.getText();
+//            String reservationID = cmdRevervationID.getValue();
+//            String transportID = cmbTransportID.getValue();
+//
+//            if (cmdImportCompanyID.getValue() == null) {
+//                new Alert(Alert.AlertType.WARNING, "Please select an import company.").show();
+//                return;
+//            }
+//
+//            if (reservationID != null && exportCompanyID != null) {
+//                new Alert(Alert.AlertType.WARNING, "You cannot add both Reservation ID and Export Company ID at the same time.").show();
+//                return;
+//            }
+//
+//            if (reservationID != null) {
+//                if (rbExport.isSelected()) {
+//                    new Alert(Alert.AlertType.WARNING, "Transport method cannot be 'Export' when a reservation ID is set.").show();
+//                    return;
+//                }
+//
+////                exportPrice = 0.0;
+////                exportDate = null;
+//            }
+//
+//            if (exportCompanyID != null) {
+//                if (rbSale.isSelected()) {
+//                    new Alert(Alert.AlertType.WARNING, "Transport method cannot be 'Sale' when an export company ID is set.").show();
+//                    return;
+//                }
+//
+//                if (!txtSaleDate.getText().isEmpty()) {
+//                    new Alert(Alert.AlertType.WARNING, "Sale date cannot be added when an export company ID is set.").show();
+//                    return;
+//                }
+//
+//                if (reservationID != null) {
+//                    new Alert(Alert.AlertType.WARNING, "Reservation ID cannot be added when an export company ID is set.").show();
+//                    return;
+//                }
+//            }
+//
+//            String transportMethod;
+//            if (rbImport.isSelected()) {
+//                transportMethod = "Import";
+//            } else if (rbRepair.isSelected()) {
+//                transportMethod = "Repair";
+//            } else if (rbExport.isSelected()) {
+//                transportMethod = "Export";
+//            } else if (rbSale.isSelected()) {
+//                transportMethod = "Sale";
+//            } else {
+//                new Alert(Alert.AlertType.WARNING, "Please select a transport method.").show();
+//                return;
+//            }
+//
+//            String modelPattern = "^[A-Za-z ]+$";
+//            String colorPatter = "^[A-Za-z ]+$";
+//            String datePattern = "^\\d{4}/(0[1-9]|1[0-2])/(0[1-9]|[12]\\d|3[01])$";
+//            String doubleValuesPattern = "^\\d+(\\.\\d{1,2})?$";
+//            String yearPatten = "^\\d{4}$\n";
+//
+//            boolean isValidModel = model.matches(modelPattern);
+//            boolean isValidYear = year.matches(yearPatten);
+//            boolean isValidColor = color.matches(colorPatter);
+//            boolean isValidImportDate = importDate.matches(datePattern);
+//            boolean isValidExportDate = true;
+//            if (exportDate != null && !exportDate.isEmpty()) {
+//                isValidExportDate = exportDate.matches(doubleValuesPattern);
+//            }
+//            boolean isValidSaleDate = true;
+//            if (saleDate != null && !saleDate.isEmpty()) {
+//                isValidSaleDate = saleDate.matches(doubleValuesPattern);
+//            }
+//            boolean isValidImportPrice = importPrice.matches(datePattern);
+//            boolean isValidExportPrice = exportPrice.matches(doubleValuesPattern);
+//            String errorStyle = "-fx-border-color: red; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+//            String style = "-fx-border-color:  #1e3799; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+//
+//            if (!isValidModel){
+//                txtModel.setText(errorStyle);
+//            }else{
+//                txtModel.setText(style);
+//            }
+//            if (!isValidYear){
+//                txtYear.setText(errorStyle);
+//            }else{
+//                txtYear.setText(style);
+//            }
+//            if (!isValidColor){
+//                txtColor.setText(errorStyle);
+//            }else{
+//                txtColor.setText(style);
+//            }
+//            if (!isValidImportDate){
+//                txtImportDate.setText(errorStyle);
+//            }else{
+//                txtExportDate.setText(style);
+//            }
+//            if (!isValidExportDate){
+//                txtExportDate.setText(errorStyle);
+//            }else{
+//                txtExportDate.setText(style);
+//            }
+//            if (!isValidSaleDate){
+//                txtSaleDate.setText(errorStyle);
+//            }else{
+//                txtSaleDate.setText(style);
+//            }
+//            if(!isValidImportPrice){
+//                txtImportPrice.setText(errorStyle);
+//            }else{
+//                txtImportPrice.setText(style);
+//            }
+//            if(!isValidExportPrice){
+//                txtExportPrice.setText(errorStyle);
+//            }else{
+//                txtExportPrice.setText(style);
+//            }
+//
+//            int yearInitialize = 0;
+//            double importPriceInitialize = 0.0;
+//            double exportPriceInitialize = 0.0;
+//
+//            try{
+//                yearInitialize = Integer.parseInt(txtYear.getText());
+//                importPriceInitialize = Double.parseDouble(txtImportPrice.getText());
+//                exportPriceInitialize = Double.parseDouble(txtExportPrice.getText());
+//
+//                if (yearInitialize < 0 || importPriceInitialize < 0 || exportPriceInitialize < 0) {
+//                    new Alert(Alert.AlertType.WARNING, "Tax values cannot be negative.").show();
+//                    return;
+//                }
+//            } catch (NumberFormatException e) {
+//                new Alert(Alert.AlertType.WARNING, "Please enter valid numeric values for all taxes.").show();
+//                return;
+//            }
+//
+//            if (isValidModel && isValidYear && isValidColor && isValidImportDate && isValidExportDate && isValidSaleDate && isValidImportPrice && isValidExportPrice) {
+//                VehicleDTO vehicleDTO = new VehicleDTO(
+//                        importCompanyID,
+//                        importDate,
+//                        vehicelId,
+//                        model,
+//                        yearInitialize,
+//                        color,
+//                        transportMethod,
+//                        exportCompanyID,
+//                        exportDate,
+//                        saleDate,
+//                        importPriceInitialize,
+//                        exportPriceInitialize,
+//                        reservationID,
+//                        transportID
+//                );
+//
+//                boolean isSaved = vehicle.saveVehicle(vehicleDTO);
+//                if (isSaved) {
+//                    refeshPage();
+//                    new Alert(Alert.AlertType.INFORMATION, "Vehicle saved..!").show();
+//                } else {
+//                    new Alert(Alert.AlertType.ERROR, "Failed to save vehicle.").show();
+//                }
+//            } catch (NumberFormatException e) {
+//                new Alert(Alert.AlertType.WARNING, "Please enter valid numeric values where required.").show();
+//            } catch (DateTimeParseException e) {
+//                new Alert(Alert.AlertType.WARNING, "Invalid date format. Please enter a valid date.").show();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//                new Alert(Alert.AlertType.ERROR, "An unexpected error occurred: " + e.getMessage()).show();
+//            }
+//        }
         try {
             String importCompanyID = cmdImportCompanyID.getValue();
             String exportCompanyID = cmdExportCompanyID.getValue();
-            String vehicelId = lblVehicleID.getText();
+            String vehicleId = lblVehicleID.getText();
             String model = txtModel.getText();
-            int year = Integer.parseInt(txtYear.getText());
+            String year = txtYear.getText();
             String color = txtColor.getText();
             String exportDate = txtExportDate.getText().isEmpty() ? null : txtExportDate.getText();
             String importDate = txtImportDate.getText().isEmpty() ? null : txtImportDate.getText();
             String saleDate = txtSaleDate.getText().isEmpty() ? null : txtSaleDate.getText();
-            Double exportPrice = txtExportPrice.getText().isEmpty() ? 0.0 : Double.valueOf(txtExportPrice.getText());
-            Double importPrice = txtImportPrice.getText().isEmpty() ? 0.0 : Double.valueOf(txtImportPrice.getText());
+            String exportPrice = txtExportPrice.getText().isEmpty() ? "0.0" : txtExportPrice.getText();
+            String importPrice = txtImportPrice.getText().isEmpty() ? "0.0" : txtImportPrice.getText();
             String reservationID = cmdRevervationID.getValue();
             String transportID = cmbTransportID.getValue();
 
-            if (cmdImportCompanyID.getValue() == null) {
+            if (importCompanyID == null) {
                 new Alert(Alert.AlertType.WARNING, "Please select an import company.").show();
                 return;
             }
@@ -233,14 +417,9 @@ public class VehicleController implements Initializable {
                 return;
             }
 
-            if (reservationID != null) {
-                if (rbExport.isSelected()) {
-                    new Alert(Alert.AlertType.WARNING, "Transport method cannot be 'Export' when a reservation ID is set.").show();
-                    return;
-                }
-
-                exportPrice = 0.0;
-                exportDate = null;
+            if (reservationID != null && rbExport.isSelected()) {
+                new Alert(Alert.AlertType.WARNING, "Transport method cannot be 'Export' when a reservation ID is set.").show();
+                return;
             }
 
             if (exportCompanyID != null) {
@@ -248,12 +427,10 @@ public class VehicleController implements Initializable {
                     new Alert(Alert.AlertType.WARNING, "Transport method cannot be 'Sale' when an export company ID is set.").show();
                     return;
                 }
-
                 if (!txtSaleDate.getText().isEmpty()) {
                     new Alert(Alert.AlertType.WARNING, "Sale date cannot be added when an export company ID is set.").show();
                     return;
                 }
-
                 if (reservationID != null) {
                     new Alert(Alert.AlertType.WARNING, "Reservation ID cannot be added when an export company ID is set.").show();
                     return;
@@ -274,39 +451,75 @@ public class VehicleController implements Initializable {
                 return;
             }
 
-            VehicleDTO vehicleDTO = new VehicleDTO(
-                    importCompanyID,
-                    importDate,
-                    vehicelId,
-                    model,
-                    year,
-                    color,
-                    transportMethod,
-                    exportCompanyID,
-                    exportDate,
-                    saleDate,
-                    importPrice,
-                    exportPrice,
-                    reservationID,
-                    transportID
-            );
+            String modelPattern = "^[A-Za-z ]+$";
+            String colorPattern = "^[A-Za-z ]+$";
+            String datePattern = "^\\d{4}/(0[1-9]|1[0-2])/(0[1-9]|[12]\\d|3[01])$";
+            String doubleValuesPattern = "^\\d+(\\.\\d{1,2})?$";
+            String yearPattern = "^\\d{4}$";
 
-            boolean isSaved = vehicle.saveVehicle(vehicleDTO);
-            if (isSaved) {
-                refeshPage();
-                new Alert(Alert.AlertType.INFORMATION, "Vehicle saved..!").show();
-            } else {
-                new Alert(Alert.AlertType.ERROR, "Failed to save vehicle.").show();
+            boolean isValidModel = model.matches(modelPattern);
+            boolean isValidYear = year.matches(yearPattern);
+            boolean isValidColor = color.matches(colorPattern);
+            boolean isValidImportDate = importDate == null || importDate.matches(datePattern);
+            boolean isValidExportDate = exportDate == null || exportDate.matches(datePattern);
+            boolean isValidSaleDate = saleDate == null || saleDate.matches(datePattern);
+            boolean isValidImportPrice = importPrice.matches(doubleValuesPattern);
+            boolean isValidExportPrice = exportPrice.matches(doubleValuesPattern);
+
+            String errorStyle = "-fx-border-color: red; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+            String style = "-fx-border-color: #1e3799; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+
+            txtModel.setStyle(isValidModel ? style : errorStyle);
+            txtYear.setStyle(isValidYear ? style : errorStyle);
+            txtColor.setStyle(isValidColor ? style : errorStyle);
+            txtImportDate.setStyle(isValidImportDate ? style : errorStyle);
+            txtExportDate.setStyle(isValidExportDate ? style : errorStyle);
+            txtSaleDate.setStyle(isValidSaleDate ? style : errorStyle);
+            txtImportPrice.setStyle(isValidImportPrice ? style : errorStyle);
+            txtExportPrice.setStyle(isValidExportPrice ? style : errorStyle);
+
+            int yearParsed = Integer.parseInt(year);
+            double importPriceParsed = Double.parseDouble(importPrice);
+            double exportPriceParsed = Double.parseDouble(exportPrice);
+
+            if (yearParsed < 0 || importPriceParsed < 0 || exportPriceParsed < 0) {
+                new Alert(Alert.AlertType.WARNING, "Numeric values cannot be negative.").show();
+                return;
+            }
+
+            if (isValidModel && isValidYear && isValidColor && isValidImportDate && isValidExportDate
+                    && isValidSaleDate && isValidImportPrice && isValidExportPrice) {
+                VehicleDTO vehicleDTO = new VehicleDTO(
+                        importCompanyID,
+                        importDate,
+                        vehicleId,
+                        model,
+                        yearParsed,
+                        color,
+                        transportMethod,
+                        exportCompanyID,
+                        exportDate,
+                        saleDate,
+                        importPriceParsed,
+                        exportPriceParsed,
+                        reservationID,
+                        transportID
+                );
+
+                boolean isSaved = vehicle.saveVehicle(vehicleDTO);
+                if (isSaved) {
+                    refeshPage();
+                    new Alert(Alert.AlertType.INFORMATION, "Vehicle saved..!").show();
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Failed to save vehicle.").show();
+                }
             }
         } catch (NumberFormatException e) {
             new Alert(Alert.AlertType.WARNING, "Please enter valid numeric values where required.").show();
-        } catch (DateTimeParseException e) {
-            new Alert(Alert.AlertType.WARNING, "Invalid date format. Please enter a valid date.").show();
         } catch (Exception e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "An unexpected error occurred: " + e.getMessage()).show();
         }
-
 
     }
 
@@ -315,48 +528,40 @@ public class VehicleController implements Initializable {
         try {
             String importCompanyID = cmdImportCompanyID.getValue();
             String exportCompanyID = cmdExportCompanyID.getValue();
-            String vehicelId = lblVehicleID.getText();
+            String vehicleId = lblVehicleID.getText();
             String model = txtModel.getText();
-            int year = Integer.parseInt(txtYear.getText());
+            String year = txtYear.getText();
             String color = txtColor.getText();
-            String exportDate = (txtExportDate.getText() == null || txtExportDate.getText().isEmpty()) ? null : txtExportDate.getText();
-            String importDate = (txtImportDate.getText() == null || txtImportDate.getText().isEmpty()) ? null : txtImportDate.getText();
-            String saleDate = (txtSaleDate.getText() == null || txtSaleDate.getText().isEmpty()) ? null : txtSaleDate.getText();
-            Double exportPrice = (txtExportPrice.getText() == null || txtExportPrice.getText().isEmpty()) ? 0.0 : Double.valueOf(txtExportPrice.getText());
-            Double importPrice = (txtImportPrice.getText() == null || txtImportPrice.getText().isEmpty()) ? 0.0 : Double.valueOf(txtImportPrice.getText());
+            String exportDate = txtExportDate.getText().isEmpty() ? null : txtExportDate.getText();
+            String importDate = txtImportDate.getText().isEmpty() ? null : txtImportDate.getText();
+            String saleDate = txtSaleDate.getText().isEmpty() ? null : txtSaleDate.getText();
+            String exportPrice = txtExportPrice.getText().isEmpty() ? "0.0" : txtExportPrice.getText();
+            String importPrice = txtImportPrice.getText().isEmpty() ? "0.0" : txtImportPrice.getText();
             String reservationID = cmdRevervationID.getValue();
             String transportID = cmbTransportID.getValue();
 
+            // Validate required fields
             if (importCompanyID == null) {
                 new Alert(Alert.AlertType.WARNING, "Please select an import company.").show();
                 return;
             }
 
-            if (reservationID != null && exportCompanyID != null) {
-                new Alert(Alert.AlertType.WARNING, "You cannot add both Reservation ID and Export Company ID at the same time.").show();
-                return;
-            }
-
+            // Validation for Reservation ID and Export ID constraints
             if (reservationID != null) {
-                if (rbExport.isSelected()) {
-                    new Alert(Alert.AlertType.WARNING, "Transport method cannot be 'Export' when a reservation ID is set.").show();
+                if (exportCompanyID != null || exportDate != null || !exportPrice.equals("0.0")) {
+                    new Alert(Alert.AlertType.WARNING, "Export ID, Export Date, and Export Price cannot be added when Reservation ID is set.").show();
                     return;
                 }
-                exportPrice = 0.0;
-                exportDate = null;
             }
 
             if (exportCompanyID != null) {
-                if (rbSale.isSelected()) {
-                    new Alert(Alert.AlertType.WARNING, "Transport method cannot be 'Sale' when an export company ID is set.").show();
-                    return;
-                }
-                if (saleDate != null) {
-                    new Alert(Alert.AlertType.WARNING, "Sale date cannot be added when an export company ID is set.").show();
+                if (reservationID != null || saleDate != null) {
+                    new Alert(Alert.AlertType.WARNING, "Reservation ID and Sale Date cannot be added when Export ID is set.").show();
                     return;
                 }
             }
 
+            // Determine transport method
             String transportMethod;
             if (rbImport.isSelected()) {
                 transportMethod = "Import";
@@ -371,39 +576,80 @@ public class VehicleController implements Initializable {
                 return;
             }
 
-            VehicleDTO vehicleDTO = new VehicleDTO(
-                    importCompanyID,
-                    importDate,
-                    vehicelId,
-                    model,
-                    year,
-                    color,
-                    transportMethod,
-                    exportCompanyID,
-                    exportDate,
-                    saleDate,
-                    importPrice,
-                    exportPrice,
-                    reservationID,
-                    transportID
-            );
+            // Validation patterns
+            String modelPattern = "^[A-Za-z ]+$";
+            String colorPattern = "^[A-Za-z ]+$";
+            String datePattern = "^\\d{4}/(0[1-9]|1[0-2])/(0[1-9]|[12]\\d|3[01])$";
+            String doubleValuesPattern = "^\\d+(\\.\\d{1,2})?$";
+            String yearPattern = "^\\d{4}$";
 
-            boolean isUpdate = vehicle.updateVehicle(vehicleDTO);
-            if (isUpdate) {
-                refeshPage();
-                new Alert(Alert.AlertType.INFORMATION, "Vehicle updated..!").show();
-            } else {
-                new Alert(Alert.AlertType.ERROR, "Failed to update vehicle.").show();
+            // Validation flags
+            boolean isValidModel = model.matches(modelPattern);
+            boolean isValidYear = year.matches(yearPattern);
+            boolean isValidColor = color.matches(colorPattern);
+            boolean isValidImportDate = importDate == null || importDate.matches(datePattern);
+            boolean isValidExportDate = exportDate == null || exportDate.matches(datePattern);
+            boolean isValidSaleDate = saleDate == null || saleDate.matches(datePattern);
+            boolean isValidImportPrice = importPrice.matches(doubleValuesPattern);
+            boolean isValidExportPrice = exportPrice.matches(doubleValuesPattern);
+
+            // Update UI styles based on validation
+            String errorStyle = "-fx-border-color: red; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+            String style = "-fx-border-color: #1e3799; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+
+            txtModel.setStyle(isValidModel ? style : errorStyle);
+            txtYear.setStyle(isValidYear ? style : errorStyle);
+            txtColor.setStyle(isValidColor ? style : errorStyle);
+            txtImportDate.setStyle(isValidImportDate ? style : errorStyle);
+            txtExportDate.setStyle(isValidExportDate ? style : errorStyle);
+            txtSaleDate.setStyle(isValidSaleDate ? style : errorStyle);
+            txtImportPrice.setStyle(isValidImportPrice ? style : errorStyle);
+            txtExportPrice.setStyle(isValidExportPrice ? style : errorStyle);
+
+            // Parse numeric values
+            int yearParsed = Integer.parseInt(year);
+            double importPriceParsed = Double.parseDouble(importPrice);
+            double exportPriceParsed = Double.parseDouble(exportPrice);
+
+            if (yearParsed < 0 || importPriceParsed < 0 || exportPriceParsed < 0) {
+                new Alert(Alert.AlertType.WARNING, "Numeric values cannot be negative.").show();
+                return;
+            }
+
+            // Check all validations before saving
+            if (isValidModel && isValidYear && isValidColor && isValidImportDate && isValidExportDate
+                    && isValidSaleDate && isValidImportPrice && isValidExportPrice) {
+                VehicleDTO vehicleDTO = new VehicleDTO(
+                        importCompanyID,
+                        importDate,
+                        vehicleId,
+                        model,
+                        yearParsed,
+                        color,
+                        transportMethod,
+                        exportCompanyID,
+                        exportDate,
+                        saleDate,
+                        importPriceParsed,
+                        exportPriceParsed,
+                        reservationID,
+                        transportID
+                );
+
+                boolean isSaved = vehicle.saveVehicle(vehicleDTO);
+                if (isSaved) {
+                    refeshPage();
+                    new Alert(Alert.AlertType.INFORMATION, "Vehicle saved..!").show();
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Failed to save vehicle.").show();
+                }
             }
         } catch (NumberFormatException e) {
             new Alert(Alert.AlertType.WARNING, "Please enter valid numeric values where required.").show();
-        } catch (DateTimeParseException e) {
-            new Alert(Alert.AlertType.WARNING, "Invalid date format. Please enter a valid date.").show();
         } catch (Exception e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "An unexpected error occurred: " + e.getMessage()).show();
         }
-
     }
 
     @Override
