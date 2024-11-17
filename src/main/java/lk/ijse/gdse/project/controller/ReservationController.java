@@ -340,18 +340,31 @@ public class ReservationController implements Initializable {
             return;
         }
 
-        ReservationDTO reservationDTO = new ReservationDTO(
-                custID, reservationID, reservationDate
-        );
+        String datePattern = "^\\d{4}/(0[1-9]|1[0-2])/(0[1-9]|[12]\\d|3[01])$";
+
+        boolean isValidDate = reservationDate.matches(datePattern);
+        String errorStyle = "-fx-border-color: red; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+        String style = "-fx-border-color:  #1e3799; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+
+        if(!isValidDate){
+            txtReservDate.setStyle(errorStyle);
+        }else {
+            txtReservDate.setStyle(style);
+
+            ReservationDTO reservationDTO = new ReservationDTO(
+                    custID, reservationID, reservationDate
+            );
 
 
-        boolean isSave = reservationModel.saveReservation(reservationDTO);
-        if (isSave) {
-            refeshPage();
-            new Alert(Alert.AlertType.INFORMATION, "Reservation saved..!").show();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Reservation not saved..!").show();
+            boolean isSave = reservationModel.saveReservation(reservationDTO);
+            if (isSave) {
+                refeshPage();
+                new Alert(Alert.AlertType.INFORMATION, "Reservation saved..!").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Reservation not saved..!").show();
+            }
         }
+
     }
 
     @FXML
@@ -365,17 +378,30 @@ public class ReservationController implements Initializable {
             return;
         }
 
-        ReservationDTO reservationDTO = new ReservationDTO(
-                custID, reservationID, reservationDate
-        );
+        String datePattern = "^\\d{4}/(0[1-9]|1[0-2])/(0[1-9]|[12]\\d|3[01])$";
 
-        boolean isUpdated = reservationModel.updateReservation(reservationDTO);
-        if (isUpdated) {
-            refeshPage();
-            new Alert(Alert.AlertType.INFORMATION, "Reservation updated..!").show();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Reservation not updated..!").show();
+        boolean isValidDate = reservationDate.matches(datePattern);
+        String errorStyle = "-fx-border-color: red; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+        String style = "-fx-border-color:  #1e3799; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+
+        if(!isValidDate){
+            txtReservDate.setStyle(errorStyle);
+        }else {
+            txtReservDate.setStyle(style);
+
+            ReservationDTO reservationDTO = new ReservationDTO(
+                    custID, reservationID, reservationDate
+            );
+
+            boolean isUpdated = reservationModel.updateReservation(reservationDTO);
+            if (isUpdated) {
+                refeshPage();
+                new Alert(Alert.AlertType.INFORMATION, "Reservation updated..!").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Reservation not updated..!").show();
+            }
         }
+
     }
 
     @Override
