@@ -323,30 +323,68 @@ public class TaxController implements Initializable {
             return;
         }
 
-        double importTax, exportTax, groundTax;
-        try{
-            importTax = Double.parseDouble(txtImportTax.getText());
-            exportTax = Double.parseDouble(txtExportTax.getText());
-            groundTax = Double.parseDouble(txtGroundTax.getText());
+        String importTax = txtImportTax.getText();
+        String exportTax = txtExportTax.getText();
+        String groundTax = txtGroundTax.getText();
+
+        String doubleValuesPattern = "^\\d+(\\.\\d{1,2})?$";
+
+        boolean isValidImportTax = importTax.matches(doubleValuesPattern);
+        boolean isValidExportTax = exportTax.matches(doubleValuesPattern);
+        boolean isValidGroundTax = groundTax.matches(doubleValuesPattern);
+        String errorStyle = "-fx-border-color: red; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+        String style = "-fx-border-color:  #1e3799; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+
+        if(!isValidImportTax){
+            txtImportTax.setStyle(errorStyle);
+        }else{
+            txtImportTax.setStyle(style);
+        }
+        if(!isValidExportTax){
+            txtExportTax.setStyle(errorStyle);
+        }else{
+            txtExportTax.setStyle(style);
+        }
+        if(!isValidGroundTax){
+            txtGroundTax.setStyle(errorStyle);
+        }else{
+            txtGroundTax.setStyle(style);
+        }
+
+
+        double importt = 0.0, export = 0.0, ground = 0.0;
+
+        try {
+            importt = Double.parseDouble(importTax);
+            export = Double.parseDouble(exportTax);
+            ground = Double.parseDouble(groundTax);
+
+            if (importt < 0 || export < 0 || ground < 0) {
+                new Alert(Alert.AlertType.WARNING, "Tax values cannot be negative.").show();
+                return;
+            }
+
         } catch (NumberFormatException e) {
-            new Alert(Alert.AlertType.WARNING, "Please enter valid amounts for taxes.").show();
+            new Alert(Alert.AlertType.WARNING, "Please enter valid numeric values for all taxes.").show();
             return;
         }
 
-        TaxDTO taxDTO = new TaxDTO(
-            vehicleId,
-                taxId,
-                importTax,
-                exportTax,
-                groundTax
-        );
+        if(isValidExportTax && isValidImportTax && isValidGroundTax){
+            TaxDTO taxDTO = new TaxDTO(
+                    vehicleId,
+                    taxId,
+                    importt,
+                    export,
+                    ground
+            );
 
-        boolean isSaved = taxModel.saveTax(taxDTO);
-        if (isSaved) {
-            refeshPage();
-            new Alert(Alert.AlertType.INFORMATION, "Tax was saved.").show();
-        }else{
-            new Alert(Alert.AlertType.ERROR, "Tax was not saved.").show();
+            boolean isSaved = taxModel.saveTax(taxDTO);
+            if (isSaved) {
+                refeshPage();
+                new Alert(Alert.AlertType.INFORMATION, "Tax was saved.").show();
+            }else{
+                new Alert(Alert.AlertType.ERROR, "Tax was not saved.").show();
+            }
         }
 
     }
@@ -361,30 +399,68 @@ public class TaxController implements Initializable {
             return;
         }
 
-        double importTax, exportTax, groundTax;
-        try{
-            importTax = Double.parseDouble(txtImportTax.getText());
-            exportTax = Double.parseDouble(txtExportTax.getText());
-            groundTax = Double.parseDouble(txtGroundTax.getText());
+        String importTax = txtImportTax.getText();
+        String exportTax = txtExportTax.getText();
+        String groundTax = txtGroundTax.getText();
+
+        String doubleValuesPattern = "^\\d+(\\.\\d{1,2})?$";
+
+        boolean isValidImportTax = importTax.matches(doubleValuesPattern);
+        boolean isValidExportTax = exportTax.matches(doubleValuesPattern);
+        boolean isValidGroundTax = groundTax.matches(doubleValuesPattern);
+        String errorStyle = "-fx-border-color: red; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+        String style = "-fx-border-color:  #1e3799; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+
+        if(!isValidImportTax){
+            txtImportTax.setStyle(errorStyle);
+        }else{
+            txtImportTax.setStyle(style);
+        }
+        if(!isValidExportTax){
+            txtExportTax.setStyle(errorStyle);
+        }else{
+            txtExportTax.setStyle(style);
+        }
+        if(!isValidGroundTax){
+            txtGroundTax.setStyle(errorStyle);
+        }else{
+            txtGroundTax.setStyle(style);
+        }
+
+
+        double importt = 0.0, export = 0.0, ground = 0.0;
+
+        try {
+            importt = Double.parseDouble(importTax);
+            export = Double.parseDouble(exportTax);
+            ground = Double.parseDouble(groundTax);
+
+            if (importt < 0 || export < 0 || ground < 0) {
+                new Alert(Alert.AlertType.WARNING, "Tax values cannot be negative.").show();
+                return;
+            }
+
         } catch (NumberFormatException e) {
-            new Alert(Alert.AlertType.WARNING, "Please enter valid amounts for taxes.").show();
+            new Alert(Alert.AlertType.WARNING, "Please enter valid numeric values for all taxes.").show();
             return;
         }
 
-        TaxDTO taxDTO = new TaxDTO(
-                vehicleId,
-                taxId,
-                importTax,
-                exportTax,
-                groundTax
-        );
+        if(isValidExportTax && isValidImportTax && isValidGroundTax){
+            TaxDTO taxDTO = new TaxDTO(
+                    vehicleId,
+                    taxId,
+                    importt,
+                    export,
+                    ground
+            );
 
-        boolean isUpdated = taxModel.updateTax(taxDTO);
-        if (isUpdated) {
-            refeshPage();
-            new Alert(Alert.AlertType.INFORMATION, "Tax was updated.").show();
-        }else{
-            new Alert(Alert.AlertType.ERROR, "Tax was not update.").show();
+            boolean isUpdated = taxModel.updateTax(taxDTO);
+            if (isUpdated) {
+                refeshPage();
+                new Alert(Alert.AlertType.INFORMATION, "Tax was updated.").show();
+            }else{
+                new Alert(Alert.AlertType.ERROR, "Tax was not update.").show();
+            }
         }
 
     }
