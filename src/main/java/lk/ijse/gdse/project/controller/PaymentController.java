@@ -149,14 +149,42 @@ public class PaymentController implements Initializable {
             return;
         }
 
-        double deposit, totalAmount, remainingAmount;
-        try {
-            deposit = Double.parseDouble(txtDeposite.getText());
-            totalAmount = Double.parseDouble(txtTotalAmount.getText());
-            remainingAmount = totalAmount - deposit;
+        String depositInput = txtDeposite.getText();
+        String totalAmountInput = txtTotalAmount.getText();
+
+        String doubleValuesPattern = "^\\d+(\\.\\d{1,2})?$";
+
+        boolean isValidDeposite = depositInput.matches(doubleValuesPattern);
+        boolean isValidTotalAmount = totalAmountInput.matches(doubleValuesPattern);
+        String errorStyle = "-fx-border-color: red; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+        String style = "-fx-border-color:  #1e3799; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+
+        if (!isValidDeposite) {
+            txtDeposite.setStyle(errorStyle);
+        }else{
+            txtDeposite.setStyle(style);
+        }
+        if (!isValidTotalAmount) {
+            txtTotalAmount.setStyle(errorStyle);
+        }else{
+            txtTotalAmount.setStyle(style);
+        }
+
+        double deposit = 0.0;
+        double totalAmount = 0.0;
+        double remainingAmount = 0.0;
+        try{
+             deposit = Double.parseDouble(depositInput);
+             totalAmount = Double.parseDouble(totalAmountInput);
+             remainingAmount = totalAmount - deposit;
+
+            if (remainingAmount < 0) {
+                new Alert(Alert.AlertType.WARNING, "Deposit amount cannot exceed total amount.").show();
+                return;
+            }
+
         } catch (NumberFormatException e) {
-            new Alert(Alert.AlertType.WARNING, "Please enter valid amounts for deposit and total amount.").show();
-            return;
+            new Alert(Alert.AlertType.ERROR, "Please enter valid numeric values for Deposit and Total Amount.").show();
         }
 
         String payMethod;
@@ -169,22 +197,24 @@ public class PaymentController implements Initializable {
             return;
         }
 
-        PaymentDTO paymentDTO = new PaymentDTO(
-                reservationId,
-                payId,
-                payMethod,
-                deposit,
-                totalAmount,
-                remainingAmount
-        );
+            if(isValidDeposite && isValidTotalAmount){
+                PaymentDTO paymentDTO = new PaymentDTO(
+                        reservationId,
+                        payId,
+                        payMethod,
+                        deposit,
+                        totalAmount,
+                        remainingAmount
+                );
 
-        boolean isSaved = paymentModel.savePayment(paymentDTO);
-        if (isSaved) {
-            refeshPage();
-            new Alert(Alert.AlertType.INFORMATION, "Payment saved..!").show();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Failed to save payment.").show();
-        }
+                boolean isSaved = paymentModel.savePayment(paymentDTO);
+                if (isSaved) {
+                    refeshPage();
+                    new Alert(Alert.AlertType.INFORMATION, "Payment saved..!").show();
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Failed to save payment.").show();
+                }
+            }
     }
 
     @FXML
@@ -197,14 +227,42 @@ public class PaymentController implements Initializable {
             return;
         }
 
-        double deposit, totalAmount, remainingAmount;
-        try {
-            deposit = Double.parseDouble(txtDeposite.getText());
-            totalAmount = Double.parseDouble(txtTotalAmount.getText());
+        String depositInput = txtDeposite.getText();
+        String totalAmountInput = txtTotalAmount.getText();
+
+        String doubleValuesPattern = "^\\d+(\\.\\d{1,2})?$";
+
+        boolean isValidDeposite = depositInput.matches(doubleValuesPattern);
+        boolean isValidTotalAmount = totalAmountInput.matches(doubleValuesPattern);
+        String errorStyle = "-fx-border-color: red; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+        String style = "-fx-border-color:  #1e3799; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+
+        if (!isValidDeposite) {
+            txtDeposite.setStyle(errorStyle);
+        }else{
+            txtDeposite.setStyle(style);
+        }
+        if (!isValidTotalAmount) {
+            txtTotalAmount.setStyle(errorStyle);
+        }else{
+            txtTotalAmount.setStyle(style);
+        }
+
+        double deposit = 0.0;
+        double totalAmount = 0.0;
+        double remainingAmount = 0.0;
+        try{
+            deposit = Double.parseDouble(depositInput);
+            totalAmount = Double.parseDouble(totalAmountInput);
             remainingAmount = totalAmount - deposit;
+
+            if (remainingAmount < 0) {
+                new Alert(Alert.AlertType.WARNING, "Deposit amount cannot exceed total amount.").show();
+                return;
+            }
+
         } catch (NumberFormatException e) {
-            new Alert(Alert.AlertType.WARNING, "Please enter valid amounts for deposit and total amount.").show();
-            return;
+            new Alert(Alert.AlertType.ERROR, "Please enter valid numeric values for Deposit and Total Amount.").show();
         }
 
         String payMethod;
@@ -217,23 +275,24 @@ public class PaymentController implements Initializable {
             return;
         }
 
-        PaymentDTO paymentDTO = new PaymentDTO(
-                reservationId,
-                payId,
-                payMethod,
-                deposit,
-                totalAmount,
-                remainingAmount
-        );
+        if(isValidDeposite && isValidTotalAmount){
+            PaymentDTO paymentDTO = new PaymentDTO(
+                    reservationId,
+                    payId,
+                    payMethod,
+                    deposit,
+                    totalAmount,
+                    remainingAmount
+            );
 
-        boolean isUpdated = paymentModel.updatePayment(paymentDTO);
-        if (isUpdated) {
-            refeshPage();
-            new Alert(Alert.AlertType.INFORMATION, "Payment updated..!").show();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Failed to update payment.").show();
+            boolean isUpdated = paymentModel.updatePayment(paymentDTO);
+            if (isUpdated) {
+                refeshPage();
+                new Alert(Alert.AlertType.INFORMATION, "Payment updated..!").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Failed to update payment.").show();
+            }
         }
-
     }
 
     @Override
@@ -299,7 +358,7 @@ private void loadTableData() throws SQLException, ClassNotFoundException {
         colPayMethod.setCellValueFactory(new PropertyValueFactory<>("payment_method"));
         colDeposite.setCellValueFactory(new PropertyValueFactory<>("deposite"));
         colTotalAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
-        colRemainAmount.setCellValueFactory(new PropertyValueFactory<>("remainingAmount"));
+        colRemainAmount.setCellValueFactory(new PropertyValueFactory<>("remain_amount"));
     }
 
 

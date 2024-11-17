@@ -82,7 +82,7 @@
                               <Font name="Calibri" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtDeposite" prefHeight="28.0" prefWidth="232.0" style="-fx-border-color: #1e3799; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;">
+                        <TextField fx:id="txtDeposite" prefHeight="28.0" prefWidth="232.0" promptText="500000.00" style="-fx-border-color: #1e3799; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;">
                            <cursor>
                               <Cursor fx:constant="TEXT" />
                            </cursor></TextField>
@@ -95,7 +95,7 @@
                               <Font name="Calibri" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtTotalAmount" prefHeight="28.0" prefWidth="230.0" style="-fx-background-color: transparent; -fx-border-color: #1e3799; -fx-border-width: 0 0 1 0;">
+                        <TextField fx:id="txtTotalAmount" prefHeight="28.0" prefWidth="230.0" promptText="2000000.00" style="-fx-background-color: transparent; -fx-border-color: #1e3799; -fx-border-width: 0 0 1 0;">
                            <cursor>
                               <Cursor fx:constant="TEXT" />
                            </cursor></TextField>
