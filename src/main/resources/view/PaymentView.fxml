@@ -101,6 +101,28 @@
                            </cursor></TextField>
                      </children>
                   </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="192.0" prefHeight="45.0" prefWidth="40.0" spacing="45.0">
+                     <children>
+                        <Label prefHeight="24.0" prefWidth="87.0" text="status">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <RadioButton fx:id="rbPaid" mnemonicParsing="false" text="paid">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="payStatus" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="rbUnpaid" mnemonicParsing="false" text="unpaid" toggleGroup="$payStatus">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
             <HBox alignment="CENTER" onDragDetected="#generateReport" prefHeight="35.0" prefWidth="808.0" spacing="30.0">
@@ -141,12 +163,13 @@
             </HBox>
             <TableView fx:id="tblPayment" onMouseClicked="#onClickedTable" prefHeight="306.0" prefWidth="835.0">
                <columns>
-                  <TableColumn fx:id="colReserID" prefWidth="113.60000228881836" text="Reservation ID" />
-                  <TableColumn fx:id="colPayID" prefWidth="101.60003662109375" text="Pay ID" />
-                  <TableColumn fx:id="colPayMethod" prefWidth="145.5999755859375" text="Pay Method" />
-                  <TableColumn fx:id="colTotalAmount" minWidth="2.4000244140625" prefWidth="124.80001831054688" text="Total Amount" />
-                  <TableColumn fx:id="colDeposite" prefWidth="131.20001220703125" text="Deposite" />
-                  <TableColumn fx:id="colRemainAmount" prefWidth="181.60003662109375" text="Remain Amount" />
+                  <TableColumn fx:id="colReserID" prefWidth="92.80002021789551" text="Reservation ID" />
+                  <TableColumn fx:id="colPayID" prefWidth="111.19994354248047" text="Pay ID" />
+                  <TableColumn fx:id="colPayMethod" prefWidth="120.79998779296875" text="Pay Method" />
+                  <TableColumn fx:id="colTotalAmount" minWidth="2.4000244140625" prefWidth="108.0" text="Total Amount" />
+                  <TableColumn fx:id="colDeposite" prefWidth="112.00009155273438" text="Deposite" />
+                  <TableColumn fx:id="colRemainAmount" prefWidth="134.40008544921875" text="Remain Amount" />
+                  <TableColumn fx:id="colStatus" prefWidth="118.39990234375" text="Remain Amount" />
                </columns>
                <cursor>
                   <Cursor fx:constant="OPEN_HAND" />

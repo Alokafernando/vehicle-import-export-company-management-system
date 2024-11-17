@@ -15,5 +15,6 @@ public class PaymentTM {
     private double deposite;
     private double amount;
     private double remain_amount;
+    private String status;
 
 }

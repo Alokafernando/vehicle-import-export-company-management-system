@@ -32,7 +32,8 @@ public class PaymentModel {
                     resultSet.getString(3),
                     Double.parseDouble(resultSet.getString(4)),
                     Double.parseDouble(resultSet.getString(5)),
-                    Double.parseDouble(resultSet.getString(6))
+                    Double.parseDouble(resultSet.getString(6)),
+                    resultSet.getString(7)
             );
             paymentDTOS.add(paymentDTO);
         }
@@ -40,21 +41,23 @@ public class PaymentModel {
     }
 
     public boolean savePayment(PaymentDTO paymentDTO) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("insert into payment values (?, ?, ?, ?, ?, ?)",
+        return CrudUtil.execute("insert into payment values (?, ?, ?, ?, ?, ?, ?)",
                 paymentDTO.getReservation_id(),
                 paymentDTO.getPay_id(),
                 paymentDTO.getPayment_method(),
                 paymentDTO.getDeposite(),
                 paymentDTO.getAmount(),
-                paymentDTO.getRemain_amount());
+                paymentDTO.getRemain_amount(),
+                paymentDTO.getStatus());
     }
     public boolean updatePayment(PaymentDTO paymentDTO) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("update payment set reservation_id=?,  pay_method=?, deposite=?, amount=?, remain_amount=? where pay_id=?",
+        return CrudUtil.execute("update payment set reservation_id=?,  pay_method=?, deposite=?, amount=?, remain_amount=?, status=? where pay_id=?",
                 paymentDTO.getReservation_id(),
                 paymentDTO.getPayment_method(),
                 paymentDTO.getDeposite(),
                 paymentDTO.getAmount(),
                 paymentDTO.getRemain_amount(),
+                paymentDTO.getStatus(),
                 paymentDTO.getPay_id());
     }
 

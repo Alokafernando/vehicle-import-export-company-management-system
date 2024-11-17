@@ -53,6 +53,9 @@ public class PaymentController implements Initializable {
     private TableColumn<PaymentTM, String> colReserID;
 
     @FXML
+    private TableColumn<PaymentTM, String> colStatus;
+
+    @FXML
     private TableColumn<PaymentTM, Double> colTotalAmount;
 
     @FXML
@@ -62,10 +65,19 @@ public class PaymentController implements Initializable {
     private ToggleGroup payMethod;
 
     @FXML
+    private ToggleGroup payStatus;
+
+    @FXML
     private RadioButton rbCash;
 
     @FXML
     private RadioButton rbCheque;
+
+    @FXML
+    private RadioButton rbPaid;
+
+    @FXML
+    private RadioButton rbUnpaid;
 
     @FXML
     private TableView<PaymentTM> tblPayment;
@@ -134,6 +146,14 @@ public class PaymentController implements Initializable {
                 rbCheque.setSelected(true);
             }
 
+        if("paid".equalsIgnoreCase(paymentTM.getStatus())) {
+            rbPaid.setSelected(true);
+            rbUnpaid.setSelected(false);
+        } else if ("unpaid".equalsIgnoreCase(paymentTM.getStatus())) {
+            rbPaid.setSelected(false);
+            rbUnpaid.setSelected(true);
+        }
+
         btnSave.setDisable(true);
         btnUpdate.setDisable(false);
         btnDelete.setDisable(false);
@@ -197,14 +217,25 @@ public class PaymentController implements Initializable {
             return;
         }
 
-            if(isValidDeposite && isValidTotalAmount){
+        String payStatus;
+        if(rbPaid.isSelected()){
+            payStatus = "paid";
+        } else if (rbUnpaid.isSelected()) {
+            payStatus = "unpaid";
+        }else{
+            new Alert(Alert.AlertType.WARNING, "Please select a pay status.").show();
+            return;
+        }
+
+        if(isValidDeposite && isValidTotalAmount){
                 PaymentDTO paymentDTO = new PaymentDTO(
                         reservationId,
                         payId,
                         payMethod,
                         deposit,
                         totalAmount,
-                        remainingAmount
+                        remainingAmount,
+                        payStatus
                 );
 
                 boolean isSaved = paymentModel.savePayment(paymentDTO);
@@ -275,6 +306,16 @@ public class PaymentController implements Initializable {
             return;
         }
 
+        String payStatus;
+        if(rbPaid.isSelected()){
+            payStatus = "paid";
+        } else if (rbUnpaid.isSelected()) {
+            payStatus = "unpaid";
+        }else{
+            new Alert(Alert.AlertType.WARNING, "Please select a pay status.").show();
+            return;
+        }
+
         if(isValidDeposite && isValidTotalAmount){
             PaymentDTO paymentDTO = new PaymentDTO(
                     reservationId,
@@ -282,7 +323,8 @@ public class PaymentController implements Initializable {
                     payMethod,
                     deposit,
                     totalAmount,
-                    remainingAmount
+                    remainingAmount,
+                    payStatus
             );
 
             boolean isUpdated = paymentModel.updatePayment(paymentDTO);
@@ -310,6 +352,7 @@ public class PaymentController implements Initializable {
     private void refeshPage() throws SQLException, ClassNotFoundException {
         lblPayID.setText(paymentModel.getNextPayId());
         payMethod.selectToggle(null);
+        payStatus.selectToggle(null);
         txtDeposite.clear();
         txtTotalAmount.clear();
         cmbReservationID.getSelectionModel().clearSelection();
@@ -335,7 +378,8 @@ private void loadTableData() throws SQLException, ClassNotFoundException {
                 paymentDTO.getPayment_method(),
                 paymentDTO.getDeposite(),
                 paymentDTO.getAmount(),
-                remainAmount // setting remainingAmount here
+                remainAmount,
+                paymentDTO.getStatus()
         );
 
         paymentTMS.add(paymentTM);
@@ -359,6 +403,7 @@ private void loadTableData() throws SQLException, ClassNotFoundException {
         colDeposite.setCellValueFactory(new PropertyValueFactory<>("deposite"));
         colTotalAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
         colRemainAmount.setCellValueFactory(new PropertyValueFactory<>("remain_amount"));
+        colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
     }
 
 
