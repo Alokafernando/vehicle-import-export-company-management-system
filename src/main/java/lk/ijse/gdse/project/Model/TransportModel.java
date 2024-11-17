@@ -11,44 +11,21 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class TransportModel {
-//    public String getNextTransportID() throws SQLException, ClassNotFoundException {
-//        ResultSet resultSet = CrudUtil.execute("select transport_id from transport order by transport_id desc limit 1");
-//
-//        if (resultSet.next()) {
-////            String lastID = resultSet.getString(1);
-////            String subString = lastID.substring(1);
-//            String lastID = resultSet.getString(1);
-//            String subString = lastID.substring(1);
-//
-////            int i = Integer.parseInt(subString);
-////            int newIndex = i+1;
-//            int i = Integer.parseInt(subString);
-//            int newIndex = i + 1;
-//
-//            return String.format("T%03d", newIndex);
-//        }
-//        return "T001";
-//    }
-public String getNextTransportID() throws SQLException, ClassNotFoundException {
-    ResultSet resultSet = CrudUtil.execute("select transport_id from transport order by transport_id desc limit 1");
+    public String getNextTransportID() throws SQLException, ClassNotFoundException {
+        ResultSet resultSet = CrudUtil.execute("select transport_id from transport order by transport_id desc limit 1");
 
-    if (resultSet.next()) {
-        String lastID = resultSet.getString(1);
-
-        // Check if the ID has a prefix like "r" and remove it
-        String subString = lastID.replaceAll("[^0-9]", ""); // Remove all non-numeric characters
-
-        // Handle the case when there is no numeric part (e.g., "r001")
-        if (subString.isEmpty()) {
-            throw new SQLException("Invalid ID format in the database: " + lastID);
+        if (resultSet.next()) {
+            String lastID = resultSet.getString(1);
+            String subString = lastID.replaceAll("[^0-9]", "");
+            if (subString.isEmpty()) {
+                throw new SQLException("Invalid ID format in the database: " + lastID);
+            }
+            int i = Integer.parseInt(subString);
+            int newIndex = i + 1;
+            return String.format("T%03d", newIndex);
         }
-
-        int i = Integer.parseInt(subString);
-        int newIndex = i + 1;
-        return String.format("T%03d", newIndex); // Formatting the new transport ID
+        return "T001";
     }
-    return "T001"; // Default transport ID if no records exist
-}
 
 
     public ArrayList<TransportDTO> getAllTransports() throws SQLException, ClassNotFoundException {
