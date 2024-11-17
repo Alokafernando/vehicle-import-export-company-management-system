@@ -162,20 +162,57 @@ public class ExportCompaniesController implements Initializable {
         String exportCompanyCountry = txtCountry.getText();
         String exportCompanyEmail = txtEmail.getText();
 
-        ExportCompanyDTO exportCompanyDTO = new ExportCompanyDTO(
-                exportCompanyID,
-                exportCompanyName,
-                exportCompanyCountry,
-                exportCompanyContact,
-                exportCompanyEmail
-        );
-        boolean isSaved = exportCompanyModel.saveExportCompany(exportCompanyDTO);
-        if (isSaved) {
-            refeshPage();
-            new Alert(Alert.AlertType.INFORMATION, "Export company saved..!").show();
-        }else{
-            new Alert(Alert.AlertType.ERROR, "Fail to export company save").show();
+        String namePattern = "^[A-Za-z ]+$";
+        String countryPattern = "^[A-Za-z ]+$";
+        String emailPattern = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+        String phonePattern = "^(\\d+)||((\\d+\\.)(\\d){2})$";
+
+        boolean isValidName = exportCompanyName.matches(namePattern);
+        boolean isValidCountry = exportCompanyCountry.matches(countryPattern);
+        boolean isValidEmail = exportCompanyEmail.matches(emailPattern);
+        boolean isValidPhone = exportCompanyContact.matches(phonePattern);
+        String errorStyle = "-fx-border-color: red; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+        String style = "-fx-border-color:  #1e3799; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+
+
+        if(!isValidName){
+            txtCompanyName.setStyle(errorStyle);
+        }else {
+            txtCompanyName.setStyle(style);
         }
+        if(!isValidCountry){
+            txtCountry.setStyle(errorStyle);
+        }else {
+            txtCountry.setStyle(style);
+        }
+        if(!isValidEmail){
+            txtEmail.setStyle(errorStyle);
+        }else {
+            txtEmail.setStyle(style);
+        }
+        if(!isValidPhone){
+            txtContact.setStyle(errorStyle);
+        }else {
+            txtContact.setStyle(style);
+        }
+
+        if(isValidName && isValidCountry && isValidEmail && isValidPhone){
+            ExportCompanyDTO exportCompanyDTO = new ExportCompanyDTO(
+                    exportCompanyID,
+                    exportCompanyName,
+                    exportCompanyCountry,
+                    exportCompanyContact,
+                    exportCompanyEmail
+            );
+            boolean isSaved = exportCompanyModel.saveExportCompany(exportCompanyDTO);
+            if (isSaved) {
+                refeshPage();
+                new Alert(Alert.AlertType.INFORMATION, "Export company saved..!").show();
+            }else{
+                new Alert(Alert.AlertType.ERROR, "Fail to export company save").show();
+            }
+        }
+
     }
 
     @FXML
@@ -186,19 +223,55 @@ public class ExportCompaniesController implements Initializable {
         String exportCompanyCountry = txtCountry.getText();
         String exportCompanyEmail = txtEmail.getText();
 
-        ExportCompanyDTO exportCompanyDTO = new ExportCompanyDTO(
-                exportCompanyID,
-                exportCompanyName,
-                exportCompanyCountry,
-                exportCompanyContact,
-                exportCompanyEmail
-        );
-        boolean isUpdated = exportCompanyModel.updateExportCompany(exportCompanyDTO);
-        if (isUpdated) {
-            refeshPage();
-            new Alert(Alert.AlertType.INFORMATION, "Export company updated..!").show();
-        }else{
-            new Alert(Alert.AlertType.ERROR, "Fail to export company updated").show();
+        String namePattern = "^[A-Za-z ]+$";
+        String countryPattern = "^[A-Za-z ]+$";
+        String emailPattern = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+        String phonePattern = "^(\\d+)||((\\d+\\.)(\\d){2})$";
+
+        boolean isValidName = exportCompanyName.matches(namePattern);
+        boolean isValidCountry = exportCompanyCountry.matches(countryPattern);
+        boolean isValidEmail = exportCompanyEmail.matches(emailPattern);
+        boolean isValidPhone = exportCompanyContact.matches(phonePattern);
+        String errorStyle = "-fx-border-color: red; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+        String style = "-fx-border-color:  #1e3799; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+
+
+        if(!isValidName){
+            txtCompanyName.setStyle(errorStyle);
+        }else {
+            txtCompanyName.setStyle(style);
+        }
+        if(!isValidCountry){
+            txtCountry.setStyle(errorStyle);
+        }else {
+            txtCountry.setStyle(style);
+        }
+        if(!isValidEmail){
+            txtEmail.setStyle(errorStyle);
+        }else {
+            txtEmail.setStyle(style);
+        }
+        if(!isValidPhone){
+            txtContact.setStyle(errorStyle);
+        }else {
+            txtContact.setStyle(style);
+        }
+
+        if(isValidName && isValidCountry && isValidEmail && isValidPhone){
+            ExportCompanyDTO exportCompanyDTO = new ExportCompanyDTO(
+                    exportCompanyID,
+                    exportCompanyName,
+                    exportCompanyCountry,
+                    exportCompanyContact,
+                    exportCompanyEmail
+            );
+            boolean isUpdated = exportCompanyModel.updateExportCompany(exportCompanyDTO);
+            if (isUpdated) {
+                refeshPage();
+                new Alert(Alert.AlertType.INFORMATION, "Export company updated..!").show();
+            }else{
+                new Alert(Alert.AlertType.ERROR, "Fail to export company updated").show();
+            }
         }
 
     }

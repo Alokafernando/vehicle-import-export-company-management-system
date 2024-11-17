@@ -115,16 +115,53 @@ public class CustomerController implements Initializable {
         String contact = txtContact.getText();
         String email = txtEmail.getText();
 
-        CustomerDTO customerDTO = new CustomerDTO(customerID, name, address, contact, email);
+        String namePattern = "^[A-Za-z ]+$";
+        String addressPattern = "[a-zA-Z0-9@.]+$";
+        String emailPattern = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+        String phonePattern = "^(\\d+)||((\\d+\\.)(\\d){2})$";
 
-        boolean isSaved = customerModel.saveCustomer(customerDTO);
-        if (isSaved) {
-            refreshPage();
-            new Alert(Alert.AlertType.INFORMATION, "Customer saved...!").show();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Fail to save customer...!").show();
+        boolean isValidName = name.matches(namePattern);
+        boolean isValidAddress = address.matches(addressPattern);
+        boolean isValidContact = contact.matches(phonePattern);
+        boolean isValidEmail = email.matches(emailPattern);
+        String errorStyle = "-fx-border-color: red; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+        String style = "-fx-border-color:  #1e3799; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+
+
+        if(!isValidName){
+            txtName.setStyle(errorStyle);
+        }else{
+            txtName.setStyle(style);
+        }
+        if(!isValidAddress){
+            txtAddress.setStyle(errorStyle);
+        }else{
+            txtAddress.setStyle(style);
+        }
+        if(!isValidContact){
+            txtContact.setStyle(errorStyle);
+        }else {
+            txtContact.setStyle(style);
+        }
+        if(!isValidEmail){
+            txtEmail.setStyle(errorStyle);
+        }else {
+            txtEmail.setStyle(style);
         }
 
+        if(isValidName && isValidAddress && isValidContact && isValidEmail){
+            CustomerDTO customerDTO = new CustomerDTO(customerID, name, address, contact, email);
+
+            boolean isSaved = customerModel.saveCustomer(customerDTO);
+            if (isSaved) {
+                refreshPage();
+                new Alert(Alert.AlertType.INFORMATION, "Customer saved...!").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Fail to save customer...!").show();
+            }
+        }else{
+            new Alert(Alert.AlertType.ERROR, "Invalid input! Please ensure all fields are correctly filled.").show();
+        }
     }
 
     @FXML
@@ -135,13 +172,52 @@ public class CustomerController implements Initializable {
         String contact = txtContact.getText();
         String email = txtEmail.getText();
 
-        CustomerDTO customerDTO = new CustomerDTO(customerID, name, address, contact, email);
-        boolean isUpdated = customerModel.updateCustomer(customerDTO);
-        if (isUpdated) {
-            refreshPage();
-            new Alert(Alert.AlertType.INFORMATION, "Customer updated...!").show();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Fail to update customer...!").show();
+        String namePattern = "^[A-Za-z ]+$";
+        String addressPattern = "[a-zA-Z0-9@.]+$";
+        String emailPattern = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+        String phonePattern = "^(\\d+)||((\\d+\\.)(\\d){2})$";
+
+        boolean isValidName = name.matches(namePattern);
+        boolean isValidAddress = address.matches(addressPattern);
+        boolean isValidContact = contact.matches(phonePattern);
+        boolean isValidEmail = email.matches(emailPattern);
+        String errorStyle = "-fx-border-color: red; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+        String style = "-fx-border-color:  #1e3799; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+
+
+        if(!isValidName){
+            txtName.setStyle(errorStyle);
+        }else{
+            txtName.setStyle(style);
+        }
+        if(!isValidAddress){
+            txtAddress.setStyle(errorStyle);
+        }else{
+            txtAddress.setStyle(style);
+        }
+        if(!isValidContact){
+            txtContact.setStyle(errorStyle);
+        }else {
+            txtContact.setStyle(style);
+        }
+        if(!isValidEmail){
+            txtEmail.setStyle(errorStyle);
+        }else {
+            txtEmail.setStyle(style);
+        }
+
+        if(isValidName && isValidAddress && isValidContact && isValidEmail){
+            CustomerDTO customerDTO = new CustomerDTO(customerID, name, address, contact, email);
+
+            boolean isUpdated = customerModel.updateCustomer(customerDTO);
+            if (isUpdated) {
+                refreshPage();
+                new Alert(Alert.AlertType.INFORMATION, "Customer updated...!").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Fail to update customer...!").show();
+            }
+        }else{
+            new Alert(Alert.AlertType.ERROR, "Invalid input! Please ensure all fields are correctly filled.").show();
         }
     }
 

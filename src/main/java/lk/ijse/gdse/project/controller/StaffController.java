@@ -117,25 +117,63 @@ public class StaffController  implements Initializable {
         String staffID = lblStaffID.getText();
         String staffName = txtStaffName.getText();
         String staffAddress = txtStaffAddress.getText();
-        Double salary = Double.parseDouble(txtStaffSalary.getText());
+        String salaryInput = txtStaffSalary.getText();
         String role = txtStaffRole.getText();
 
+        String namePattern = "^[A-Za-z ]+$";
+        String addressPattern = "[a-zA-Z0-9@.]+$";
+        String salaryPattern = "^\\d+(\\.\\d{1,2})?$";
+        String rolePattern = "^[A-Za-z ]+$";
+
+        boolean isValidName = staffName.matches(namePattern);
+        boolean isValidAddress = staffAddress.matches(addressPattern);
+        boolean isValidSalary = salaryInput.matches(salaryPattern);
+        boolean isValidRole = role.matches(rolePattern);
+        String errorStyle = "-fx-border-color: red; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+        String style = "-fx-border-color:  #1e3799; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
 
 
-        StaffDTO staffDTO = new StaffDTO(
-                staffID,
-                staffName,
-                staffAddress,
-                salary,
-                role
-        );
-
-        boolean isSaved = staffModel.saveStaff(staffDTO);
-        if (isSaved) {
-            refeshPage();
-            new Alert(Alert.AlertType.INFORMATION, "Staff saved...!").show();
+        if(!isValidName){
+            txtStaffName.setStyle(errorStyle);
+        }else {
+            txtStaffName.setStyle(style);
+        }
+        if(!isValidAddress){
+            txtStaffAddress.setStyle(errorStyle);
         }else{
-            new Alert(Alert.AlertType.ERROR, "Fail to save staff...!").show();
+            txtStaffAddress.setStyle(style);
+        }
+        if(!isValidRole){
+            txtStaffRole.setStyle(errorStyle);
+        }else {
+            txtStaffRole.setStyle(style);
+        }
+        Double salary = null;
+        if (isValidSalary) {
+            salary = Double.valueOf(salaryInput);
+            txtStaffSalary.setStyle(style);
+        } else {
+            txtStaffSalary.setStyle(errorStyle);
+            new Alert(Alert.AlertType.ERROR, "Invalid salary. Please enter a valid numeric value.").show();
+        }
+
+        if (isValidName && isValidAddress && isValidRole && isValidSalary) {
+            StaffDTO staffDTO = new StaffDTO(
+                    staffID,
+                    staffName,
+                    staffAddress,
+                    salary,
+                    role
+            );
+
+            boolean isSaved = staffModel.saveStaff(staffDTO);
+            if (isSaved) {
+                refeshPage();
+                new Alert(Alert.AlertType.INFORMATION, "Staff saved...!").show();
+            }else{
+                new Alert(Alert.AlertType.ERROR, "Fail to save staff...!").show();
+            }
+
         }
 
     }
@@ -147,6 +185,37 @@ public class StaffController  implements Initializable {
         String staffAddress = txtStaffAddress.getText();
         Double salary = Double.parseDouble(txtStaffSalary.getText());
         String role = txtStaffRole.getText();
+
+        String namePattern = "^[A-Za-z ]+$";
+        String addressPattern = "[a-zA-Z0-9@.]+$";
+        String rolePattern = "^[A-Za-z ]+$";
+
+        boolean isValidName = staffName.matches(namePattern);
+        boolean isValidAddress = staffAddress.matches(addressPattern);
+        boolean isValidRole = role.matches(rolePattern);
+        String errorStyle = "-fx-border-color: red; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+        String style = "-fx-border-color:  #1e3799; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+
+        if(!isValidName){
+            txtStaffName.setStyle(errorStyle);
+        }else {
+            txtStaffName.setStyle(style);
+        }
+        if(!isValidAddress){
+            txtStaffAddress.setStyle(errorStyle);
+        }else{
+            txtStaffAddress.setStyle(style);
+        }
+        if(!isValidRole){
+            txtStaffRole.setStyle(errorStyle);
+        }else {
+            txtStaffRole.setStyle(style);
+        }
+
+        if (isValidName && isValidAddress && isValidRole) {
+
+        }
+
 
         StaffDTO staffDTO = new StaffDTO(
                 staffID,

@@ -38,7 +38,7 @@
                               <Font name="Calibri" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtDriverName" prefHeight="26.0" prefWidth="194.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
+                        <TextField fx:id="txtDriverName" prefHeight="26.0" prefWidth="194.0" promptText="driver" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
                            <font>
                               <Font name="Calibri" size="14.0" />
                            </font>
@@ -54,7 +54,7 @@
                               <Font name="Calibri" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtDriverContact" prefHeight="26.0" prefWidth="202.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
+                        <TextField fx:id="txtDriverContact" prefHeight="26.0" prefWidth="202.0" promptText="077 777 7777" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
                            <font>
                               <Font name="Calibri" size="14.0" />
                            </font>

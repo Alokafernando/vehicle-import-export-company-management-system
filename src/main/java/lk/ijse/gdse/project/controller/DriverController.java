@@ -346,15 +346,37 @@ public class DriverController implements Initializable {
         String driverName = txtDriverName.getText();
         String contact = txtDriverContact.getText();
 
-        DriverDTO driverDTO = new DriverDTO(driverId, driverName, contact);
+        String namePattern = "^[A-Za-z ]+$";
+        String phonePattern = "^(\\d+)||((\\d+\\.)(\\d){2})$";
 
-        boolean isSaved = driverModel.saveDriver(driverDTO);
-        if (isSaved) {
-            refeshPage();
-            new Alert(Alert.AlertType.INFORMATION, "Driver saved...!").show();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Fail to save driver...!").show();
+        boolean isValidName = driverName.matches(namePattern);
+        boolean isValidContact = contact.matches(phonePattern);
+        String errorStyle = "-fx-border-color: red; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+        String style = "-fx-border-color:  #1e3799; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+
+        if (!isValidName){
+            txtDriverName.setStyle(errorStyle);
+        }else{
+            txtDriverName.setStyle(style);
         }
+        if (!isValidContact){
+            txtDriverContact.setStyle(errorStyle);
+        }else {
+            txtDriverContact.setStyle(style);
+        }
+
+        if (isValidName && isValidContact){
+            DriverDTO driverDTO = new DriverDTO(driverId, driverName, contact);
+
+            boolean isSaved = driverModel.saveDriver(driverDTO);
+            if (isSaved) {
+                refeshPage();
+                new Alert(Alert.AlertType.INFORMATION, "Driver saved...!").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Fail to save driver...!").show();
+            }
+        }
+
     }
 
     @FXML
@@ -363,15 +385,37 @@ public class DriverController implements Initializable {
         String driverName = txtDriverName.getText();
         String contact = txtDriverContact.getText();
 
-        DriverDTO driverDTO = new DriverDTO(driverId, driverName, contact);
+        String namePattern = "^[A-Za-z ]+$";
+        String phonePattern = "^(\\d+)||((\\d+\\.)(\\d){2})$";
 
-        boolean isUpdated = driverModel.updateDriver(driverDTO);
-        if (isUpdated) {
-            refeshPage();
-            new Alert(Alert.AlertType.INFORMATION, "Driver updated...!").show();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Fail to update driver...!").show();
+        boolean isValidName = driverName.matches(namePattern);
+        boolean isValidContact = contact.matches(phonePattern);
+        String errorStyle = "-fx-border-color: red; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+        String style = "-fx-border-color:  #1e3799; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+
+        if (!isValidName){
+            txtDriverName.setStyle(errorStyle);
+        }else{
+            txtDriverName.setStyle(style);
         }
+        if (!isValidContact){
+            txtDriverContact.setStyle(errorStyle);
+        }else {
+            txtDriverContact.setStyle(style);
+        }
+
+        if (isValidName && isValidContact){
+            DriverDTO driverDTO = new DriverDTO(driverId, driverName, contact);
+
+            boolean isUpdated = driverModel.updateDriver(driverDTO);
+            if (isUpdated) {
+                refeshPage();
+                new Alert(Alert.AlertType.INFORMATION, "Driver updated...!").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Fail to update driver...!").show();
+            }
+        }
+
     }
 
 }

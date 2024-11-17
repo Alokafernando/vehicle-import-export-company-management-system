@@ -52,7 +52,7 @@
                               <Font name="Calibri" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtImportTax" prefWidth="259.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
+                        <TextField fx:id="txtImportTax" prefWidth="259.0" promptText="10000.00" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
                            <cursor>
                               <Cursor fx:constant="TEXT" />
                            </cursor></TextField>
@@ -65,7 +65,7 @@
                               <Font name="Calibri" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtGroundTax" prefWidth="259.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
+                        <TextField fx:id="txtGroundTax" prefWidth="259.0" promptText="10000.00" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
                            <cursor>
                               <Cursor fx:constant="TEXT" />
                            </cursor></TextField>
@@ -78,7 +78,7 @@
                               <Font name="Calibri" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtExportTax" prefWidth="259.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
+                        <TextField fx:id="txtExportTax" prefWidth="259.0" promptText="10000.00" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
                            <cursor>
                               <Cursor fx:constant="TEXT" />
                            </cursor></TextField>

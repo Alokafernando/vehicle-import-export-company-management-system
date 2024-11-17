@@ -124,6 +124,40 @@ public class ImportCompanyController implements Initializable {
                 String importCompanyCountry = txtCountry.getText();
                 String importCompanyEmail = txtEmail.getText();
 
+            String namePattern = "^[A-Za-z ]+$";
+            String countryPattern = "^[A-Za-z ]+$";
+            String emailPattern = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+            String phonePattern = "^(\\d+)||((\\d+\\.)(\\d){2})$";
+
+            boolean isValidName = importCompanyName.matches(namePattern);
+            boolean isValidContact = importCompanyContact.matches(countryPattern);
+            boolean isValidEmail = importCompanyEmail.matches(emailPattern);
+            boolean isValidPhone = importCompanyContact.matches(phonePattern);
+            String errorStyle = "-fx-border-color: red; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+            String style = "-fx-border-color:  #1e3799; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+
+            if(!isValidName){
+                txtCompanyName.setStyle(errorStyle);
+            }else {
+                txtCompanyName.setStyle(style);
+            }
+            if(!isValidContact){
+                txtContact.setStyle(errorStyle);
+            }else {
+                txtContact.setStyle(style);
+            }
+            if(!isValidEmail){
+                txtEmail.setStyle(errorStyle);
+            }else {
+                txtEmail.setStyle(style);
+            }
+            if(!isValidPhone){
+                txtContact.setStyle(errorStyle);
+            }else {
+                txtContact.setStyle(style);
+            }
+
+            if(isValidName && isValidContact && isValidEmail && isValidPhone) {
                 ImportCompanyDTO importCompanyDTO = new ImportCompanyDTO(
                         importCompanyID,
                         importCompanyName,
@@ -139,6 +173,8 @@ public class ImportCompanyController implements Initializable {
                 }else{
                     new Alert(Alert.AlertType.ERROR, "Fail to import company save").show();
                 }
+            }
+
     }
 
     @FXML
@@ -149,21 +185,56 @@ public class ImportCompanyController implements Initializable {
                 String importCompanyCountry = txtCountry.getText();
                 String importCompanyEmail = txtEmail.getText();
 
-                ImportCompanyDTO importCompanyDTO = new ImportCompanyDTO(
-                        importCompanyID,
-                        importCompanyName,
-                        importCompanyCountry,
-                        importCompanyContact,
-                        importCompanyEmail
-                );
+        String namePattern = "^[A-Za-z ]+$";
+        String countryPattern = "^[A-Za-z ]+$";
+        String emailPattern = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+        String phonePattern = "^(\\d+)||((\\d+\\.)(\\d){2})$";
 
-                boolean isUpdated = importCompanyModel.updateImportCompany(importCompanyDTO);
-                if(isUpdated){
-                    refeshPage();
-                    new Alert(Alert.AlertType.INFORMATION, "Import company updated..!").show();
-                }else{
-                    new Alert(Alert.AlertType.ERROR, "Fail to import company update").show();
-                }
+        boolean isValidName = importCompanyName.matches(namePattern);
+        boolean isValidContact = importCompanyContact.matches(countryPattern);
+        boolean isValidEmail = importCompanyEmail.matches(emailPattern);
+        boolean isValidPhone = importCompanyContact.matches(phonePattern);
+        String errorStyle = "-fx-border-color: red; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+        String style = "-fx-border-color:  #1e3799; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+
+        if(!isValidName){
+            txtCompanyName.setStyle(errorStyle);
+        }else {
+            txtCompanyName.setStyle(style);
+        }
+        if(!isValidContact){
+            txtContact.setStyle(errorStyle);
+        }else {
+            txtContact.setStyle(style);
+        }
+        if(!isValidEmail){
+            txtEmail.setStyle(errorStyle);
+        }else {
+            txtEmail.setStyle(style);
+        }
+        if(!isValidPhone){
+            txtContact.setStyle(errorStyle);
+        }else {
+            txtContact.setStyle(style);
+        }
+
+        if(isValidName && isValidContact && isValidEmail && isValidPhone) {
+            ImportCompanyDTO importCompanyDTO = new ImportCompanyDTO(
+                    importCompanyID,
+                    importCompanyName,
+                    importCompanyCountry,
+                    importCompanyContact,
+                    importCompanyEmail
+            );
+
+            boolean isUpdated = importCompanyModel.updateImportCompany(importCompanyDTO);
+            if(isUpdated){
+                refeshPage();
+                new Alert(Alert.AlertType.INFORMATION, "Import company updated..!").show();
+            }else{
+                new Alert(Alert.AlertType.ERROR, "Fail to import company update").show();
+            }
+        }
 
     }
 

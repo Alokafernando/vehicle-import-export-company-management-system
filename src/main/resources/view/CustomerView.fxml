@@ -38,7 +38,7 @@
                               <Font name="Calibri" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtName" prefHeight="28.0" prefWidth="276.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
+                        <TextField fx:id="txtName" prefHeight="28.0" prefWidth="276.0" promptText="customer" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
                            <cursor>
                               <Cursor fx:constant="TEXT" />
                            </cursor>
@@ -55,7 +55,7 @@
                               <Font name="Calibri" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtAddress" prefHeight="28.0" prefWidth="276.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
+                        <TextField fx:id="txtAddress" prefHeight="28.0" prefWidth="276.0" promptText="Galle" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
                            <cursor>
                               <Cursor fx:constant="TEXT" />
                            </cursor>
@@ -72,7 +72,7 @@
                               <Font name="Calibri" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtContact" prefHeight="28.0" prefWidth="276.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
+                        <TextField fx:id="txtContact" prefHeight="28.0" prefWidth="276.0" promptText="077 777 7777" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
                            <cursor>
                               <Cursor fx:constant="TEXT" />
                            </cursor>
@@ -89,7 +89,7 @@
                               <Font name="Calibri" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtEmail" prefHeight="28.0" prefWidth="276.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
+                        <TextField fx:id="txtEmail" prefHeight="28.0" prefWidth="276.0" promptText="customer1@gmail.com" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
                            <cursor>
                               <Cursor fx:constant="TEXT" />
                            </cursor>
@@ -147,7 +147,7 @@
             </HBox>
             <TableView fx:id="tblCustomer" onMouseClicked="#onClickTable" prefHeight="287.0" prefWidth="835.0">
                <columns>
-                  <TableColumn fx:id="colCustID" prefWidth="123.19997596740723" text="Cust ID" />
+                  <TableColumn fx:id="colCustID" prefWidth="123.19997596740723" style="-fx-alignment: CENTRE;" text="Cust ID" />
                   <TableColumn fx:id="colName" prefWidth="162.39999389648438" text="Name" />
                   <TableColumn fx:id="colAddress" prefWidth="196.0" text="Address" />
                   <TableColumn fx:id="colContact" prefWidth="167.19998168945312" text="Contact" />
