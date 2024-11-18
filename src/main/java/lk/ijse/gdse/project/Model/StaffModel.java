@@ -27,7 +27,7 @@ public class StaffModel {
 
         while (resultSet.next()) {
             StaffDTO staffDTO = new StaffDTO(
-                resultSet.getString(1),
+                    resultSet.getString(1),
                     resultSet.getString(2),
                     resultSet.getString(3),
                     Double.parseDouble(resultSet.getString(4)),

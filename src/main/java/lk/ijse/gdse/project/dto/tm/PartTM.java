@@ -12,4 +12,5 @@ public class PartTM {
     private String part_id;
     private String name;
     private double price;
+    private int quantity;
 }

@@ -12,4 +12,5 @@ public class PartDTO {
     private String part_id;
     private String name;
     private double price;
+    private int quantity;
 }
