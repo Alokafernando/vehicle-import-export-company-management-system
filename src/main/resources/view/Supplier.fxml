@@ -1,102 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="740.0" prefWidth="860.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.project.controller.SupplierController">
    <children>
-      <VBox layoutX="30.0" prefHeight="740.0" prefWidth="800.0">
+      <VBox alignment="CENTER" layoutX="30.0" prefHeight="740.0" prefWidth="800.0" spacing="70.0">
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="30.0">
                <children>
-                  <HBox prefHeight="40.0" prefWidth="860.0" spacing="40.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="860.0" spacing="40.0">
                      <children>
-                        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="375.0" spacing="40.0">
-                           <children>
-                              <Label text="Supply Order Id">
-                                 <font>
-                                    <Font name="Calibri" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label alignment="CENTER" prefWidth="150.0" text="Label">
-                                 <font>
-                                    <Font name="Calibri" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="375.0" spacing="40.0">
-                           <children>
-                              <Label text="Supply Order Date">
-                                 <font>
-                                    <Font name="Calibri" size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField />
-                           </children>
-                        </HBox>
+                        <Label prefHeight="26.0" prefWidth="95.0" text="supplier Id">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblSupplierID" alignment="CENTER" prefHeight="24.0" prefWidth="80.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;" text="1">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
                      </children>
                   </HBox>
-                  <HBox layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="800.0" spacing="40.0" style="-fx-border-width: 0 0 1 0; -fx-border-color: #000;">
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="860.0" spacing="40.0">
                      <children>
-                        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="375.0" spacing="65.0">
-                           <children>
-                              <Label text="Supplier Id">
-                                 <font>
-                                    <Font name="Calibri" size="14.0" />
-                                 </font>
-                              </Label>
-                              <ComboBox prefWidth="150.0" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="375.0" spacing="60.0">
-                           <children>
-                              <Label text="Supplier Name">
-                                 <font>
-                                    <Font name="Calibri" size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField />
-                           </children>
-                        </HBox>
+                        <Label prefHeight="26.0" prefWidth="95.0" text="company Name">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtCompanyName" prefHeight="28.0" prefWidth="276.0" promptText="company name" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </TextField>
                      </children>
                   </HBox>
-                  <HBox prefHeight="40.0" prefWidth="800.0" spacing="40.0">
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="50.0" prefHeight="40.0" prefWidth="860.0" spacing="40.0">
                      <children>
-                        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="375.0" spacing="65.0">
-                           <children>
-                              <Label text="Part Id">
-                                 <font>
-                                    <Font name="Calibri" size="14.0" />
-                                 </font>
-                              </Label>
-                              <ComboBox prefWidth="150.0" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="375.0" spacing="60.0">
-                           <children>
-                              <Label text="Part Name">
-                                 <font>
-                                    <Font name="Calibri" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label alignment="CENTER" prefWidth="150.0" text="Label">
-                                 <font>
-                                    <Font name="Calibri" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
+                        <Label prefHeight="26.0" prefWidth="95.0" text="contact">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtContact" prefHeight="28.0" prefWidth="276.0" promptText="0117777777" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="90.0" prefHeight="40.0" prefWidth="860.0" spacing="40.0">
+                     <children>
+                        <Label prefHeight="26.0" prefWidth="95.0" text="Email">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtEmail" prefHeight="28.0" prefWidth="276.0" promptText="company@gmail.com" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </TextField>
                      </children>
                   </HBox>
                </children>
             </VBox>
+            <HBox alignment="CENTER" onDragDetected="#generateReport" prefHeight="35.0" prefWidth="835.0" spacing="30.0">
+               <children>
+                  <Button fx:id="btnSupplierDetailRepo" layoutX="220.0" layoutY="14.0" mnemonicParsing="false" onAction="#generateSupplierDetailsRepo" prefHeight="27.0" prefWidth="184.0" style="-fx-background-color: #747d8c;" text="supplier Details" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnDeleteSupplier" mnemonicParsing="false" onAction="#deleteSupplier" prefWidth="166.0" style="-fx-background-color: #c0392b;" text="Delete" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnUpdateSupplier" mnemonicParsing="false" onAction="#updateSupplier" prefWidth="166.0" style="-fx-background-color: #3498db;" text="Update" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnSaveSupplier" alignment="CENTER" mnemonicParsing="false" onAction="#saveSupplier" prefWidth="166.0" style="-fx-background-color: #27ae60;" text="Save" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </HBox>
+            <TableView fx:id="tblSupplier" onMouseClicked="#onClickedTable" prefHeight="272.0" prefWidth="800.0">
+              <columns>
+                <TableColumn fx:id="colSupplierID" prefWidth="152.79998207092285" text="Supplier ID" />
+                <TableColumn fx:id="colCompanyName" prefWidth="211.199951171875" text="Company Name" />
+                  <TableColumn fx:id="colContact" prefWidth="208.00009155273438" text="Contact" />
+                  <TableColumn fx:id="colEmail" prefWidth="228.0" text="Email" />
+              </columns>
+            </TableView>
          </children>
       </VBox>
    </children>

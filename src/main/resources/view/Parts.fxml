@@ -1,14 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.gdse.project.controller.PartsController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="650.0" prefWidth="860.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.project.controller.PartsController">
+   <children>
+      <VBox alignment="CENTER" layoutX="24.0" prefHeight="650.0" prefWidth="800.0" spacing="30.0">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="205.0" prefWidth="800.0" spacing="20.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="200.0" spacing="30.0">
+                     <children>
+                        <Label prefHeight="26.0" prefWidth="95.0" text="part ID">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblPartID" alignment="CENTER" prefHeight="24.0" prefWidth="80.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;" text="1">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="35.0" prefWidth="200.0" spacing="30.0">
+                     <children>
+                        <Label prefHeight="26.0" prefWidth="95.0" text="part Name">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtPartName" prefHeight="28.0" prefWidth="276.0" promptText="part Name" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="76.0" prefHeight="35.0" prefWidth="200.0" spacing="30.0">
+                     <children>
+                        <Label prefHeight="26.0" prefWidth="95.0" text="unit price">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtUnitPrice" prefHeight="28.0" prefWidth="276.0" promptText="unit price" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="120.0" prefHeight="35.0" prefWidth="200.0" spacing="30.0">
+                     <children>
+                        <Label prefHeight="26.0" prefWidth="95.0" text="quantity">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtQuantity" prefHeight="28.0" prefWidth="276.0" promptText="unit price" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" prefHeight="35.0" prefWidth="800.0" spacing="30.0">
+               <children>
+                  <Button fx:id="btnpartRep" layoutX="220.0" layoutY="14.0" mnemonicParsing="false" onAction="#generatePartRepo" prefHeight="27.0" prefWidth="184.0" style="-fx-background-color: #747d8c;" text="Part Details" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnDeletePart" mnemonicParsing="false" onAction="#deletePart" prefWidth="166.0" style="-fx-background-color: #c0392b;" text="Delete" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnUpdatePart" mnemonicParsing="false" onAction="#updatePart" prefWidth="166.0" style="-fx-background-color: #3498db;" text="Update" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnSavePart" alignment="CENTER" mnemonicParsing="false" onAction="#savePart" prefWidth="166.0" style="-fx-background-color: #27ae60;" text="Save" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </HBox>
+            <TableView fx:id="tblPart" onMouseClicked="#onClickedTable" prefHeight="258.0" prefWidth="860.0">
+              <columns>
+                <TableColumn fx:id="colPartID" prefWidth="208.00002479553223" text="Part Id" />
+                <TableColumn fx:id="colPartName" prefWidth="213.60003662109375" text="Part Name" />
+                  <TableColumn fx:id="colUnitPrice" prefWidth="195.19998168945312" text="Unit Price" />
+                  <TableColumn fx:id="colQuantity" prefWidth="203.99993896484375" text="Quantity" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>
