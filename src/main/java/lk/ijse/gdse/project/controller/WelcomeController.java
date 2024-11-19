@@ -44,7 +44,8 @@ public class WelcomeController implements Initializable {
         KeyFrame endFrame = new KeyFrame(animationDuration, new KeyValue(loading.progressProperty(), endProgress));
 
         Timeline timeline = new Timeline(startFrame, endFrame);
-        timeline.setOnFinished(event -> Platform.runLater(this::navigateToLoginPage));
+        timeline.setOnFinished(event ->
+                Platform.runLater(this::navigateToLoginPage));
         timeline.play();
     }
 

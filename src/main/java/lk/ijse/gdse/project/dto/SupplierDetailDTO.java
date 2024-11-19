@@ -2,7 +2,7 @@ package lk.ijse.gdse.project.dto;
 
 import lombok.*;
 
-import java.util.Date;
+import java.util.ArrayList;
 
 @Getter
 @Setter
@@ -10,10 +10,12 @@ import java.util.Date;
 @AllArgsConstructor
 @ToString
 
-public class SupplierDetailDTO {
+public class SupplierDetailDTO extends ArrayList<SupplierDetailDTO> {
     private String supplier_id;
     private String part_id;
-    private Date supply_date;
+    private String supply_date;
     private int quantity;
     private double total;
+
+
 }

@@ -68,20 +68,20 @@ public class SupplierModel {
     }
 
 
-//    private final SupplierDetailsModel supplierDetailsModel = new SupplierDetailsModel();
-//
-//    public String getNextSupplierId() throws SQLException, ClassNotFoundException {
-//        ResultSet rst = CrudUtil.execute("select supplier_id from supplier order by supplier_id desc limit 1");
-//
-//        if (rst.next()) {
-//            String lastId = rst.getString(1);
-//            String substring = lastId.substring(1);
-//            int i = Integer.parseInt(substring);
-//            int newIdIndex = i + 1;
-//            return String.format("S%03d", newIdIndex);
-//        }
-//        return "S001";
-//    }
+    private final SupplierDetailsModel supplierDetailsModel = new SupplierDetailsModel();
+
+    public String getNextSupplierId() throws SQLException, ClassNotFoundException {
+        ResultSet rst = CrudUtil.execute("select supplier_id from supplier order by supplier_id desc limit 1");
+
+        if (rst.next()) {
+            String lastId = rst.getString(1);
+            String substring = lastId.substring(1);
+            int i = Integer.parseInt(substring);
+            int newIdIndex = i + 1;
+            return String.format("S%03d", newIdIndex);
+        }
+        return "S001";
+    }
 
 //    public boolean saveSupplier(SupplierDTO supplierDTO) throws SQLException, ClassNotFoundException {
 //        Connection connection = DBConnection.getInstance().getConnection();
@@ -112,19 +112,19 @@ public class SupplierModel {
 //        }
 //    }
 
-//    public SupplierDTO findById(String selectedSupplierID) throws SQLException, ClassNotFoundException {
-//        ResultSet rst = CrudUtil.execute("select * from customer where supplier_id=?", selectedSupplierID);
-//
-//        if (rst.next()) {
-//            return new SupplierDTO(
-//                    rst.getString(1),
-//                    rst.getString(2),
-//                    rst.getString(3),
-//                    rst.getString(4)
-//            );
-//        }
-//        return null;
-//    }
+    public SupplierDTO findById(String selectedSupplierID) throws SQLException, ClassNotFoundException {
+        ResultSet rst = CrudUtil.execute("select * from supplier where supplier_id=?", selectedSupplierID);
+
+        if (rst.next()) {
+            return new SupplierDTO(
+                    rst.getString(1),
+                    rst.getString(2),
+                    rst.getString(3),
+                    rst.getString(4)
+            );
+        }
+        return null;
+    }
 
     public ArrayList<String> getSupplierIDs() throws SQLException, ClassNotFoundException {
         ResultSet resultSet = CrudUtil.execute("select supplier_id from supplier");

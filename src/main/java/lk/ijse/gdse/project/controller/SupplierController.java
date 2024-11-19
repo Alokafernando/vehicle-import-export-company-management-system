@@ -10,6 +10,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.gdse.project.Model.SupplierModel;
 import lk.ijse.gdse.project.dto.SupplierDTO;
+import lk.ijse.gdse.project.dto.SupplierDetailDTO;
 import lk.ijse.gdse.project.dto.tm.SupplierTM;
 
 import java.net.URL;
@@ -133,7 +134,10 @@ public class SupplierController implements Initializable {
         }
 
         if(isValidName && isValidContact && isValidEmail){
-            SupplierDTO supplierDTO = new SupplierDTO(supplierID, companyName, contact, email);
+            SupplierDTO supplierDTO = new SupplierDTO(supplierID, companyName, contact, email
+            );
+
+
             boolean isSaved = supplierModel.saveSupplier(supplierDTO);
             if(isSaved) {
                 refeshPage();

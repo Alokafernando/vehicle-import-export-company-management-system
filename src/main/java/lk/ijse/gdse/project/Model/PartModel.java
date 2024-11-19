@@ -78,41 +78,42 @@ import java.util.ArrayList;
             return partIDs;
         }
 
-//        public ArrayList<String> getAllPartIds() throws SQLException, ClassNotFoundException {
-//            ResultSet rst = CrudUtil.execute("select part_id from part");
-//            ArrayList<String> partIds = new ArrayList<>();
-//
-//            while (rst.next()) {
-//                partIds.add(rst.getString(1));
-//            }
-//            return partIds;
-//        }
-//
-//
-//        public PartDTO findById(String selectedItemId) throws SQLException, ClassNotFoundException {
-//            ResultSet rst = CrudUtil.execute("select * from part where part_id=?", selectedItemId);
-//
-//            if (rst.next()) {
-//                return new PartDTO(
-//                        rst.getString(1),
-//                        rst.getString(2),
-//                        rst.getDouble(3),
-//                        rst.getInt(4)
-//                );
-//            }
-//
-//            return null;
-//        }
-//
-//
-//        public boolean reduceQty(SupplierDetailDTO supplierDetailDTO) throws SQLException, ClassNotFoundException {
-//            return CrudUtil.execute(
-//                    "update item set quantity = quantity - ? where item_id = ?",
-//                    supplierDetailDTO.getQuantity(),
-//                    supplierDetailDTO.getPart_id()
-//            );
-//        }
+        public ArrayList<String> getAllPartIds() throws SQLException, ClassNotFoundException {
+            ResultSet rst = CrudUtil.execute("select part_id from part");
+            ArrayList<String> partIds = new ArrayList<>();
+
+            while (rst.next()) {
+                partIds.add(rst.getString(1));
+            }
+            return partIds;
+        }
 
 
+        public PartDTO findById(String selectedItemId) throws SQLException, ClassNotFoundException {
+            ResultSet rst = CrudUtil.execute("select * from part where part_id=?", selectedItemId);
+
+            if (rst.next()) {
+                return new PartDTO(
+                        rst.getString(1),
+                        rst.getString(2),
+                        rst.getDouble(3),
+                        rst.getInt(4)
+                );
+            }
+
+            return null;
+        }
+
+
+
+        public boolean redQty(SupplierDetailDTO supplierDetailDTOS) throws SQLException, ClassNotFoundException {
+
+            return CrudUtil.execute(
+                    "update part set quantity = quantity + ? where part_id = ?",
+                    supplierDetailDTOS.getQuantity(),
+                    supplierDetailDTOS.getPart_id()
+            );
+
+        }
     }
 
