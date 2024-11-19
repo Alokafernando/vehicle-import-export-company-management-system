@@ -91,7 +91,7 @@ public class TaxController implements Initializable {
 
     @FXML
     void generateReport(MouseEvent event) {
-
+        // mistake
     }
 
     @FXML

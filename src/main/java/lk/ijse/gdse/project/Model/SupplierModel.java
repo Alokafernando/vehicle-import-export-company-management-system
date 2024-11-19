@@ -1,13 +1,16 @@
 package lk.ijse.gdse.project.Model;
 
+import lk.ijse.gdse.project.db.DBConnection;
 import lk.ijse.gdse.project.dto.SupplierDTO;
 import lk.ijse.gdse.project.util.CrudUtil;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class SupplierModel {
+
     public String getNextSupplierID() throws SQLException, ClassNotFoundException {
         ResultSet resultSet = CrudUtil.execute("SELECT supplier_id FROM supplier ORDER BY supplier_id DESC LIMIT 1");
 
@@ -26,6 +29,7 @@ public class SupplierModel {
     }
 
 
+
     public ArrayList<SupplierDTO> getAllSuppliers() throws SQLException, ClassNotFoundException {
         ResultSet resultSet = CrudUtil.execute("select * from supplier");
         ArrayList<SupplierDTO> supplierDTOS = new ArrayList<>();
@@ -36,6 +40,7 @@ public class SupplierModel {
                     resultSet.getString(2),
                     resultSet.getString(3),
                     resultSet.getString(4)
+
             );
             supplierDTOS.add(supplierDTO);
         }
@@ -61,6 +66,65 @@ public class SupplierModel {
     public boolean deleteSupplier(String supplierID) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("delete from supplier where supplier_id=?", supplierID);
     }
+
+
+//    private final SupplierDetailsModel supplierDetailsModel = new SupplierDetailsModel();
+//
+//    public String getNextSupplierId() throws SQLException, ClassNotFoundException {
+//        ResultSet rst = CrudUtil.execute("select supplier_id from supplier order by supplier_id desc limit 1");
+//
+//        if (rst.next()) {
+//            String lastId = rst.getString(1);
+//            String substring = lastId.substring(1);
+//            int i = Integer.parseInt(substring);
+//            int newIdIndex = i + 1;
+//            return String.format("S%03d", newIdIndex);
+//        }
+//        return "S001";
+//    }
+
+//    public boolean saveSupplier(SupplierDTO supplierDTO) throws SQLException, ClassNotFoundException {
+//        Connection connection = DBConnection.getInstance().getConnection();
+//        try {
+//            connection.setAutoCommit(false); // 1
+//
+//            boolean isSupplierSaved = CrudUtil.execute(
+//                    "insert into supplier values(?,?,?,?)",
+//                supplierDTO.getSupplier_id(),
+//                supplierDTO.getName(),
+//                supplierDTO.getContact(),
+//                supplierDTO.getEmail());
+//
+//            if (isSupplierSaved) {
+//                boolean isSupplierDetailsSaved = supplierDetailsModel.saveSupplyDetailList(supplierDTO.getSupplier_details());//saveOrderDetailsList(orderDTO.getOrderDetailsDTOS());
+//                if (isSupplierDetailsSaved) {
+//                    connection.commit();
+//                    return true;
+//                }
+//            }
+//            connection.rollback();
+//            return false;
+//        } catch (Exception e) {
+//            connection.rollback();
+//            return false;
+//        } finally {
+//            connection.setAutoCommit(true);
+//        }
+//    }
+
+//    public SupplierDTO findById(String selectedSupplierID) throws SQLException, ClassNotFoundException {
+//        ResultSet rst = CrudUtil.execute("select * from customer where supplier_id=?", selectedSupplierID);
+//
+//        if (rst.next()) {
+//            return new SupplierDTO(
+//                    rst.getString(1),
+//                    rst.getString(2),
+//                    rst.getString(3),
+//                    rst.getString(4)
+//            );
+//        }
+//        return null;
+//    }
 
     public ArrayList<String> getSupplierIDs() throws SQLException, ClassNotFoundException {
         ResultSet resultSet = CrudUtil.execute("select supplier_id from supplier");

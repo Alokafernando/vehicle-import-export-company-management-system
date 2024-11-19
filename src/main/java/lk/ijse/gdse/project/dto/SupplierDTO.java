@@ -2,6 +2,9 @@ package lk.ijse.gdse.project.dto;
 
 import lombok.*;
 
+import java.util.ArrayList;
+
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -13,4 +16,8 @@ public class SupplierDTO {
     private String name;
     private String contact;
     private String email;
+
+   // private ArrayList<SupplierDetailDTO> supplier_details;
+
+
 }

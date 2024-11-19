@@ -23,6 +23,9 @@ public class MenuController implements Initializable {
     private Label MenuBack;
 
     @FXML
+    private Button btnAddParts;
+
+    @FXML
     private Button btnCustomer;
 
     @FXML
@@ -48,6 +51,9 @@ public class MenuController implements Initializable {
 
     @FXML
     private Button btnSupplier;
+
+    @FXML
+    private Button btnSupplyParts;
 
     @FXML
     private Button btnTax;
@@ -106,6 +112,13 @@ public class MenuController implements Initializable {
         setButtonColor(btnReservation);
     }
 
+    @FXML
+    void openPartsAddPages(ActionEvent event) throws IOException {
+        getFilePath("/view/PartDetailView.fxml");
+        setButtonColor(btnAddParts);
+    }
+
+
     public void openPaymentPanel(ActionEvent actionEvent) throws IOException {
         getFilePath("/view/PaymentView.fxml");
         setButtonColor(btnPayment);
@@ -126,6 +139,12 @@ public class MenuController implements Initializable {
         setButtonColor(btnDriver);
     }
 
+    @FXML
+    void opensupplyPartDetailsPage(ActionEvent event) throws IOException {
+        getFilePath("/view/SupplyDetailsView.fxml");
+        setButtonColor(btnSupplyParts);
+
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         slider.setTranslateX(-250);
@@ -190,8 +209,9 @@ public class MenuController implements Initializable {
         btnTax.setStyle(defaultStyle);
         btnVehicle.setStyle(defaultStyle);
         btntransport.setStyle(defaultStyle);
+        btnAddParts.setStyle(defaultStyle);
+        btnSupplyParts.setStyle(defaultStyle);
     }
 
 }
-
 

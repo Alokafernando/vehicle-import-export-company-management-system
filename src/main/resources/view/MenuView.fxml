@@ -17,9 +17,9 @@
          <items>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="649.0" prefWidth="265.0" style="-fx-background-color: #21324B;">
                <children>
-                  <AnchorPane fx:id="slider" layoutX="14.0" layoutY="75.0" prefHeight="559.0" prefWidth="196.0" style="-fx-background-color: #78B9BA; -fx-background-radius: 15;">
+                  <AnchorPane fx:id="slider" layoutX="21.0" layoutY="53.0" prefHeight="586.0" prefWidth="196.0" style="-fx-background-color: #78B9BA; -fx-background-radius: 15;">
                      <children>
-                        <VBox alignment="TOP_CENTER" layoutY="9.0" prefHeight="529.0" prefWidth="196.0" spacing="15.0" style="-fx-background-color: transparent;">
+                        <VBox alignment="TOP_CENTER" layoutY="9.0" prefHeight="529.0" prefWidth="196.0" spacing="10.0" style="-fx-background-color: transparent;">
                            <children>
                               <Button fx:id="btnExport" mnemonicParsing="false" onAction="#openExportCompanyPanel" style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-radius: 25;" text="export companies" textFill="WHITE">
                                  <font>
@@ -69,6 +69,11 @@
                                     <Cursor fx:constant="CLOSED_HAND" />
                                  </cursor>
                               </Button>
+                              <Button fx:id="btnSupplyParts" mnemonicParsing="false" onAction="#opensupplyPartDetailsPage" prefWidth="131.0" style="-fx-border-radius: 25; -fx-background-color: transparent; -fx-border-color: #fff;" text="part Supply" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold Italic" size="14.0" />
+                                 </font>
+                              </Button>
                               <Button fx:id="btnVehicle" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#openVehiclePanel" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-radius: 25;" text="vehicle" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold Italic" size="14.0" />
@@ -76,6 +81,11 @@
                                  <cursor>
                                     <Cursor fx:constant="CLOSED_HAND" />
                                  </cursor>
+                              </Button>
+                              <Button fx:id="btnAddParts" mnemonicParsing="false" onAction="#openPartsAddPages" prefWidth="131.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 25;" text="part Add" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold Italic" size="14.0" />
+                                 </font>
                               </Button>
                               <Button fx:id="btnReservation" mnemonicParsing="false" onAction="#openReservationPanel" prefHeight="31.0" prefWidth="127.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-radius: 25;" text="reservation" textFill="WHITE">
                                  <font>

@@ -136,6 +136,7 @@ public class SupplierController implements Initializable {
             SupplierDTO supplierDTO = new SupplierDTO(supplierID, companyName, contact, email);
             boolean isSaved = supplierModel.saveSupplier(supplierDTO);
             if(isSaved) {
+                refeshPage();
                 new Alert(Alert.AlertType.INFORMATION, "supplier saved...!").show();
             } else {
                 new Alert(Alert.AlertType.ERROR, "Fail to save customer...!").show();
@@ -199,6 +200,7 @@ public class SupplierController implements Initializable {
             refeshPage();
         } catch (Exception e) {
             e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Fail to load supplier id").show();
         }
     }
 
