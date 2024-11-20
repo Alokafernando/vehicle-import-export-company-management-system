@@ -1,0 +1,113 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<jasperReport name="Part" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cfaf203b-5e3d-4099-827a-af830b1ce3ba">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (10)"/>
+	<query language="SQL"><![CDATA[select * from part;]]></query>
+	<field name="part_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="part_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="part_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="part"/>
+	</field>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="part"/>
+	</field>
+	<field name="unit_price" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="unit_price"/>
+		<property name="com.jaspersoft.studio.field.label" value="unit_price"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="part"/>
+	</field>
+	<field name="quantity" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="quantity"/>
+		<property name="com.jaspersoft.studio.field.label" value="quantity"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="part"/>
+	</field>
+	<group name="part_id">
+		<expression><![CDATA[$F{part_id}]]></expression>
+	</group>
+	<group name="name">
+		<expression><![CDATA[$F{name}]]></expression>
+	</group>
+	<group name="unit_price">
+		<expression><![CDATA[$F{unit_price}]]></expression>
+	</group>
+	<group name="quantity">
+		<expression><![CDATA[$F{quantity}]]></expression>
+	</group>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch">
+		<element kind="staticText" uuid="226ed318-7c5b-48d2-80eb-120808953204" x="0" y="0" width="550" height="78" fontName="Calibri" fontSize="24.0" italic="false" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Part Detail Report]]></text>
+			<box>
+				<pen lineWidth="1.25"/>
+			</box>
+		</element>
+	</title>
+	<pageHeader height="35" splitType="Stretch"/>
+	<columnHeader height="37" splitType="Stretch">
+		<element kind="staticText" uuid="e743e685-8184-40a4-b280-709b03c8673a" x="0" y="0" width="141" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Pard ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9b9cacd9-4411-41f6-9044-0a137548df8c"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="0ee1071f-b292-4645-bda4-a9a4a83d1f68" x="141" y="0" width="138" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Name]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d294f9e2-4df4-495b-8dd9-01f505a45e36"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="86c618ca-18d5-42aa-9b69-9176c77cc549" x="279" y="0" width="138" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Unit Price]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3a3a60a0-3642-4c12-907f-6ac3c1af19b9"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="c491a3a1-ee2d-4726-95f1-358ab5124674" x="417" y="0" width="138" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Quantity]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="eaf0fbed-148d-46e1-80d3-d1a65d74396b"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<element kind="textField" uuid="ea217419-fb1d-49d7-a2e7-b736379425bf" x="0" y="0" width="141" height="30" fontName="Calibri" fontSize="14.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{part_id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9b9cacd9-4411-41f6-9044-0a137548df8c"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="4e59cf16-1599-4dd5-a9bc-17c0c17c835a" x="141" y="0" width="138" height="30" fontName="Calibri" fontSize="14.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{name}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d294f9e2-4df4-495b-8dd9-01f505a45e36"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="2791d922-312b-47d0-af9e-ed47088cedaf" x="279" y="0" width="138" height="30" fontName="Calibri" fontSize="14.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{unit_price}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3a3a60a0-3642-4c12-907f-6ac3c1af19b9"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="b3d93582-8751-4e2b-be28-84914e1dac2b" x="417" y="0" width="138" height="30" fontName="Calibri" fontSize="14.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{quantity}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="eaf0fbed-148d-46e1-80d3-d1a65d74396b"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>
