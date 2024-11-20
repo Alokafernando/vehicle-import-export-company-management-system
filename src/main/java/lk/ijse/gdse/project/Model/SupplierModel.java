@@ -11,6 +11,8 @@ import java.util.ArrayList;
 
 public class SupplierModel {
 
+    private final SupplierDetailsModel supplierDetailsModel = new SupplierDetailsModel();
+
     public String getNextSupplierID() throws SQLException, ClassNotFoundException {
         ResultSet resultSet = CrudUtil.execute("SELECT supplier_id FROM supplier ORDER BY supplier_id DESC LIMIT 1");
 
@@ -27,8 +29,6 @@ public class SupplierModel {
         }
         return "SU001";
     }
-
-
 
     public ArrayList<SupplierDTO> getAllSuppliers() throws SQLException, ClassNotFoundException {
         ResultSet resultSet = CrudUtil.execute("select * from supplier");
@@ -68,8 +68,6 @@ public class SupplierModel {
     }
 
 
-    private final SupplierDetailsModel supplierDetailsModel = new SupplierDetailsModel();
-
     public String getNextSupplierId() throws SQLException, ClassNotFoundException {
         ResultSet rst = CrudUtil.execute("select supplier_id from supplier order by supplier_id desc limit 1");
 
@@ -82,35 +80,6 @@ public class SupplierModel {
         }
         return "S001";
     }
-
-//    public boolean saveSupplier(SupplierDTO supplierDTO) throws SQLException, ClassNotFoundException {
-//        Connection connection = DBConnection.getInstance().getConnection();
-//        try {
-//            connection.setAutoCommit(false); // 1
-//
-//            boolean isSupplierSaved = CrudUtil.execute(
-//                    "insert into supplier values(?,?,?,?)",
-//                supplierDTO.getSupplier_id(),
-//                supplierDTO.getName(),
-//                supplierDTO.getContact(),
-//                supplierDTO.getEmail());
-//
-//            if (isSupplierSaved) {
-//                boolean isSupplierDetailsSaved = supplierDetailsModel.saveSupplyDetailList(supplierDTO.getSupplier_details());//saveOrderDetailsList(orderDTO.getOrderDetailsDTOS());
-//                if (isSupplierDetailsSaved) {
-//                    connection.commit();
-//                    return true;
-//                }
-//            }
-//            connection.rollback();
-//            return false;
-//        } catch (Exception e) {
-//            connection.rollback();
-//            return false;
-//        } finally {
-//            connection.setAutoCommit(true);
-//        }
-//    }
 
     public SupplierDTO findById(String selectedSupplierID) throws SQLException, ClassNotFoundException {
         ResultSet rst = CrudUtil.execute("select * from supplier where supplier_id=?", selectedSupplierID);

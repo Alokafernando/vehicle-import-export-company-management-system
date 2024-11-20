@@ -149,7 +149,7 @@
                   </HBox>
                </children>
             </VBox>
-            <TableView fx:id="tblSupplyDetails" onMouseClicked="#actionOnSupplyCart" prefHeight="251.0" prefWidth="800.0">
+            <TableView fx:id="tblSupplyDetails" prefHeight="251.0" prefWidth="800.0">
               <columns>
                 <TableColumn fx:id="colPartID" prefWidth="94.39999580383301" text="Part Id" />
                 <TableColumn fx:id="colName" prefWidth="117.60002899169922" text="Name" />

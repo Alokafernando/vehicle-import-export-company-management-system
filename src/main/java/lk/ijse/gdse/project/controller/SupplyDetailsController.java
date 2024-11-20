@@ -41,7 +41,7 @@ public class SupplyDetailsController implements Initializable {
     private ComboBox<String> cmbSupplierID;
 
     @FXML
-    private TableColumn<?, ?> colAction;
+    private TableColumn<SupplyCartTM, Button> colAction;
 
     @FXML
     private TableColumn<SupplyCartTM, String> colName;
@@ -115,7 +115,6 @@ public class SupplyDetailsController implements Initializable {
             supplierDetailDTOS.add(supplierDetailDTO);
         }
         boolean isSaved = supplierDetailsModel.save( supplierDetailDTOS);
-
         if (isSaved) {
             refreshPage();
             new Alert(Alert.AlertType.INFORMATION, "saved..!").show();
@@ -172,7 +171,7 @@ public class SupplyDetailsController implements Initializable {
             }
         }
 
-        Button btn = new Button("Remove");
+        Button btn = new Button("remove");
 
         SupplyCartTM newCartTM = new SupplyCartTM(
                 selectedPardID,

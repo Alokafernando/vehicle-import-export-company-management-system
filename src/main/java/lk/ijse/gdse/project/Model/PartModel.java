@@ -1,6 +1,7 @@
 package lk.ijse.gdse.project.Model;
 
 import lk.ijse.gdse.project.dto.PartDTO;
+import lk.ijse.gdse.project.dto.PartDetailDTO;
 import lk.ijse.gdse.project.dto.SupplierDetailDTO;
 import lk.ijse.gdse.project.util.CrudUtil;
 
@@ -15,9 +16,7 @@ import java.util.ArrayList;
 
             if (resultSet.next()) {
                 String lastID = resultSet.getString(1);
-
                 String subString = lastID.replaceAll("[^0-9]", "");
-
                 if (!subString.isEmpty()) {
                     int i = Integer.parseInt(subString);
                     int newIndex = i + 1;
@@ -88,7 +87,6 @@ import java.util.ArrayList;
             return partIds;
         }
 
-
         public PartDTO findById(String selectedItemId) throws SQLException, ClassNotFoundException {
             ResultSet rst = CrudUtil.execute("select * from part where part_id=?", selectedItemId);
 
@@ -104,16 +102,38 @@ import java.util.ArrayList;
             return null;
         }
 
+//        public boolean redQty(SupplierDetailDTO supplierDetailDTOS) throws SQLException, ClassNotFoundException {
+//
+//            return CrudUtil.execute(
+//                    "update part set quantity = quantity + ? where part_id = ?",
+//                    supplierDetailDTOS.getQuantity(),
+//                    supplierDetailDTOS.getPart_id()
+//            );
+//        }
+//
+//        public boolean decrementQty(PartDetailDTO partDetailDTO) throws SQLException, ClassNotFoundException {
+//            return CrudUtil.execute(
+//                    "update part set quantity = quantity - ? where part_id = ?",
+//                    partDetailDTO.getQuantity(),
+//                    partDetailDTO.getPart_id()
+//            );
+//
+//        }
+public boolean redQty(SupplierDetailDTO supplierDetailDTOS) throws SQLException, ClassNotFoundException {
+    return CrudUtil.execute(
+            "UPDATE part SET quantity = quantity + ? WHERE part_id = ?",
+            supplierDetailDTOS.getQuantity(),
+            supplierDetailDTOS.getPart_id()
+    );
+}
 
-
-        public boolean redQty(SupplierDetailDTO supplierDetailDTOS) throws SQLException, ClassNotFoundException {
-
+        public boolean decrementQty(PartDetailDTO partDetailDTO) throws SQLException, ClassNotFoundException {
             return CrudUtil.execute(
-                    "update part set quantity = quantity + ? where part_id = ?",
-                    supplierDetailDTOS.getQuantity(),
-                    supplierDetailDTOS.getPart_id()
+                    "UPDATE part SET quantity = quantity - ? WHERE part_id = ?",
+                    partDetailDTO.getQuantity(),
+                    partDetailDTO.getPart_id()
             );
-
         }
+
     }
 

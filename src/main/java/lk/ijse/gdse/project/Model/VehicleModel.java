@@ -99,4 +99,27 @@ public class VehicleModel {
         return vehicleIds;
 
     }
+
+    public VehicleDTO findById(String selectedVehicleID) throws SQLException, ClassNotFoundException {
+        ResultSet rst = CrudUtil.execute("select * from vehicle where vehicle_id = ?", selectedVehicleID);
+        if (rst.next()) {
+            return new VehicleDTO(
+                    rst.getString(1),
+                    rst.getString(2),
+                    rst.getString(3),
+                    rst.getString(4),
+                    rst.getInt(5),
+                    rst.getString(6),
+                    rst.getString(7),
+                    rst.getString(8),
+                    rst.getString(9),
+                    rst.getString(10),
+                    rst.getDouble(11),
+                    rst.getDouble(12),
+                    rst.getString(13),
+                    rst.getString(14)
+            );
+        }
+        return null;
+    }
 }
