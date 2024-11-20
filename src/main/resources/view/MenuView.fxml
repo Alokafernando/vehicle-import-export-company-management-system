@@ -73,6 +73,9 @@
                                  <font>
                                     <Font name="System Bold Italic" size="14.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="CLOSED_HAND" />
+                                 </cursor>
                               </Button>
                               <Button fx:id="btnVehicle" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#openVehiclePanel" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-radius: 25;" text="vehicle" textFill="WHITE">
                                  <font>
@@ -86,6 +89,9 @@
                                  <font>
                                     <Font name="System Bold Italic" size="14.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="CLOSED_HAND" />
+                                 </cursor>
                               </Button>
                               <Button fx:id="btnReservation" mnemonicParsing="false" onAction="#openReservationPanel" prefHeight="31.0" prefWidth="127.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-radius: 25;" text="reservation" textFill="WHITE">
                                  <font>

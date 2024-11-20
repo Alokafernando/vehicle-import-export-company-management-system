@@ -1,0 +1,138 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<jasperReport name="Import" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2d1bd139-cc6e-47aa-a853-c330c142beda">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (5)"/>
+	<query language="SQL"><![CDATA[select * from import_company;]]></query>
+	<field name="company_ID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="company_ID"/>
+		<property name="com.jaspersoft.studio.field.label" value="company_ID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="import_company"/>
+	</field>
+	<field name="company_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="company_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="company_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="import_company"/>
+	</field>
+	<field name="county" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="county"/>
+		<property name="com.jaspersoft.studio.field.label" value="county"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="import_company"/>
+	</field>
+	<field name="contact" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="contact"/>
+		<property name="com.jaspersoft.studio.field.label" value="contact"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="import_company"/>
+	</field>
+	<field name="email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="email"/>
+		<property name="com.jaspersoft.studio.field.label" value="email"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="import_company"/>
+	</field>
+	<variable name="county1" resetType="Page" calculation="Count" class="java.lang.Integer">
+		<expression><![CDATA[$F{county}]]></expression>
+	</variable>
+	<group name="company_ID">
+		<expression><![CDATA[$F{company_ID}]]></expression>
+	</group>
+	<group name="company_name">
+		<expression><![CDATA[$F{company_name}]]></expression>
+	</group>
+	<group name="county">
+		<expression><![CDATA[$F{county}]]></expression>
+	</group>
+	<group name="contact">
+		<expression><![CDATA[$F{contact}]]></expression>
+	</group>
+	<group name="email">
+		<expression><![CDATA[$F{email}]]></expression>
+	</group>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch">
+		<element kind="staticText" uuid="4d9b2148-a8e9-43cf-b339-eb0b18d9cdc5" x="0" y="0" width="555" height="79" fontName="Calibri" fontSize="24.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Import Company Details Report]]></text>
+			<box>
+				<pen lineWidth="1.25"/>
+			</box>
+		</element>
+	</title>
+	<pageHeader height="35" splitType="Stretch"/>
+	<columnHeader height="32" splitType="Stretch">
+		<element kind="staticText" uuid="62ec27fc-0c2e-4f9b-8451-0a6b92d0706c" x="0" y="0" width="111" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2c072013-9ede-48fc-bb12-7242e080d7a1"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="ab3c70bd-196f-4d88-aab9-295c44da3b55" x="111" y="0" width="111" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Name]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c068093e-83d6-456b-97e3-623f95e4ba3d"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="41b70e75-727c-4db6-8f5b-0bd5c9aa797f" x="222" y="0" width="111" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Country]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1775c3e6-1611-4735-bdca-fa8fb0da74b0"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="7dffecec-9d2c-4ac2-956f-df0455ec4d1b" x="333" y="0" width="111" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Contact]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="210df1e0-a4b9-40fb-87ad-85a0fe8aa2dd"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="0e2aacac-37ce-478b-8748-e89829e3e043" x="444" y="0" width="111" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Email]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="893815b7-770a-44bf-a690-baff4c8b4f7f"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<element kind="textField" uuid="e7958ac7-f25a-4d9a-a103-7b840d33c5e4" x="0" y="0" width="111" height="30" fontName="Calibri" fontSize="14.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{company_ID}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2c072013-9ede-48fc-bb12-7242e080d7a1"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="b865513b-f20b-4fca-ab4c-7ce40e73340c" x="111" y="0" width="111" height="30" fontName="Calibri" fontSize="14.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{company_name}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c068093e-83d6-456b-97e3-623f95e4ba3d"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="b37389c1-24b2-4bd2-8ab8-cd6468314feb" x="222" y="0" width="111" height="30" fontName="Calibri" fontSize="14.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{county}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1775c3e6-1611-4735-bdca-fa8fb0da74b0"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="82401368-3c26-4413-9cc9-bf11767a373d" x="333" y="0" width="111" height="30" fontName="Calibri" fontSize="14.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{contact}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="210df1e0-a4b9-40fb-87ad-85a0fe8aa2dd"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="7c709ae3-289a-4ab3-ad95-0b2568fbd6ba" x="444" y="0" width="111" height="30" fontName="Calibri" fontSize="14.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{email}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="893815b7-770a-44bf-a690-baff4c8b4f7f"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>
