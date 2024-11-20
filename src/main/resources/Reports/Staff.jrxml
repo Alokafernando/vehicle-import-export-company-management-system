@@ -1,0 +1,135 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<jasperReport name="Staff" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="de727d3e-4915-40a8-a6b8-34c7a7bf9e31">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (7)"/>
+	<query language="SQL"><![CDATA[select  * from staff;]]></query>
+	<field name="staff_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="staff_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="staff_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="staff"/>
+	</field>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="staff"/>
+	</field>
+	<field name="address" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="address"/>
+		<property name="com.jaspersoft.studio.field.label" value="address"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="staff"/>
+	</field>
+	<field name="salary" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="salary"/>
+		<property name="com.jaspersoft.studio.field.label" value="salary"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="staff"/>
+	</field>
+	<field name="role" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="role"/>
+		<property name="com.jaspersoft.studio.field.label" value="role"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="staff"/>
+	</field>
+	<group name="staff_id">
+		<expression><![CDATA[$F{staff_id}]]></expression>
+	</group>
+	<group name="name">
+		<expression><![CDATA[$F{name}]]></expression>
+	</group>
+	<group name="address">
+		<expression><![CDATA[$F{address}]]></expression>
+	</group>
+	<group name="salary">
+		<expression><![CDATA[$F{salary}]]></expression>
+	</group>
+	<group name="role">
+		<expression><![CDATA[$F{role}]]></expression>
+	</group>
+	<background splitType="Stretch"/>
+	<title height="81" splitType="Stretch">
+		<element kind="staticText" uuid="c1c5a283-6d01-44db-b8a5-cadffcc082e4" x="0" y="0" width="550" height="80" fontName="Calibri" fontSize="24.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Staff Details Report ]]></text>
+			<box>
+				<pen lineWidth="1.25"/>
+			</box>
+		</element>
+	</title>
+	<pageHeader height="35" splitType="Stretch"/>
+	<columnHeader height="37" splitType="Stretch">
+		<element kind="staticText" uuid="dcafaee7-2be7-4b2f-bf5b-bf1bbe09069e" x="0" y="0" width="111" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Staff ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7e1a2a1e-d528-4b93-8e63-96fd1829a45f"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="a9083ab1-9c50-47e0-abcd-73de90b89898" x="111" y="0" width="111" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Name]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="76d972e5-459d-442b-8e60-cf44064f2769"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="f6ee0950-1506-406a-9a34-244c3f0b2f0c" x="222" y="0" width="111" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Address]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0672c73a-1c02-47de-a458-e85376bc6c64"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="5b71b3c0-dab3-4323-a290-fcb3f1167a77" x="333" y="0" width="111" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Salary]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a6f8cbd-3485-4804-9b3d-323321eedff4"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="305d0705-36f8-482e-abb5-3430dfb39304" x="444" y="0" width="111" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Role]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1e70f4ff-12ee-4804-9b4a-7d2114b2b067"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<element kind="textField" uuid="7295d98f-48c0-4d96-9af1-9e7f830acc11" x="0" y="0" width="111" height="30" fontName="Calibri" fontSize="14.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{staff_id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7e1a2a1e-d528-4b93-8e63-96fd1829a45f"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="520a88d1-a3e3-4e2d-8c40-92fe874f940a" x="111" y="0" width="111" height="30" fontName="Calibri" fontSize="14.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{name}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="76d972e5-459d-442b-8e60-cf44064f2769"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="e25ee0ef-5ee3-4f01-b094-d1eaafa19c84" x="222" y="0" width="111" height="30" fontName="Calibri" fontSize="14.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{address}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0672c73a-1c02-47de-a458-e85376bc6c64"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="1a11c5aa-6fda-47a5-af43-c847465f607b" x="333" y="0" width="111" height="30" fontName="Calibri" fontSize="14.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{salary}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a6f8cbd-3485-4804-9b3d-323321eedff4"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="9075170f-362c-4ae3-b471-fd1e6163f613" x="444" y="0" width="111" height="30" fontName="Calibri" fontSize="14.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{role}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1e70f4ff-12ee-4804-9b4a-7d2114b2b067"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>

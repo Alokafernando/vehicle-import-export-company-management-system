@@ -9,10 +9,14 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.gdse.project.Model.CustomerModel;
+import lk.ijse.gdse.project.db.DBConnection;
 import lk.ijse.gdse.project.dto.CustomerDTO;
 import lk.ijse.gdse.project.dto.tm.CustomerTM;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.net.URL;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Optional;
@@ -276,6 +280,28 @@ public class CustomerController implements Initializable {
     public void generateCustomerReservReport(ActionEvent actionEvent) {
     }
 
-    public void generateCistomerReport(ActionEvent actionEvent) {
+    public void generateCistomerReport(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        try {
+            JasperReport jasperReport = JasperCompileManager.compileReport(
+                    getClass()
+                            .getResourceAsStream("/Reports/Customer.jrxml"
+                            ));
+
+            Connection connection = DBConnection.getInstance().getConnection();
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(
+                    jasperReport,
+                    null,
+                    connection
+            );
+
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (JRException e) {
+            new Alert(Alert.AlertType.ERROR, "Fail to generate report...!").show();
+//           e.printStackTrace();
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, "DB error...!").show();
+        }
+
     }
 }
