@@ -72,7 +72,7 @@ public class ImportCompanyController implements Initializable {
     @FXML
     private TextField txtEmail;
 
-    ImportCompanyModel importCompanyModel = new ImportCompanyModel();
+    private final ImportCompanyModel importCompanyModel = new ImportCompanyModel();
 
     @FXML
     void deleteImportCompany(ActionEvent event) throws SQLException, ClassNotFoundException {

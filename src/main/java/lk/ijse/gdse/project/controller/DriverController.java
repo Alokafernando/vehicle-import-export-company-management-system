@@ -59,7 +59,7 @@ public class DriverController implements Initializable {
     @FXML
     private TextField txtDriverName;
 
-    DriverModel driverModel = new DriverModel();
+    private final DriverModel driverModel = new DriverModel();
 
     @FXML
     void deleteDriver(ActionEvent event) throws SQLException, ClassNotFoundException {

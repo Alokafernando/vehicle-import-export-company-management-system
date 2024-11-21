@@ -69,7 +69,7 @@ public class CustomerController implements Initializable {
     @FXML
     private TextField txtName;
 
-    CustomerModel customerModel = new CustomerModel();
+    private final CustomerModel customerModel = new CustomerModel();
 
     @FXML
     void deleteCustomer(ActionEvent event) throws SQLException, ClassNotFoundException {

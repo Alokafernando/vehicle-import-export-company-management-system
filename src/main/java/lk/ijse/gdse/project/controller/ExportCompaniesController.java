@@ -73,7 +73,7 @@ public class ExportCompaniesController implements Initializable {
     @FXML
     private TextField txtEmail;
 
-    ExportCompanyModel exportCompanyModel = new ExportCompanyModel();
+    private final ExportCompanyModel exportCompanyModel = new ExportCompanyModel();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
