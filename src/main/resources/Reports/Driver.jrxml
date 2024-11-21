@@ -1,0 +1,91 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<jasperReport name="Driver" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0cc06395-b7c0-43f8-b514-773e39de6516">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (12)"/>
+	<query language="SQL"><![CDATA[select * from driver]]></query>
+	<field name="driver_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="driver_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="driver_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="driver"/>
+	</field>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="driver"/>
+	</field>
+	<field name="contact" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="contact"/>
+		<property name="com.jaspersoft.studio.field.label" value="contact"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="driver"/>
+	</field>
+	<group name="driver_id">
+		<expression><![CDATA[$F{driver_id}]]></expression>
+	</group>
+	<group name="name">
+		<expression><![CDATA[$F{name}]]></expression>
+	</group>
+	<group name="contact">
+		<expression><![CDATA[$F{contact}]]></expression>
+	</group>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch">
+		<element kind="staticText" uuid="b83cb61a-6993-48d6-8280-da6f260c3968" x="0" y="0" width="554" height="78" fontName="Calibri" fontSize="24.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Driver Detail Report]]></text>
+			<box>
+				<pen lineWidth="1.25"/>
+			</box>
+		</element>
+	</title>
+	<pageHeader height="34" splitType="Stretch"/>
+	<columnHeader height="36" splitType="Stretch">
+		<element kind="staticText" uuid="7d4920e5-1f0e-4714-ae6c-f092af841a5f" x="0" y="0" width="185" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[driver_id]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="24fae9bb-048f-444f-8e0b-955f5ccc8fc3"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="88fed6ce-75f0-4371-96c2-eb507b0c2a64" x="185" y="0" width="185" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[name]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="63279f82-91f8-4759-98c8-a2b27e713eff"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="ec569014-7254-4e6f-8466-f0b53e71cc64" x="370" y="0" width="185" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[contact]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f8e6bda6-1e34-4a84-bca5-d575fb7a51ff"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<element kind="textField" uuid="7ea99d06-bfd0-4f61-803d-b4dfa116de5f" x="0" y="0" width="185" height="30" fontSize="12.0" bold="false" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{driver_id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="24fae9bb-048f-444f-8e0b-955f5ccc8fc3"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="aa7d1228-f935-4b6e-85b9-79581aea282f" x="185" y="0" width="185" height="30" fontName="Calibri" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{name}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="63279f82-91f8-4759-98c8-a2b27e713eff"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="cc23fee8-eba7-4859-b356-e78724e45cd7" x="370" y="0" width="185" height="30" fontName="Calibri" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{contact}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f8e6bda6-1e34-4a84-bca5-d575fb7a51ff"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>

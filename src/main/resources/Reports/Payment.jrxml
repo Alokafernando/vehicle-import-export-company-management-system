@@ -1,0 +1,179 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<jasperReport name="Payment" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8e40bbcf-5f0f-44f0-85c0-6df9c1fac4b4">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (11)"/>
+	<query language="SQL"><![CDATA[select  * from payment;]]></query>
+	<field name="reservation_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="reservation_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="reservation_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payment"/>
+	</field>
+	<field name="pay_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="pay_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="pay_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payment"/>
+	</field>
+	<field name="pay_method" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="pay_method"/>
+		<property name="com.jaspersoft.studio.field.label" value="pay_method"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payment"/>
+	</field>
+	<field name="deposite" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="deposite"/>
+		<property name="com.jaspersoft.studio.field.label" value="deposite"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payment"/>
+	</field>
+	<field name="amount" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="amount"/>
+		<property name="com.jaspersoft.studio.field.label" value="amount"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payment"/>
+	</field>
+	<field name="remain_amount" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="remain_amount"/>
+		<property name="com.jaspersoft.studio.field.label" value="remain_amount"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payment"/>
+	</field>
+	<field name="status" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="status"/>
+		<property name="com.jaspersoft.studio.field.label" value="status"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payment"/>
+	</field>
+	<group name="reservation_id">
+		<expression><![CDATA[$F{reservation_id}]]></expression>
+	</group>
+	<group name="pay_id">
+		<expression><![CDATA[$F{pay_id}]]></expression>
+	</group>
+	<group name="pay_method">
+		<expression><![CDATA[$F{pay_method}]]></expression>
+	</group>
+	<group name="deposite">
+		<expression><![CDATA[$F{deposite}]]></expression>
+	</group>
+	<group name="amount">
+		<expression><![CDATA[$F{amount}]]></expression>
+	</group>
+	<group name="remain_amount">
+		<expression><![CDATA[$F{remain_amount}]]></expression>
+	</group>
+	<group name="status">
+		<expression><![CDATA[$F{status}]]></expression>
+	</group>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch">
+		<element kind="staticText" uuid="2e3ade05-ae7a-4369-b653-39ecef05bf96" x="0" y="0" width="554" height="78" fontName="Calibri" fontSize="24.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Payment Details Report]]></text>
+			<box>
+				<pen lineWidth="1.25"/>
+			</box>
+		</element>
+	</title>
+	<pageHeader height="35" splitType="Stretch"/>
+	<columnHeader height="35" splitType="Stretch">
+		<element kind="staticText" uuid="b58aa761-9e08-452b-b40d-5243977313c2" x="0" y="0" width="81" height="30" fontName="Calibri" fontSize="12.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Reservation ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="37b60edf-08fa-4caa-9d8e-bf92cddb89ee"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="f64b98b5-da43-4405-a263-702500447f52" x="81" y="0" width="79" height="30" fontName="Calibri" fontSize="12.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Pay ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9680c685-ff8a-4235-b17f-baeb3b13ef25"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="7bcc8a83-7f53-43e7-b455-908ba15c3ea8" x="160" y="0" width="79" height="30" fontName="Calibri" fontSize="12.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Pay Method]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="04922231-bfbb-4b1c-9dc9-974fbc1b201a"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="c4deca0c-2771-496f-a383-d94a7b532710" x="239" y="0" width="79" height="30" fontName="Calibri" fontSize="12.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Deposite]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="23043406-17c8-492c-b8fc-1065da9cdc74"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="896f0c9b-f089-4fac-a9f4-e1224ae12b60" x="318" y="0" width="79" height="30" fontName="Calibri" fontSize="12.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Total]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="99c16929-209d-4418-9131-abf7df27e58d"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="0dd48a7f-ec0d-4aaa-bdb0-da21ceb8e42b" x="397" y="0" width="79" height="30" fontName="Calibri" fontSize="12.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Remain]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9f2672ea-0310-42bb-8d0d-61aa03ae958c"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="c6ad725d-25a9-4463-8c91-86358dfd884d" x="476" y="0" width="79" height="30" fontName="Calibri" fontSize="12.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Status]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fe3303b3-cc21-4edf-8e06-31af4ea03648"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<element kind="textField" uuid="9bba91f0-3087-48b0-81a0-a5a03e72234b" x="0" y="0" width="81" height="30" markup="styled" fontName="Calibri" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{reservation_id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="37b60edf-08fa-4caa-9d8e-bf92cddb89ee"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="3218739d-4225-4525-a81f-14a98a8a2637" x="81" y="0" width="79" height="30" fontName="Calibri" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{pay_id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9680c685-ff8a-4235-b17f-baeb3b13ef25"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="75a95487-fd3d-4fe1-b799-5a716cd91d3a" x="160" y="0" width="79" height="30" fontName="Calibri" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{pay_method}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="04922231-bfbb-4b1c-9dc9-974fbc1b201a"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="5ee950de-7c12-4e5e-84fb-4e962c081f4c" x="239" y="0" width="79" height="30" fontName="Calibri" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{deposite}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="23043406-17c8-492c-b8fc-1065da9cdc74"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="e7cafb68-ddc8-4c2a-8c5b-d672d44a0d77" x="318" y="0" width="79" height="30" fontName="Calibri" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{amount}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="99c16929-209d-4418-9131-abf7df27e58d"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="42dfbfab-7a49-4754-804a-49af7e2f0adb" x="397" y="0" width="79" height="30" fontName="Calibri" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{remain_amount}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9f2672ea-0310-42bb-8d0d-61aa03ae958c"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="327e0aff-dc14-4b91-8b45-88892b7ce5b2" x="476" y="0" width="79" height="30" fontName="Calibri" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{status}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fe3303b3-cc21-4edf-8e06-31af4ea03648"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>
