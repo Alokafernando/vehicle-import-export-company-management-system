@@ -35,8 +35,8 @@ public class LoginController {
 //    String userNamePatter = "^[a-zA-Z0-9_]{3,16}$";
 //    String passwordPatter = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,20}$\n";
 
-    private final String username = "test";
-    private final String password = "Test@123";
+    private final String username = "a";
+    private final String password = "a";
 
     @FXML
     void login(ActionEvent event) throws IOException {

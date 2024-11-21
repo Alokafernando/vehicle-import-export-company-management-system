@@ -262,8 +262,8 @@ public class VController implements Initializable {
             String exportDate = txtExportDate.getText().isEmpty() ? null : txtExportDate.getText();
             String importDate = txtImportDate.getText().isEmpty() ? null : txtImportDate.getText();
             String saleDate = txtSaleDate.getText().isEmpty() ? null : txtSaleDate.getText();
-            String exportPrice = txtExportPrice.getText().isEmpty() ? "0.0" : txtExportPrice.getText();
-            String importPrice = txtImportPrice.getText().isEmpty() ? "0.0" : txtImportPrice.getText();
+            String exportPrice = txtExportPrice.getText().isEmpty() ? "0" : txtExportPrice.getText();
+            String importPrice = txtImportPrice.getText().isEmpty() ? "0" : txtImportPrice.getText();
             String transportID = cmbTransportID.getValue();
            // String status =  ((RadioButton) btnGroup.getSelectedToggle()).getText();
 

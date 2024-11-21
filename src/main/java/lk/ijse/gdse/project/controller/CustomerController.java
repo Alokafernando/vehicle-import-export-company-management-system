@@ -4,10 +4,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import lk.ijse.gdse.project.Model.CustomerModel;
 import lk.ijse.gdse.project.db.DBConnection;
 import lk.ijse.gdse.project.dto.CustomerDTO;
@@ -15,6 +20,7 @@ import lk.ijse.gdse.project.dto.tm.CustomerTM;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.view.JasperViewer;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -34,6 +40,9 @@ public class CustomerController implements Initializable {
 
     @FXML
     private Button btnUpdate;
+
+    @FXML
+    private Button btncheckVehicle;
 
     @FXML
     private TableColumn<CustomerTM, String> colAddress;
@@ -69,6 +78,28 @@ public class CustomerController implements Initializable {
     private TextField txtName;
 
     private final CustomerModel customerModel = new CustomerModel();
+
+    @FXML
+    void btnCheckVehicleOnAction(ActionEvent event) throws IOException {
+        try {
+            // Load the new FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CheckVehicle.fxml"));
+            AnchorPane pane = loader.load(); // Load the layout
+
+            // Get the current stage from the event source
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Create a new scene and set it to the current stage
+            Scene scene = new Scene(pane);
+            stage.setScene(scene);
+            stage.show();  // Show the new scene
+
+        } catch (IOException e) {
+            e.printStackTrace();  // Print the error to the console
+        }
+
+
+    }
 
     @FXML
     void deleteCustomer(ActionEvent event) throws SQLException, ClassNotFoundException {

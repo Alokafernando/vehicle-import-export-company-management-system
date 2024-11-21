@@ -89,10 +89,20 @@
                               <Font name="Calibri" size="14.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="cmdDriverID" prefHeight="28.0" prefWidth="137.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
+                        <ComboBox fx:id="cmdDriverID" onAction="#cmbDriverOnAction" prefHeight="28.0" prefWidth="137.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
                            <cursor>
                               <Cursor fx:constant="CLOSED_HAND" />
                            </cursor></ComboBox>
+                        <Label layoutX="10.0" layoutY="24.0" text="Driver Name">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblDriverName" layoutX="358.0" layoutY="24.0" prefHeight="18.0" prefWidth="108.0" text="name">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
                      </children>
                   </HBox>
                </children>

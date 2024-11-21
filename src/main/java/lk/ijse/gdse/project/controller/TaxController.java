@@ -12,7 +12,9 @@ import lk.ijse.gdse.project.Model.TaxModel;
 import lk.ijse.gdse.project.Model.VehicleModel;
 import lk.ijse.gdse.project.db.DBConnection;
 import lk.ijse.gdse.project.dto.TaxDTO;
+import lk.ijse.gdse.project.dto.VehicleDTO;
 import lk.ijse.gdse.project.dto.tm.TaxTM;
+import lk.ijse.gdse.project.dto.tm.VehicleTM;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.view.JasperViewer;
 
@@ -57,6 +59,9 @@ public class TaxController implements Initializable {
     private TableColumn<TaxTM, String> colVehicleID;
 
     @FXML
+    private Label lblModel;
+
+    @FXML
     private Label lblTaxID;
 
     @FXML
@@ -73,6 +78,16 @@ public class TaxController implements Initializable {
 
     @FXML
     private TextField txtImportTax;
+
+    @FXML
+    void cmbVehicleIDOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+        String selectedId = cmbVehicleID.getSelectionModel().getSelectedItem();
+        VehicleDTO vehicleTM = vehicleModel.findById(selectedId);
+        if(vehicleTM != null) {
+            lblModel.setText(vehicleTM.getModel());
+        }
+
+    }
 
     @FXML
     void deleteTax(ActionEvent event) throws SQLException, ClassNotFoundException {

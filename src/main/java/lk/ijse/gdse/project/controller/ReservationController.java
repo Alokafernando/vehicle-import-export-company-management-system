@@ -12,6 +12,7 @@ import lk.ijse.gdse.project.Model.CustomerModel;
 import lk.ijse.gdse.project.Model.ReservationModel;
 import lk.ijse.gdse.project.db.DBConnection;
 import lk.ijse.gdse.project.dto.ReservationDTO;
+import lk.ijse.gdse.project.dto.tm.CustomerTM;
 import lk.ijse.gdse.project.dto.tm.ReservationTM;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.view.JasperViewer;
@@ -52,6 +53,9 @@ public class ReservationController implements Initializable {
     private TableColumn<ReservationTM, String> colReserveID;
 
     @FXML
+    private Label lblCustName;
+
+    @FXML
     private Label lblResreveID;
 
     @FXML
@@ -81,6 +85,16 @@ public class ReservationController implements Initializable {
             btnDeleteResetvation.setDisable(false);
             btnUpdateReservation.setDisable(false);
         }
+    }
+
+    @FXML
+    void cmbCustIdOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+        String selectedCustId = cmdCustID.getSelectionModel().getSelectedItem();
+        CustomerTM customerTM = customerModel.findbyId(selectedCustId);
+        if (customerTM != null) {
+            lblCustName.setText(customerTM.getName());
+        }
+
     }
 
     @FXML

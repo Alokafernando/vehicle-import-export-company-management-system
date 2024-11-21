@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.project.controller.CheckVehicleController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" prefHeight="22.0" prefWidth="45.0" text="Model">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="47.0" prefHeight="22.0" prefWidth="45.0" text="Year">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="88.0" prefHeight="22.0" prefWidth="45.0" text="Color">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblcheckVehicle" layoutX="32.0" layoutY="155.0" prefHeight="224.0" prefWidth="535.0">
+        <columns>
+          <TableColumn fx:id="colID" prefWidth="93.60003662109375" text="ID" />
+          <TableColumn fx:id="colModel" prefWidth="154.39996337890625" text="Model" />
+            <TableColumn fx:id="colColor" prefWidth="97.60003662109375" text="Color" />
+            <TableColumn fx:id="colYear" prefWidth="77.5999755859375" text="Year" />
+            <TableColumn fx:id="colStatus" prefWidth="112.0" text="Status" />
+        </columns>
+      </TableView>
+      <TextField fx:id="txtModel" layoutX="92.0" layoutY="12.0" prefHeight="26.0" prefWidth="282.0" promptText="Model" />
+      <TextField fx:id="txtYear" layoutX="91.0" layoutY="45.0" prefHeight="26.0" prefWidth="282.0" promptText="year" />
+      <TextField fx:id="txtColor" layoutX="92.0" layoutY="86.0" prefHeight="26.0" prefWidth="282.0" promptText="color" />
+   </children>
+</AnchorPane>

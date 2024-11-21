@@ -1,6 +1,7 @@
 package lk.ijse.gdse.project.Model;
 
 import lk.ijse.gdse.project.dto.CustomerDTO;
+import lk.ijse.gdse.project.dto.tm.CustomerTM;
 import lk.ijse.gdse.project.util.CrudUtil;
 
 import java.sql.ResultSet;
@@ -70,5 +71,20 @@ public class CustomerModel {
             customerIds.add(rst.getString(1));
         }
         return customerIds;
+    }
+
+    public CustomerTM findbyId(String selectedCustId) throws SQLException, ClassNotFoundException {
+        ResultSet rst = CrudUtil.execute("select * from customer where cust_ID = ?", selectedCustId);
+
+        if(rst.next()){
+            return new CustomerTM(
+                    rst.getString(1),
+                    rst.getString(2),
+                    rst.getString(3),
+                    rst.getString(4),
+                    rst.getString(5)
+            );
+        }
+        return null;
     }
 }

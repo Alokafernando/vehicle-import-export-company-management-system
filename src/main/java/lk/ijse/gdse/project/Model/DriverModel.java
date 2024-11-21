@@ -1,6 +1,7 @@
 package lk.ijse.gdse.project.Model;
 
 import lk.ijse.gdse.project.dto.DriverDTO;
+import lk.ijse.gdse.project.dto.tm.DriverTM;
 import lk.ijse.gdse.project.util.CrudUtil;
 
 import java.sql.ResultSet;
@@ -63,5 +64,20 @@ public class DriverModel {
             driverIds.add(rst.getString(1));
         }
         return driverIds;
+    }
+
+    public DriverTM findbyID(String selectedDriverID) throws SQLException, ClassNotFoundException {
+        ResultSet rst = CrudUtil.execute("select * from driver where driver_id=?",
+                selectedDriverID);
+
+        if (rst.next()) {
+            return new DriverTM(
+                    rst.getString(1),
+                    rst.getString(2),
+                    rst.getString(3)
+
+            );
+        }
+        return null;
     }
 }

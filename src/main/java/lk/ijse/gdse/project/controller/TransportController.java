@@ -12,6 +12,7 @@ import lk.ijse.gdse.project.Model.DriverModel;
 import lk.ijse.gdse.project.Model.TransportModel;
 import lk.ijse.gdse.project.db.DBConnection;
 import lk.ijse.gdse.project.dto.TransportDTO;
+import lk.ijse.gdse.project.dto.tm.DriverTM;
 import lk.ijse.gdse.project.dto.tm.TransportTM;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.view.JasperViewer;
@@ -63,6 +64,9 @@ public class TransportController implements Initializable {
     private TableColumn<TransportTM, String> colTransportType;
 
     @FXML
+    private Label lblDriverName;
+
+    @FXML
     private Label lblTransportID;
 
     @FXML
@@ -82,6 +86,16 @@ public class TransportController implements Initializable {
 
     private final TransportModel transportModel = new TransportModel();
     private final DriverModel driverModel = new DriverModel();
+
+    @FXML
+    void cmbDriverOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+        String selectedDriverID = cmdDriverID.getSelectionModel().getSelectedItem();
+        DriverTM driverTM = driverModel.findbyID(selectedDriverID);
+        if (driverTM != null) {
+            lblDriverName.setText(driverTM.getName());
+        }
+
+    }
 
     @FXML
     void deleteTransport(ActionEvent event) throws SQLException, ClassNotFoundException {
@@ -162,7 +176,7 @@ public class TransportController implements Initializable {
     void saveTransport(ActionEvent event) throws SQLException, ClassNotFoundException {
         String driverId = cmdDriverID.getValue();
         String transportId = lblTransportID.getText();
-        String startDate = LocalDate.now().toString();
+        String startDate = lblTransportID.getText();
         String endDate = txtEndDate.getText();
 
         String transportType;
@@ -337,9 +351,11 @@ public class TransportController implements Initializable {
     }
 
     private void loadDriverIds() throws SQLException, ClassNotFoundException {
+
         ArrayList<String> driverIds = driverModel.getAllDriverIds();
         ObservableList<String> observableList = FXCollections.observableArrayList(driverIds);
         cmdDriverID.setItems(observableList);
+
     }
 
     private void setCellValues() {
@@ -349,5 +365,7 @@ public class TransportController implements Initializable {
         colEndDate.setCellValueFactory(new PropertyValueFactory<>("end_date"));
         colDriverID.setCellValueFactory(new PropertyValueFactory<>("driver_id"));
     }
+
+
 }
 

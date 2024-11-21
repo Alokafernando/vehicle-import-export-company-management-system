@@ -63,6 +63,18 @@
                               <Font name="Calibri" size="14.0" />
                            </font>
                         </TextField>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="28.0" prefWidth="378.0">
+                           <children>
+                              <Button fx:id="btncheckVehicle" mnemonicParsing="false" onAction="#btnCheckVehicleOnAction" prefWidth="150.0" style="-fx-background-color: #747d8c;" text="check vehicle" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </HBox>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="343.0" spacing="30.0">

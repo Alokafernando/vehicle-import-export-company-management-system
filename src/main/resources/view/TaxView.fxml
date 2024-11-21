@@ -25,10 +25,20 @@
                               <Font name="Calibri" size="14.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="cmbVehicleID" prefHeight="27.0" prefWidth="141.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
+                        <ComboBox fx:id="cmbVehicleID" onAction="#cmbVehicleIDOnAction" prefHeight="27.0" prefWidth="141.0" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #1e3799;">
                            <cursor>
                               <Cursor fx:constant="CLOSED_HAND" />
                            </cursor></ComboBox>
+                        <Label alignment="CENTER" layoutX="10.0" layoutY="17.0" prefHeight="24.0" prefWidth="148.0" text="vehicle model">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblModel" alignment="CENTER" layoutX="300.0" layoutY="17.0" prefHeight="24.0" prefWidth="157.0" text="model">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </Label>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="45.0" prefWidth="40.0" spacing="30.0">
