@@ -174,72 +174,74 @@ public class ImportCompanyController implements Initializable {
 
     @FXML
     void saveImportCompany(ActionEvent event) throws SQLException, ClassNotFoundException {
-                String importCompanyID = lblCompanyID.getText();
-                String importCompanyName = txtCompanyName.getText();
-                String importCompanyContact = txtContact.getText();
-                String importCompanyCountry = txtCountry.getText();
-                String importCompanyEmail = txtEmail.getText();
+        String importCompanyID = lblCompanyID.getText();
+        String importCompanyName = txtCompanyName.getText();
+        String importCompanyContact = txtContact.getText();
+        String importCompanyCountry = txtCountry.getText();
+        String importCompanyEmail = txtEmail.getText();
 
-            String namePattern = "^[A-Za-z ]+$";
-            String countryPattern = "^[A-Za-z ]+$";
-            String emailPattern = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
-            String phonePattern = "^(\\d+)||((\\d+\\.)(\\d){2})$";
+        System.out.println("test 1");
 
-            boolean isValidName = importCompanyName.matches(namePattern);
-            boolean isValidContact = importCompanyContact.matches(countryPattern);
-            boolean isValidEmail = importCompanyEmail.matches(emailPattern);
-            boolean isValidPhone = importCompanyContact.matches(phonePattern);
-            String errorStyle = "-fx-border-color: red; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
-            String style = "-fx-border-color:  #1e3799; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+        String namePattern = "^[A-Za-z ]+$";
+        String countryPattern = "^[A-Za-z ]+$";
+        String emailPattern = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+        String phonePattern = "^(\\d+)||((\\d+\\.)(\\d){2})$";
 
-            if(!isValidName){
-                txtCompanyName.setStyle(errorStyle);
-            }else {
-                txtCompanyName.setStyle(style);
+        boolean isValidName = importCompanyName.matches(namePattern);
+        boolean isValidContact = importCompanyContact.matches(phonePattern);
+        boolean isValidEmail = importCompanyEmail.matches(emailPattern);
+        boolean isValidCountry = importCompanyCountry.matches(countryPattern);
+        String errorStyle = "-fx-border-color: red; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+        String style = "-fx-border-color:  #1e3799; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
+        System.out.println("test 2");
+        if(!isValidName){
+            txtCompanyName.setStyle(errorStyle);
+        }else {
+            txtCompanyName.setStyle(style);
+        }
+        if(!isValidContact){
+            txtContact.setStyle(errorStyle);
+        }else {
+            txtContact.setStyle(style);
+        }
+        if(!isValidEmail){
+            txtEmail.setStyle(errorStyle);
+        }else {
+            txtEmail.setStyle(style);
+        }
+        if(!isValidCountry){
+            txtCountry.setStyle(errorStyle);
+        }else {
+            txtCountry.setStyle(style);
+        }
+        System.out.println("test 3");
+
+        if(isValidName && isValidContact && isValidEmail && isValidCountry) {
+            ImportCompanyDTO importCompanyDTO = new ImportCompanyDTO(
+                    importCompanyID,
+                    importCompanyName,
+                    importCompanyCountry,
+                    importCompanyContact,
+                    importCompanyEmail
+            );
+            System.out.println("test4");
+            boolean isSaved = importCompanyModel.saveImportCompany(importCompanyDTO);
+            if(isSaved){
+                refeshPage();
+                new Alert(Alert.AlertType.INFORMATION, "Import company saved..!").show();
+            }else{
+                new Alert(Alert.AlertType.ERROR, "Fail to import company save").show();
             }
-            if(!isValidContact){
-                txtContact.setStyle(errorStyle);
-            }else {
-                txtContact.setStyle(style);
-            }
-            if(!isValidEmail){
-                txtEmail.setStyle(errorStyle);
-            }else {
-                txtEmail.setStyle(style);
-            }
-            if(!isValidPhone){
-                txtContact.setStyle(errorStyle);
-            }else {
-                txtContact.setStyle(style);
-            }
-
-            if(isValidName && isValidContact && isValidEmail && isValidPhone) {
-                ImportCompanyDTO importCompanyDTO = new ImportCompanyDTO(
-                        importCompanyID,
-                        importCompanyName,
-                        importCompanyCountry,
-                        importCompanyContact,
-                        importCompanyEmail
-                );
-
-                boolean isSaved = importCompanyModel.saveImportCompany(importCompanyDTO);
-                if(isSaved){
-                    refeshPage();
-                    new Alert(Alert.AlertType.INFORMATION, "Import company saved..!").show();
-                }else{
-                    new Alert(Alert.AlertType.ERROR, "Fail to import company save").show();
-                }
-            }
-
+        }
     }
 
     @FXML
     void updateImportCompany(ActionEvent event) throws SQLException, ClassNotFoundException {
         String importCompanyID = lblCompanyID.getText();
-                String importCompanyName = txtCompanyName.getText();
-                String importCompanyContact = txtContact.getText();
-                String importCompanyCountry = txtCountry.getText();
-                String importCompanyEmail = txtEmail.getText();
+        String importCompanyName = txtCompanyName.getText();
+        String importCompanyContact = txtContact.getText();
+        String importCompanyCountry = txtCountry.getText();
+        String importCompanyEmail = txtEmail.getText();
 
         String namePattern = "^[A-Za-z ]+$";
         String countryPattern = "^[A-Za-z ]+$";
