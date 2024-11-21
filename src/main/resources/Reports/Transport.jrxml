@@ -1,0 +1,135 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<jasperReport name="Transport" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c8f5a194-968c-4d11-b1d8-416c41a4902d">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (15)"/>
+	<query language="SQL"><![CDATA[select * from transport;]]></query>
+	<field name="transport_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="transport_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="transport_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="transport"/>
+	</field>
+	<field name="transport_type" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="transport_type"/>
+		<property name="com.jaspersoft.studio.field.label" value="transport_type"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="transport"/>
+	</field>
+	<field name="start_date" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="start_date"/>
+		<property name="com.jaspersoft.studio.field.label" value="start_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="transport"/>
+	</field>
+	<field name="end_date" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="end_date"/>
+		<property name="com.jaspersoft.studio.field.label" value="end_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="transport"/>
+	</field>
+	<field name="driver_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="driver_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="driver_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="transport"/>
+	</field>
+	<group name="transport_id">
+		<expression><![CDATA[$F{transport_id}]]></expression>
+	</group>
+	<group name="transport_type">
+		<expression><![CDATA[$F{transport_type}]]></expression>
+	</group>
+	<group name="start_date">
+		<expression><![CDATA[$F{start_date}]]></expression>
+	</group>
+	<group name="end_date">
+		<expression><![CDATA[$F{end_date}]]></expression>
+	</group>
+	<group name="driver_id">
+		<expression><![CDATA[$F{driver_id}]]></expression>
+	</group>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch">
+		<element kind="staticText" uuid="b7e9f5f7-5497-4d78-a8ee-23b3eee9297f" x="0" y="0" width="555" height="79" fontName="Calibri" fontSize="24.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Transport Details Report]]></text>
+			<box>
+				<pen lineWidth="1.25"/>
+			</box>
+		</element>
+	</title>
+	<pageHeader height="35" splitType="Stretch"/>
+	<columnHeader height="41" splitType="Stretch">
+		<element kind="staticText" uuid="a2f974fc-c0a7-4446-924a-c8bc41f16444" x="0" y="0" width="111" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Transport ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0d05a7b2-3880-4a13-a18f-a3cf7bfeb5b5"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="873ad935-7ad3-4819-bf14-35ebb1c0f296" x="111" y="0" width="111" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Transport Type]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="36940bb9-6a78-4dc9-9ab4-97a9be22c852"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="5f11d254-d8ca-4dd0-9305-cb94c627dfc9" x="222" y="0" width="111" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Start Date]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="36cc4a20-d301-4c1e-bf1e-b49099a3d8e1"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="cba05217-22e7-43cc-85f8-2737864240c0" x="333" y="0" width="111" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[End Date]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="82f021ca-57ed-4f6a-852e-5f7ec7c439d8"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="f70116b8-4842-4856-ae9f-96e303be0492" x="444" y="0" width="111" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Driver ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6c71e00e-be91-4788-b406-188a21903ffc"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<element kind="textField" uuid="940282c4-6b22-4f3e-ac9f-ca57714745ef" x="0" y="0" width="111" height="30" fontName="Calibri" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{transport_id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0d05a7b2-3880-4a13-a18f-a3cf7bfeb5b5"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="d0173e3a-c4ac-418b-8b93-97725ecd06cd" x="111" y="0" width="111" height="30" fontName="Calibri" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{transport_type}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="36940bb9-6a78-4dc9-9ab4-97a9be22c852"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="baa4b260-a653-4323-b6bd-977ba673cef7" x="222" y="0" width="111" height="30" fontName="Calibri" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{start_date}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="36cc4a20-d301-4c1e-bf1e-b49099a3d8e1"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="d345b59a-2025-4231-a892-1a1d418abdea" x="333" y="0" width="111" height="30" fontName="Calibri" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{end_date}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="82f021ca-57ed-4f6a-852e-5f7ec7c439d8"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="797ae85d-87e6-4a06-85b0-ceb2ccb213a1" x="444" y="0" width="111" height="30" fontName="Calibri" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{driver_id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6c71e00e-be91-4788-b406-188a21903ffc"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>

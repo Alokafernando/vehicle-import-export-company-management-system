@@ -92,35 +92,35 @@
 	</columnHeader>
 	<detail>
 		<band height="30" splitType="Stretch">
-			<element kind="textField" uuid="ba2db68a-69a2-4dc0-a52a-6a20b7c643b2" x="0" y="0" width="111" height="30" fontName="Calibri" fontSize="14.0" hTextAlign="Center" vTextAlign="Middle">
+			<element kind="textField" uuid="ba2db68a-69a2-4dc0-a52a-6a20b7c643b2" x="0" y="0" width="111" height="30" fontName="Calibri" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
 				<expression><![CDATA[$F{company_ID}]]></expression>
 				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dd07c1ee-7b12-4ef2-9565-e8d83d877289"/>
 				<box>
 					<pen lineWidth="0.25"/>
 				</box>
 			</element>
-			<element kind="textField" uuid="682057ec-b4d7-46e7-82f0-f608b702ce78" x="111" y="0" width="111" height="30" fontName="Calibri" fontSize="14.0" hTextAlign="Center" vTextAlign="Middle">
+			<element kind="textField" uuid="682057ec-b4d7-46e7-82f0-f608b702ce78" x="111" y="0" width="111" height="30" fontName="Calibri" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
 				<expression><![CDATA[$F{company_name}]]></expression>
 				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d915383b-ab0e-47f2-97c7-41224eda97cb"/>
 				<box>
 					<pen lineWidth="0.25"/>
 				</box>
 			</element>
-			<element kind="textField" uuid="8a2ee7f8-4080-4ab0-8c58-dce240fc5b53" x="222" y="0" width="111" height="30" fontName="Calibri" fontSize="14.0" hTextAlign="Center" vTextAlign="Middle">
+			<element kind="textField" uuid="8a2ee7f8-4080-4ab0-8c58-dce240fc5b53" x="222" y="0" width="111" height="30" fontName="Calibri" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
 				<expression><![CDATA[$F{county}]]></expression>
 				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f7a9ff75-b55d-424f-856d-909a503e354c"/>
 				<box>
 					<pen lineWidth="0.25"/>
 				</box>
 			</element>
-			<element kind="textField" uuid="ec0aa488-a711-4e4a-93d0-c0f06fde8483" x="333" y="0" width="111" height="30" fontName="Calibri" fontSize="14.0" hTextAlign="Center" vTextAlign="Middle">
+			<element kind="textField" uuid="ec0aa488-a711-4e4a-93d0-c0f06fde8483" x="333" y="0" width="111" height="30" fontName="Calibri" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
 				<expression><![CDATA[$F{contact}]]></expression>
 				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cf764191-2282-4f5f-a429-004e4dedf808"/>
 				<box>
 					<pen lineWidth="0.25"/>
 				</box>
 			</element>
-			<element kind="textField" uuid="a8a0bf90-80dd-4d0b-9fab-406dcbc8072b" x="444" y="0" width="111" height="30" fontName="Calibri" fontSize="14.0" hTextAlign="Center" vTextAlign="Middle">
+			<element kind="textField" uuid="a8a0bf90-80dd-4d0b-9fab-406dcbc8072b" x="444" y="0" width="111" height="30" fontName="Calibri" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
 				<expression><![CDATA[$F{email}]]></expression>
 				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9c4938ac-4246-4f9f-8a19-9ea9c3c1bb09"/>
 				<box>

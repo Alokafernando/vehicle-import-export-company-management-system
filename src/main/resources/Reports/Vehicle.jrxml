@@ -1,0 +1,333 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<jasperReport name="Vehicle" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="50017ee0-abac-451b-adcf-6025b1037d1b">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (17)"/>
+	<query language="SQL"><![CDATA[select  * from vehicle;]]></query>
+	<field name="import_company_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="import_company_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="import_company_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vehicle"/>
+	</field>
+	<field name="import_date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="import_date"/>
+		<property name="com.jaspersoft.studio.field.label" value="import_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vehicle"/>
+	</field>
+	<field name="vehicle_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="vehicle_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="vehicle_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vehicle"/>
+	</field>
+	<field name="model" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="model"/>
+		<property name="com.jaspersoft.studio.field.label" value="model"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vehicle"/>
+	</field>
+	<field name="year" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="year"/>
+		<property name="com.jaspersoft.studio.field.label" value="year"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vehicle"/>
+	</field>
+	<field name="color" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="color"/>
+		<property name="com.jaspersoft.studio.field.label" value="color"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vehicle"/>
+	</field>
+	<field name="current_status" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="current_status"/>
+		<property name="com.jaspersoft.studio.field.label" value="current_status"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vehicle"/>
+	</field>
+	<field name="export_company_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="export_company_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="export_company_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vehicle"/>
+	</field>
+	<field name="export_date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="export_date"/>
+		<property name="com.jaspersoft.studio.field.label" value="export_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vehicle"/>
+	</field>
+	<field name="sale_date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="sale_date"/>
+		<property name="com.jaspersoft.studio.field.label" value="sale_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vehicle"/>
+	</field>
+	<field name="import_price" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="import_price"/>
+		<property name="com.jaspersoft.studio.field.label" value="import_price"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vehicle"/>
+	</field>
+	<field name="export_price" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="export_price"/>
+		<property name="com.jaspersoft.studio.field.label" value="export_price"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vehicle"/>
+	</field>
+	<field name="reservation_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="reservation_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="reservation_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vehicle"/>
+	</field>
+	<field name="transport_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="transport_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="transport_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vehicle"/>
+	</field>
+	<group name="import_company_id">
+		<expression><![CDATA[$F{import_company_id}]]></expression>
+	</group>
+	<group name="import_date">
+		<expression><![CDATA[$F{import_date}]]></expression>
+	</group>
+	<group name="vehicle_id">
+		<expression><![CDATA[$F{vehicle_id}]]></expression>
+	</group>
+	<group name="model">
+		<expression><![CDATA[$F{model}]]></expression>
+	</group>
+	<group name="year">
+		<expression><![CDATA[$F{year}]]></expression>
+	</group>
+	<group name="color">
+		<expression><![CDATA[$F{color}]]></expression>
+	</group>
+	<group name="current_status">
+		<expression><![CDATA[$F{current_status}]]></expression>
+	</group>
+	<group name="export_company_id">
+		<expression><![CDATA[$F{export_company_id}]]></expression>
+	</group>
+	<group name="export_date">
+		<expression><![CDATA[$F{export_date}]]></expression>
+	</group>
+	<group name="sale_date">
+		<expression><![CDATA[$F{sale_date}]]></expression>
+	</group>
+	<group name="import_price">
+		<expression><![CDATA[$F{import_price}]]></expression>
+	</group>
+	<group name="export_price">
+		<expression><![CDATA[$F{export_price}]]></expression>
+	</group>
+	<group name="reservation_id">
+		<expression><![CDATA[$F{reservation_id}]]></expression>
+	</group>
+	<group name="transport_id">
+		<expression><![CDATA[$F{transport_id}]]></expression>
+	</group>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch">
+		<element kind="staticText" uuid="dc90f04f-76ae-40fb-bc43-af71d9b77917" x="0" y="0" width="560" height="78" fontName="Calibri" fontSize="24.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Vehicle Details Report]]></text>
+			<box>
+				<pen lineWidth="1.25"/>
+			</box>
+		</element>
+	</title>
+	<pageHeader height="35" splitType="Stretch"/>
+	<columnHeader height="38" splitType="Stretch">
+		<element kind="staticText" uuid="159ac9ac-d9ef-468b-90eb-6f7015fda4dd" x="0" y="0" width="48" height="30" fontName="Calibri" fontSize="10.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Import Company]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5bcd3153-2983-4e45-81bd-4332d94cdca1"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="c497855d-da19-4156-b466-d5e2c4a2941f" x="48" y="0" width="39" height="30" fontName="Calibri" fontSize="10.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Import Date]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e301b31c-b41e-4a38-851c-24eaa70146c5"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="d063fce1-c7cf-40ca-906c-84ef2919a7ae" x="87" y="0" width="39" height="30" fontName="Calibri" fontSize="10.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Vehicle ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="487411b6-8f44-4ab2-9653-e68fb7c9ef31"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="5df14304-938c-4e2c-acde-9368d7a601f7" x="126" y="0" width="39" height="30" fontName="Calibri" fontSize="10.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Model]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="59222d41-14b4-444b-874b-5f43c8d96321"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="ca3802e3-610e-4b3a-8c0b-f68ae60ae0fb" x="165" y="0" width="39" height="30" fontName="Calibri" fontSize="10.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Year]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ba527fa8-76c0-46e7-b24b-4f7363cca085"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="3739ad8b-3a62-415a-bb43-85b43cc212e0" x="204" y="0" width="39" height="30" fontName="Calibri" fontSize="10.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Color]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="423586fd-ec5f-4aaa-9d8e-d629a33898f4"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="dba52405-e14b-49da-9073-1eafdbf36716" x="243" y="0" width="39" height="30" fontName="Calibri" fontSize="10.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Status]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0d93f6aa-030a-4c4b-9839-50378b9f5567"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="f13fd136-76d7-4a2a-af0e-b8e547764f96" x="282" y="0" width="39" height="30" fontName="Calibri" fontSize="10.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Export Company]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c4c23b34-2671-4729-b3b5-90797db2b34e"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="78771a86-cc12-4954-8612-3f377d563e5b" x="321" y="0" width="39" height="30" fontName="Calibri" fontSize="10.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Export Date]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4e8d5140-1029-4a84-a7f7-a82ab369981f"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="8368eedb-f0d2-4ee5-95e4-0ab9ec788767" x="360" y="0" width="39" height="30" fontName="Calibri" fontSize="10.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Sale Date]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="09b6b86e-dda7-43e9-880e-78778e72c620"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="3c093d58-6d74-4cfc-94fd-159296214cc6" x="399" y="0" width="39" height="30" fontName="Calibri" fontSize="10.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Import Price]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ff39d14b-b7be-44c8-a368-9bfefe526a51"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="78a9b20a-e6e6-4200-a6ae-32b23a8d1380" x="438" y="0" width="39" height="30" fontName="Calibri" fontSize="10.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Export Price]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4f2fe12c-5073-4c58-bdef-d7feee8afd17"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="b086348d-0be3-4dc6-b1d6-e7e81de30a6e" x="477" y="0" width="39" height="30" fontName="Calibri" fontSize="10.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Reservation ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0ff27546-70cc-46be-b17c-5ed42be88257"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="13f3f2b4-d5f0-4f1f-899c-7390164d5691" x="516" y="0" width="39" height="30" fontName="Calibri" fontSize="10.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Transport ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e5f466df-eaf3-4fc7-9d7d-7d1e8a037003"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<element kind="textField" uuid="2f000a6e-2313-4ccc-9c29-8cf1cc70f204" x="0" y="0" width="48" height="30" fontName="Calibri" fontSize="8.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{import_company_id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5bcd3153-2983-4e45-81bd-4332d94cdca1"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="e632075c-4532-4560-8866-a0afd4ea566d" x="48" y="0" width="39" height="30" fontName="Calibri" fontSize="8.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{import_date}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e301b31c-b41e-4a38-851c-24eaa70146c5"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="c00dcb9d-3777-4a94-afc1-f16ed21f26a6" x="87" y="0" width="39" height="30" fontName="Calibri" fontSize="8.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{vehicle_id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="487411b6-8f44-4ab2-9653-e68fb7c9ef31"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="85039eab-811b-456e-837c-c31c90298fef" x="126" y="0" width="39" height="30" fontName="Calibri" fontSize="8.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{model}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="59222d41-14b4-444b-874b-5f43c8d96321"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="08697103-40a4-4c22-be95-20ebf84e4202" x="165" y="0" width="39" height="30" fontName="Calibri" fontSize="8.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{year}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ba527fa8-76c0-46e7-b24b-4f7363cca085"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="8261aea5-f360-48e4-b6e7-55137b008179" x="204" y="0" width="39" height="30" fontName="Calibri" fontSize="8.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{color}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="423586fd-ec5f-4aaa-9d8e-d629a33898f4"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="1782284c-fa08-45d3-89c3-737e46a2bc02" x="243" y="0" width="39" height="30" fontName="Calibri" fontSize="8.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{current_status}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0d93f6aa-030a-4c4b-9839-50378b9f5567"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="919b1533-8a82-493e-9b37-77e9d72105e4" x="282" y="0" width="39" height="30" fontName="Calibri" fontSize="8.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{export_company_id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c4c23b34-2671-4729-b3b5-90797db2b34e"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="968298cd-3c61-42b9-bdb3-acabc3223156" x="321" y="0" width="39" height="30" fontName="Calibri" fontSize="8.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{export_date}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4e8d5140-1029-4a84-a7f7-a82ab369981f"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="6485dcea-33fb-4c66-9db8-9b867003f6b0" x="360" y="0" width="39" height="30" fontName="Calibri" fontSize="8.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{sale_date}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="09b6b86e-dda7-43e9-880e-78778e72c620"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="e1b32278-0102-4756-997c-b53ee1e206ad" x="399" y="0" width="39" height="30" fontName="Calibri" fontSize="8.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{import_price}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ff39d14b-b7be-44c8-a368-9bfefe526a51"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="2542cc1b-16c4-49dd-9cb3-62fa92b20b4a" x="438" y="0" width="39" height="30" fontName="Calibri" fontSize="8.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{export_price}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4f2fe12c-5073-4c58-bdef-d7feee8afd17"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="385c8581-ae07-401b-a899-b31db31e5a9f" x="477" y="0" width="39" height="30" fontName="Calibri" fontSize="8.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{reservation_id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0ff27546-70cc-46be-b17c-5ed42be88257"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="d1959ef6-809d-4f0c-9cdf-138c632c7fd8" x="516" y="0" width="39" height="30" fontName="Calibri" fontSize="8.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{transport_id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e5f466df-eaf3-4fc7-9d7d-7d1e8a037003"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>

@@ -1,0 +1,129 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<jasperReport name="Tax" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="51457590-63b0-48f3-826d-34001708f105">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (14)"/>
+	<query language="SQL"><![CDATA[select * from tax;]]></query>
+	<field name="vehicle_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="vehicle_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="vehicle_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tax"/>
+	</field>
+	<field name="tax_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="tax_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="tax_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tax"/>
+	</field>
+	<field name="import_tax" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="import_tax"/>
+		<property name="com.jaspersoft.studio.field.label" value="import_tax"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tax"/>
+	</field>
+	<field name="export_tax" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="export_tax"/>
+		<property name="com.jaspersoft.studio.field.label" value="export_tax"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tax"/>
+	</field>
+	<field name="ground_tax" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="ground_tax"/>
+		<property name="com.jaspersoft.studio.field.label" value="ground_tax"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tax"/>
+	</field>
+	<group name="vehicle_id">
+		<expression><![CDATA[$F{vehicle_id}]]></expression>
+	</group>
+	<group name="tax_id">
+		<expression><![CDATA[$F{tax_id}]]></expression>
+	</group>
+	<group name="import_tax">
+		<expression><![CDATA[$F{import_tax}]]></expression>
+	</group>
+	<group name="export_tax">
+		<expression><![CDATA[$F{export_tax}]]></expression>
+	</group>
+	<group name="ground_tax">
+		<expression><![CDATA[$F{ground_tax}]]></expression>
+	</group>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch">
+		<element kind="staticText" uuid="93341b24-9e29-4de9-8222-1090dc23bee1" x="0" y="0" width="550" height="78" fontName="Calibri" fontSize="24.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Tax Detail Report]]></text>
+			<box>
+				<pen lineWidth="1.25"/>
+			</box>
+		</element>
+	</title>
+	<pageHeader height="35" splitType="Stretch"/>
+	<columnHeader height="38" splitType="Stretch">
+		<element kind="staticText" uuid="66d90867-22e9-4c23-acc9-b77f9bb7b326" x="0" y="0" width="111" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Vehicle ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7f9286c3-5a6b-47cc-9d11-1b4bf23ed1db"/>
+		</element>
+		<element kind="staticText" uuid="8ce41863-e4f4-4220-a5a7-d1f326b5be4e" x="111" y="0" width="111" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Tax ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5e3b8c0a-6b12-4eda-8a2f-dd1da24ecf89"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="9c269847-8ca8-43f3-a2d9-87c36f5e17ad" x="222" y="0" width="111" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Import Tax]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="857b342f-d1a2-4f51-b08c-bffcff335e24"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="5028e3b3-5351-4328-82a0-60c6ae06021f" x="333" y="0" width="111" height="30" markup="rtf" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Export Tax]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="94f76bfa-181a-497f-a1b4-b07a1a812ad8"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="5d024c16-6406-4a41-a66e-afc4ab11ae9d" x="444" y="0" width="111" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Ground Tax]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b3658abf-eb57-4567-87f4-48c8f18ae3e5"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<element kind="textField" uuid="dae7b8f0-e0b1-4d86-b3e8-affb3eb7fb54" x="0" y="0" width="111" height="30" fontName="Calibri" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{vehicle_id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7f9286c3-5a6b-47cc-9d11-1b4bf23ed1db"/>
+			</element>
+			<element kind="textField" uuid="483c10e7-709d-465a-9949-0bc7f9ef844f" x="111" y="0" width="111" height="30" fontName="Calibri" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{tax_id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5e3b8c0a-6b12-4eda-8a2f-dd1da24ecf89"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="100a4355-409e-45f8-847b-63ce61344413" x="222" y="0" width="111" height="30" fontName="Calibri" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{import_tax}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="857b342f-d1a2-4f51-b08c-bffcff335e24"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="2f6694ca-456f-426d-a7b1-8c9e9d0ff12e" x="333" y="0" width="111" height="30" fontName="Calibri" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{export_tax}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="94f76bfa-181a-497f-a1b4-b07a1a812ad8"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="851b5993-89ce-4298-9c75-f137cbaa600e" x="444" y="0" width="111" height="30" fontName="Calibri" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{ground_tax}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b3658abf-eb57-4567-87f4-48c8f18ae3e5"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>

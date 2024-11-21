@@ -10,10 +10,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.gdse.project.Model.TaxModel;
 import lk.ijse.gdse.project.Model.VehicleModel;
+import lk.ijse.gdse.project.db.DBConnection;
 import lk.ijse.gdse.project.dto.TaxDTO;
 import lk.ijse.gdse.project.dto.tm.TaxTM;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.net.URL;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -95,7 +99,28 @@ public class TaxController implements Initializable {
     }
 
     @FXML
-    void generateTaxDetailsRepo(ActionEvent event) {
+    void generateTaxDetailsRepo(ActionEvent event)throws ClassNotFoundException {
+        try {
+            JasperReport jasperReport = JasperCompileManager.compileReport(
+                    getClass()
+                            .getResourceAsStream("/Reports/Tax.jrxml"
+                            ));
+
+            Connection connection = DBConnection.getInstance().getConnection();
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(
+                    jasperReport,
+                    null,
+                    connection
+            );
+
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (JRException e) {
+            new Alert(Alert.AlertType.ERROR, "Fail to generate report...!").show();
+//           e.printStackTrace();
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, "DB error...!").show();
+        }
 
     }
 
