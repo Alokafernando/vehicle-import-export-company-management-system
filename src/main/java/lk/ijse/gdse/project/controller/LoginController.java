@@ -13,8 +13,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class LoginController {
-    private final String username = "a";
-    private final String password = "a";
 
     @FXML
     private Button btnLogin;
@@ -34,7 +32,11 @@ public class LoginController {
     @FXML
     private TextField txtUserName;
 
+//    String userNamePatter = "^[a-zA-Z0-9_]{3,16}$";
+//    String passwordPatter = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,20}$\n";
 
+    private final String username = "test";
+    private final String password = "Test@123";
 
     @FXML
     void login(ActionEvent event) throws IOException {
@@ -50,6 +52,7 @@ public class LoginController {
         lblCheckUsername.setText("");
         lblCheckPassword.setText("");
 
+
         try {
             if (u.isEmpty()) {
                 setUsernameError("required", errorStyle, errorTextColor);
@@ -62,29 +65,32 @@ public class LoginController {
             } else if (!password.equals(p)) {
                 setPasswordError("wrong password", errorStyle, errorTextColor);
             }
+                if (username.equals(u) && password.equals(p)) {
+                    AnchorPane load = FXMLLoader.load(getClass().getResource("/view/MenuView.fxml"));
+                    Scene scene = new Scene(load);
+                    Stage stage = (Stage) txtUserName.getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.setTitle("Dashboard Form");
+                }
 
-            if (username.equals(u) && password.equals(p)) {
-                AnchorPane load = FXMLLoader.load(getClass().getResource("/view/MenuView.fxml"));
-                Scene scene = new Scene(load);
-                Stage stage = (Stage) txtUserName.getScene().getWindow();
-                stage.setScene(scene);
-                stage.setTitle("Dashboard Form");
-            }
+
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK).show();
         }
     }
 
-    private void setUsernameError(String message, String style, String textColor) {
+    private String setUsernameError(String message, String style, String textColor) {
         lblCheckUsername.setText(message);
         lblCheckUsername.setStyle(textColor);
         txtUserName.setStyle(style);
+        return message;
     }
 
-    private void setPasswordError(String message, String style, String textColor) {
+    private String setPasswordError(String message, String style, String textColor) {
         lblCheckPassword.setText(message);
         lblCheckPassword.setStyle(textColor);
         txtPassword.setStyle(style);
+        return message;
     }
 
 

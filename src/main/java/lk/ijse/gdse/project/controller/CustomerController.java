@@ -18,9 +18,8 @@ import net.sf.jasperreports.view.JasperViewer;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.time.LocalDate;
+import java.util.*;
 
 public class CustomerController implements Initializable {
 
@@ -277,7 +276,73 @@ public class CustomerController implements Initializable {
         lblCustomerID.setText(nextCustomerID);
     }
 
-    public void generateCustomerReservReport(ActionEvent actionEvent) {
+    public void generateCustomerReservReport(ActionEvent actionEvent) throws ClassNotFoundException {
+//        CustomerTM customerTM = tblCustomer.getSelectionModel().getSelectedItem();
+//
+//        if(customerTM != null){
+//            return;
+//        }
+//        try{
+//            JasperReport jasperReport = JasperCompileManager.compileReport(
+//                    getClass().
+//                            getResourceAsStream("/Reports/Cust_Reservation.jrxml"
+//                            ));
+//
+//            Connection connection = DBConnection.getInstance().getConnection();
+//
+//            Map<String, Object> parameters = new HashMap<>();
+//
+//            parameters.put("P_Date", LocalDate.now().toString());
+//            parameters.put("p_Cust_ID", customerTM.getCust_ID());
+//
+//            JasperPrint jasperPrint = JasperFillManager.fillReport(
+//                    jasperReport,
+//                    parameters,
+//                    connection
+//            );
+//
+//            JasperViewer.viewReport(jasperPrint, false);
+//        }catch (JRException e){
+//            new Alert(Alert.AlertType.ERROR, "Fail to generate report...!").show();
+////           e.printStackTrace();
+//        } catch (SQLException e) {
+//            new Alert(Alert.AlertType.ERROR, "DB error...!").show();
+//        } catch(NullPointerException e){
+//            new Alert(Alert.AlertType.ERROR, "Please select customer.").show();
+//        }
+        CustomerTM customerTM = tblCustomer.getSelectionModel().getSelectedItem();
+
+        if (customerTM == null) {
+            return;
+        }
+
+        try {
+            JasperReport jasperReport = JasperCompileManager.compileReport(
+                    getClass()
+                            .getResourceAsStream("/Reports/Cust_Reservation.jrxml"
+                            ));
+
+            Connection connection = DBConnection.getInstance().getConnection();
+
+            Map<String, Object> parameters = new HashMap<>();
+
+            parameters.put("P_Date", LocalDate.now().toString());
+            parameters.put("p_Cust_ID", customerTM.getCust_ID());
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(
+                    jasperReport,
+                    parameters,
+                    connection
+            );
+
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (JRException e) {
+            new Alert(Alert.AlertType.ERROR, "Fail to generate report...!").show();
+//           e.printStackTrace();
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, "DB error...!").show();
+        }
+
     }
 
     public void generateCistomerReport(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {

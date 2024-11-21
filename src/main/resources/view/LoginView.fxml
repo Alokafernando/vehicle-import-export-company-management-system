@@ -40,7 +40,7 @@
                   <Font name="Calibri" size="14.0" />
                </font>
             </PasswordField>
-            <Button fx:id="btnLogin" layoutX="152.0" layoutY="412.0" mnemonicParsing="false" onAction="#login" prefHeight="35.0" prefWidth="266.0" style="-fx-background-color: #D7278B; -fx-border-radius: 15; -fx-background-radius: 25;" text="LOGIN" textFill="WHITE">
+            <Button fx:id="btnLogin" layoutX="152.0" layoutY="412.0" mnemonicParsing="false" onAction="#login" prefHeight="35.0" prefWidth="266.0" style="-fx-background-color: #D7278B; -fx-border-radius: 15; -fx-background-radius: 25;" styleClass="btn" stylesheets="@../css/ButtonAction.css" text="LOGIN" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
