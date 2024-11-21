@@ -162,7 +162,7 @@ public class TransportController implements Initializable {
     void saveTransport(ActionEvent event) throws SQLException, ClassNotFoundException {
         String driverId = cmdDriverID.getValue();
         String transportId = lblTransportID.getText();
-        String startDate = txtStartDate.getText();
+        String startDate = LocalDate.now().toString();
         String endDate = txtEndDate.getText();
 
         String transportType;

@@ -138,7 +138,7 @@ public class ReservationController implements Initializable {
     void saveReservation(ActionEvent event) throws SQLException, ClassNotFoundException {
         String custID = cmdCustID.getValue();
         String reservationID = lblResreveID.getText();
-        String reservationDate = txtReservDate.getText();
+        String reservationDate = LocalDate.now().toString();
 
         if (custID == null || custID.isEmpty()) {
             new Alert(Alert.AlertType.WARNING, "Please select a customer ID before saving the reservation.").show();

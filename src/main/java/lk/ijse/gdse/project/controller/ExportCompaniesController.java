@@ -18,10 +18,8 @@ import net.sf.jasperreports.view.JasperViewer;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Locale;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.time.LocalDate;
+import java.util.*;
 
 public class ExportCompaniesController implements Initializable {
 
@@ -174,10 +172,41 @@ public class ExportCompaniesController implements Initializable {
     }
 
     @FXML
-    void generateExportVehicleReport(ActionEvent event) {
+    void generateExportVehicleReport(ActionEvent event) throws  ClassNotFoundException {
+        ExportCompanyTM exportCompanyTM = tblExport.getSelectionModel().getSelectedItem();
+
+        if (exportCompanyTM == null) {
+            return;
+        }
+
+        try {
+            JasperReport jasperReport = JasperCompileManager.compileReport(
+                    getClass()
+                            .getResourceAsStream("/Reports/Export_Vehicle.jrxml"
+                            ));
+
+            Connection connection = DBConnection.getInstance().getConnection();
+
+            Map<String, Object> parameters = new HashMap<>();
+
+            parameters.put("P_Date", LocalDate.now().toString());
+            parameters.put("P_Vehicle_ID", exportCompanyTM.getCompany_ID());
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(
+                    jasperReport,
+                    parameters,
+                    connection
+            );
+
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (JRException e) {
+            new Alert(Alert.AlertType.ERROR, "Fail to generate report...!").show();
+//           e.printStackTrace();
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, "DB error...!").show();
+        }
 
     }
-
 
     @FXML
     void saveExportCompany(ActionEvent event) throws SQLException, ClassNotFoundException {
