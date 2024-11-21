@@ -82,21 +82,17 @@ public class CustomerController implements Initializable {
     @FXML
     void btnCheckVehicleOnAction(ActionEvent event) throws IOException {
         try {
-            // Load the new FXML file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CheckVehicle.fxml"));
-            AnchorPane pane = loader.load(); // Load the layout
-
-            // Get the current stage from the event source
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            // Create a new scene and set it to the current stage
+            AnchorPane pane = loader.load();
+            Stage newStage = new Stage();
+            newStage.setTitle("Check Vehicle");
             Scene scene = new Scene(pane);
-            stage.setScene(scene);
-            stage.show();  // Show the new scene
-
+            newStage.setScene(scene);
+            newStage.show();
         } catch (IOException e) {
-            e.printStackTrace();  // Print the error to the console
+            e.printStackTrace();
         }
+
 
 
     }

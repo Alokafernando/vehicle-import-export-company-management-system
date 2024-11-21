@@ -46,7 +46,6 @@ public class CheckVehicleController implements Initializable {
     @FXML
     private TextField txtYear;
 
-    // Use the class-level variable
     private ObservableList<CheckVehicleTM> vehicleTMS;
 
     private final CheckVehicleModel checkVehicleModel = new CheckVehicleModel();
@@ -71,7 +70,6 @@ public class CheckVehicleController implements Initializable {
     }
 
     private void loadVehicleData() throws SQLException, ClassNotFoundException {
-        // Initialize vehicleTMS here to use the class-level variable
         vehicleTMS = FXCollections.observableArrayList();
 
         ArrayList<VehicleDTO> vehicleDTOS = checkVehicleModel.getData();
