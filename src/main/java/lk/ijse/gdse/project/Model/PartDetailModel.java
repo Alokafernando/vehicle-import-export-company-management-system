@@ -19,7 +19,7 @@ public class PartDetailModel {
            connection.setAutoCommit(false);
 
            for (PartDetailDTO dto : partDetailDTO) {
-               boolean isSaved = CrudUtil.execute("insert into part_detail values(?, ?, ?, ?)",
+               boolean isSaved = CrudUtil.execute("insert into part_details values(?,?,?,?);",
                        dto.getPart_id(),
                        dto.getVehicle_id(),
                        dto.getQuantity(),
@@ -38,6 +38,7 @@ public class PartDetailModel {
            }
             connection.commit();
            return true;
+
        } catch (Exception e) {
            connection.rollback();
            e.printStackTrace();

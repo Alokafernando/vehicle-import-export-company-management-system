@@ -11,7 +11,7 @@ import lombok.*;
 public class PartDetailDTO {
     private String part_id;
     private String vehicle_id;
-    private double price;
     private int quantity;
+    private double price;
 
 }

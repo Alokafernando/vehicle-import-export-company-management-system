@@ -161,10 +161,11 @@ public class PartDetailsController implements Initializable {
 
         for (PartDetailCartTM partDetailCartTM : cartTMS) {
             PartDetailDTO partDetailDTO = new PartDetailDTO(
-                    selectedPardId,
                     partDetailCartTM.getPartId(),
-                    partDetailCartTM.getTotalPrice(),
-                    partDetailCartTM.getCartQuantity()
+                    selectedVehicleId,
+                    partDetailCartTM.getCartQuantity(),
+                    partDetailCartTM.getTotalPrice()
+
 
             );
             partDetailDTOS.add(partDetailDTO);
