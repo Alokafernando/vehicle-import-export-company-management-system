@@ -57,6 +57,9 @@
 		<element kind="staticText" uuid="66d90867-22e9-4c23-acc9-b77f9bb7b326" x="0" y="0" width="111" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
 			<text><![CDATA[Vehicle ID]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7f9286c3-5a6b-47cc-9d11-1b4bf23ed1db"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
 		</element>
 		<element kind="staticText" uuid="8ce41863-e4f4-4220-a5a7-d1f326b5be4e" x="111" y="0" width="111" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
 			<text><![CDATA[Tax ID]]></text>
@@ -92,6 +95,9 @@
 			<element kind="textField" uuid="dae7b8f0-e0b1-4d86-b3e8-affb3eb7fb54" x="0" y="0" width="111" height="30" fontName="Calibri" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
 				<expression><![CDATA[$F{vehicle_id}]]></expression>
 				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7f9286c3-5a6b-47cc-9d11-1b4bf23ed1db"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
 			</element>
 			<element kind="textField" uuid="483c10e7-709d-465a-9949-0bc7f9ef844f" x="111" y="0" width="111" height="30" fontName="Calibri" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
 				<expression><![CDATA[$F{tax_id}]]></expression>
