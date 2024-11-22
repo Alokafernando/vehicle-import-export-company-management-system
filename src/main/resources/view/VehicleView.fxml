@@ -295,6 +295,14 @@
             </VBox>
             <HBox alignment="CENTER" onDragDetected="#generateReport" prefHeight="35.0" prefWidth="835.0" spacing="30.0">
                <children>
+                  <Button fx:id="btnPartDetails" layoutX="32.0" layoutY="13.0" mnemonicParsing="false" onAction="#generatePartDetailsReport" prefHeight="27.0" prefWidth="166.0" style="-fx-background-color: #747d8c;" text="Part Details" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                   <Button fx:id="btnExportVehicleRepo" layoutX="212.0" layoutY="14.0" mnemonicParsing="false" onAction="#generateVehicleReport" prefHeight="27.0" prefWidth="166.0" style="-fx-background-color: #747d8c;" text=" Vehicle Details" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />

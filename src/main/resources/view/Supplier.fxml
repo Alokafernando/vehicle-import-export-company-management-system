@@ -86,7 +86,15 @@
             </VBox>
             <HBox alignment="CENTER" prefHeight="35.0" prefWidth="835.0" spacing="30.0">
                <children>
-                  <Button fx:id="btnSupplierDetailRepo" layoutX="220.0" layoutY="14.0" mnemonicParsing="false" onAction="#generateSupplierDetailsRepo" prefHeight="27.0" prefWidth="184.0" style="-fx-background-color: #747d8c;" text="supplier Details" textFill="WHITE">
+                  <Button fx:id="btnSupply" layoutX="23.0" layoutY="14.0" mnemonicParsing="false" onAction="#generateSupplyDetailsRepo" prefHeight="27.0" prefWidth="184.0" style="-fx-background-color: #747d8c;" text="Supply Details" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnSupplierDetailRepo" layoutX="220.0" layoutY="14.0" mnemonicParsing="false" onAction="#generateSupplierDetailsRepo" prefHeight="27.0" prefWidth="184.0" style="-fx-background-color: #747d8c;" text="suppliers Details" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>

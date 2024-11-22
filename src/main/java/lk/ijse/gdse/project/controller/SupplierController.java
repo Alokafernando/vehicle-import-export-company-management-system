@@ -12,6 +12,7 @@ import lk.ijse.gdse.project.Model.SupplierModel;
 import lk.ijse.gdse.project.db.DBConnection;
 import lk.ijse.gdse.project.dto.SupplierDTO;
 import lk.ijse.gdse.project.dto.SupplierDetailDTO;
+import lk.ijse.gdse.project.dto.tm.CustomerTM;
 import lk.ijse.gdse.project.dto.tm.SupplierTM;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.view.JasperViewer;
@@ -19,9 +20,8 @@ import net.sf.jasperreports.view.JasperViewer;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.time.LocalDate;
+import java.util.*;
 
 public class SupplierController implements Initializable {
 
@@ -33,6 +33,9 @@ public class SupplierController implements Initializable {
 
     @FXML
     private Button btnSupplierDetailRepo;
+
+    @FXML
+    private Button btnSupply;
 
     @FXML
     private Button btnUpdateSupplier;
@@ -107,6 +110,43 @@ public class SupplierController implements Initializable {
             new Alert(Alert.AlertType.ERROR, "DB error...!").show();
         }
 
+
+    }
+
+    @FXML
+    void generateSupplyDetailsRepo(ActionEvent event) throws ClassNotFoundException{
+        SupplierTM  supplierTM = tblSupplier.getSelectionModel().getSelectedItem();
+
+        if (supplierTM == null) {
+            return;
+        }
+
+        try {
+            JasperReport jasperReport = JasperCompileManager.compileReport(
+                    getClass()
+                            .getResourceAsStream("/Reports/SupplyDetails.jrxml"
+                            ));
+
+            Connection connection = DBConnection.getInstance().getConnection();
+
+            Map<String, Object> parameters = new HashMap<>();
+
+            parameters.put("P_Date", LocalDate.now().toString());
+            parameters.put("P_Supplier_id", supplierTM.getSupplier_id());
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(
+                    jasperReport,
+                    parameters,
+                    connection
+            );
+
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (JRException e) {
+            new Alert(Alert.AlertType.ERROR, "Fail to generate report...!").show();
+//           e.printStackTrace();
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, "DB error...!").show();
+        }
 
     }
 

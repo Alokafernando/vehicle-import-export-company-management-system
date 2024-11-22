@@ -11,6 +11,7 @@ import javafx.scene.input.MouseEvent;
 import lk.ijse.gdse.project.Model.*;
 import lk.ijse.gdse.project.db.DBConnection;
 import lk.ijse.gdse.project.dto.VehicleDTO;
+import lk.ijse.gdse.project.dto.tm.SupplierTM;
 import lk.ijse.gdse.project.dto.tm.VehicleTM;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.view.JasperViewer;
@@ -18,10 +19,8 @@ import net.sf.jasperreports.view.JasperViewer;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.time.LocalDate;
+import java.util.*;
 
 public class VController implements Initializable {
 
@@ -36,6 +35,9 @@ public class VController implements Initializable {
 
     @FXML
     private ToggleGroup btnGroup;
+
+    @FXML
+    private Button btnPartDetails;
 
     @FXML
     private Button btnSave;
@@ -59,19 +61,19 @@ public class VController implements Initializable {
     private ComboBox<String> cmdRevervationID;
 
     @FXML
-    private TableColumn<?, ?> colColor;
+    private TableColumn<VehicleTM, String> colColor;
 
     @FXML
-    private TableColumn<?, ?> colModel;
+    private TableColumn<VehicleTM, String> colModel;
 
     @FXML
-    private TableColumn<?, ?> colStatus;
+    private TableColumn<VehicleTM, String> colStatus;
 
     @FXML
-    private TableColumn<?, ?> colVehicleID;
+    private TableColumn<VehicleTM, String> colVehicleID;
 
     @FXML
-    private TableColumn<?, ?> colYear;
+    private TableColumn<VehicleTM, Integer> colYear;
 
     @FXML
     private Label lblVehicleID;
@@ -150,6 +152,42 @@ public class VController implements Initializable {
             }
         }
 
+    }
+
+    @FXML
+    void generatePartDetailsReport(ActionEvent event) throws ClassNotFoundException {
+        VehicleTM vehicleTM = tblVehicle.getSelectionModel().getSelectedItem();
+
+        if (vehicleTM == null) {
+            return;
+        }
+
+        try {
+            JasperReport jasperReport = JasperCompileManager.compileReport(
+                    getClass()
+                            .getResourceAsStream("/Reports/PartAddDetails.jrxml"
+                            ));
+
+            Connection connection = DBConnection.getInstance().getConnection();
+
+            Map<String, Object> parameters = new HashMap<>();
+
+            parameters.put("P_Date", LocalDate.now().toString());
+            parameters.put("P_Vehicle_ID", vehicleTM.getVehicle_id());
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(
+                    jasperReport,
+                    parameters,
+                    connection
+            );
+
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (JRException e) {
+            new Alert(Alert.AlertType.ERROR, "Fail to generate report...!").show();
+//           e.printStackTrace();
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, "DB error...!").show();
+        }
 
     }
 

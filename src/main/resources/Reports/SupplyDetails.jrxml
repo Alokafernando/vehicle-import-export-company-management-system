@@ -1,0 +1,216 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<jasperReport name="SupplyDetails" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="de3d4e19-d3df-4d5b-bd23-40e142d2e800">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (26)"/>
+	<parameter name="P_Date" class="java.lang.String"/>
+	<parameter name="P_Supplier_id" class="java.lang.String"/>
+	<query language="SQL"><![CDATA[select
+    s.name,
+    s.contact,
+    s.email,
+    sd.part_id,
+    p.name,
+    p.unit_price,
+    sd.quantity,
+    sd.total,
+    sd.supply_date
+    from supplier s join supplier_details sd on s.supplier_id = sd.supplier_id
+    join part p on sd.part_id = p.part_id where s.supplier_id = $P{P_Supplier_id}]]></query>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="supplier"/>
+	</field>
+	<field name="contact" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="contact"/>
+		<property name="com.jaspersoft.studio.field.label" value="contact"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="supplier"/>
+	</field>
+	<field name="email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="email"/>
+		<property name="com.jaspersoft.studio.field.label" value="email"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="supplier"/>
+	</field>
+	<field name="part_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="part_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="part_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="supplier_details"/>
+	</field>
+	<field name="COLUMN_5" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="part"/>
+	</field>
+	<field name="unit_price" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="unit_price"/>
+		<property name="com.jaspersoft.studio.field.label" value="unit_price"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="part"/>
+	</field>
+	<field name="quantity" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="quantity"/>
+		<property name="com.jaspersoft.studio.field.label" value="quantity"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="supplier_details"/>
+	</field>
+	<field name="total" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="total"/>
+		<property name="com.jaspersoft.studio.field.label" value="total"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="supplier_details"/>
+	</field>
+	<field name="supply_date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="supply_date"/>
+		<property name="com.jaspersoft.studio.field.label" value="supply_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="supplier_details"/>
+	</field>
+	<group name="name">
+		<expression><![CDATA[$F{name}]]></expression>
+	</group>
+	<group name="contact">
+		<expression><![CDATA[$F{contact}]]></expression>
+	</group>
+	<group name="email">
+		<expression><![CDATA[$F{email}]]></expression>
+	</group>
+	<group name="part_id">
+		<expression><![CDATA[$F{part_id}]]></expression>
+	</group>
+	<group name="COLUMN_5">
+		<expression><![CDATA[$F{COLUMN_5}]]></expression>
+	</group>
+	<group name="unit_price">
+		<expression><![CDATA[$F{unit_price}]]></expression>
+	</group>
+	<group name="quantity">
+		<expression><![CDATA[$F{quantity}]]></expression>
+	</group>
+	<group name="total">
+		<expression><![CDATA[$F{total}]]></expression>
+	</group>
+	<group name="supply_date">
+		<expression><![CDATA[$F{supply_date}]]></expression>
+	</group>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch">
+		<element kind="staticText" uuid="6f77e851-d182-4032-bfd3-066ff4cf79b4" x="0" y="0" width="554" height="78" fontName="Calibri" fontSize="24.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Supply Details Report]]></text>
+			<box>
+				<pen lineWidth="1.25"/>
+			</box>
+		</element>
+	</title>
+	<pageHeader height="137" splitType="Stretch">
+		<element kind="staticText" uuid="85815c38-cfb8-4495-961d-6900b1b30897" x="0" y="30" width="100" height="30" fontName="Calibri" fontSize="16.0" bold="true" vTextAlign="Middle">
+			<text><![CDATA[Name   :]]></text>
+		</element>
+		<element kind="staticText" uuid="e283a509-1207-48e8-8362-afd8224a0178" x="0" y="60" width="100" height="30" fontName="Calibri" fontSize="16.0" bold="true" vTextAlign="Middle">
+			<text><![CDATA[Mobile :]]></text>
+		</element>
+		<element kind="staticText" uuid="6dbf1c4f-6405-467c-ac9d-bffd68cd1240" x="0" y="90" width="100" height="30" fontName="Calibri" fontSize="16.0" bold="true" vTextAlign="Middle">
+			<text><![CDATA[E-mail  :]]></text>
+		</element>
+		<element kind="textField" uuid="05b17318-7da1-4e49-a904-2e7460b09c3b" x="100" y="60" width="278" height="30" fontName="Calibri" fontSize="12.0" vTextAlign="Middle">
+			<expression><![CDATA[$F{contact}]]></expression>
+		</element>
+		<element kind="textField" uuid="2d2ef5fd-5052-4adc-9d76-20c9428e1968" x="100" y="30" width="278" height="30" fontName="Calibri" fontSize="12.0" vTextAlign="Middle">
+			<expression><![CDATA[$F{name}]]></expression>
+		</element>
+		<element kind="textField" uuid="8b058fe5-45bc-4883-bc90-1f4f6b15541d" x="100" y="90" width="278" height="30" fontName="Calibri" fontSize="12.0" vTextAlign="Middle">
+			<expression><![CDATA[$F{email}]]></expression>
+		</element>
+		<element kind="textField" uuid="ac31ceac-9696-419b-a859-ed2b108b49de" x="455" y="0" width="100" height="30" fontName="Calibri" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$P{P_Date}]]></expression>
+		</element>
+	</pageHeader>
+	<columnHeader height="39" splitType="Stretch">
+		<element kind="staticText" uuid="659d95a3-601c-4c1c-8889-f2aad372b797" x="0" y="0" width="95" height="30" fontName="Calibri" fontSize="16.0" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Part Id]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1f2816a8-3577-4480-a99a-4bf60fa0c32d"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="6fbf24a2-03b6-42d1-8d56-06a7f3ce1e45" x="95" y="0" width="92" height="30" fontName="Calibri" fontSize="16.0" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Name]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b9d735b2-b645-4d73-bca6-a8b996839668"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="d8355f3c-e0d0-438b-a370-ec3afade6a15" x="187" y="0" width="92" height="30" fontName="Calibri" fontSize="16.0" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Unit Price]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0cb9ce61-0a11-43a7-a1ac-0ae7d90e3721"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="328ea773-b80f-4704-bdba-ae3ad8592b59" x="279" y="0" width="92" height="30" fontName="Calibri" fontSize="16.0" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Qty]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1c5d05a4-9328-4785-8ff1-740760cd19b1"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="f0bfdd4a-3dcc-472c-8df2-cb4bb734fa0e" x="371" y="0" width="92" height="30" fontName="Calibri" fontSize="16.0" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Total]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7cf916b2-e8a4-4064-9ea7-05513f999d1a"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="715569d5-0331-4963-8aa9-82da1ec1836a" x="463" y="0" width="92" height="30" fontName="Calibri" fontSize="16.0" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Supply Date]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2b376c58-ea07-4182-ae1d-e2d3d724bcf1"/>
+			<box>
+				<pen lineWidth="0.25"/>
+			</box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<element kind="textField" uuid="86f697ac-3aa7-4696-bbc3-133110552a12" x="0" y="0" width="95" height="30" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{part_id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1f2816a8-3577-4480-a99a-4bf60fa0c32d"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="4dfaeeef-f432-4071-bf78-5f9604bcfa15" x="95" y="0" width="92" height="30" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{COLUMN_5}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b9d735b2-b645-4d73-bca6-a8b996839668"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="01f2a536-b2f1-4849-bda9-66a7b599c166" x="187" y="0" width="92" height="30" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{unit_price}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0cb9ce61-0a11-43a7-a1ac-0ae7d90e3721"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="ba2ca46a-836f-4ea8-b35b-09c8a62f3c6e" x="279" y="0" width="92" height="30" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{quantity}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1c5d05a4-9328-4785-8ff1-740760cd19b1"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="febbf232-237d-4624-9dcd-0c50d1c4ed1b" x="371" y="0" width="92" height="30" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{total}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7cf916b2-e8a4-4064-9ea7-05513f999d1a"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="e5ca6620-0aeb-4073-a689-0843d5d7d2f8" x="463" y="0" width="92" height="30" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{supply_date}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2b376c58-ea07-4182-ae1d-e2d3d724bcf1"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>
