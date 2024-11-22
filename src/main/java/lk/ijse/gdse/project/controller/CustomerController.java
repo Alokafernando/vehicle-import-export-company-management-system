@@ -314,7 +314,7 @@ public class CustomerController implements Initializable {
         try {
             JasperReport jasperReport = JasperCompileManager.compileReport(
                     getClass()
-                            .getResourceAsStream("/Reports/Cust_Reservation.jrxml"
+                            .getResourceAsStream("/Reports/CustReservationRepo.jrxml"
                             ));
 
             Connection connection = DBConnection.getInstance().getConnection();

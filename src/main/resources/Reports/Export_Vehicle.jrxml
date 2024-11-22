@@ -15,8 +15,8 @@
     v.year,
     v.export_date,
     v.export_price
-    from export_company e join vehicle v on e.company_ID = v.export_company_id
-        where v.vehicle_id = $P{P_Vehicle_ID}]]></query>
+from export_company e join vehicle v on e.company_ID = v.export_company_id
+where e.company_ID = $P{P_Vehicle_ID}]]></query>
 	<field name="company_name" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="company_name"/>
 		<property name="com.jaspersoft.studio.field.label" value="company_name"/>

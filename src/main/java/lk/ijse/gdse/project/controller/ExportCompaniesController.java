@@ -150,7 +150,7 @@ public class ExportCompaniesController implements Initializable {
         try {
             JasperReport jasperReport = JasperCompileManager.compileReport(
                     getClass()
-                            .getResourceAsStream("/Reports/ExportCompany.jrxml"
+                            .getResourceAsStream("/Reports/ExportRepo.jrxml"
                             ));
 
             Connection connection = DBConnection.getInstance().getConnection();

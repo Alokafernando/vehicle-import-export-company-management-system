@@ -15,8 +15,8 @@
     v.year,
     v.import_date,
     v.import_price
-    from import_company i join vehicle v on i.company_ID = v.import_company_id
-        where v.vehicle_id = $P{P_Vehicle_ID}]]></query>
+from import_company i join vehicle v on i.company_ID = v.import_company_id
+where i.company_ID = $P{P_Vehicle_ID}]]></query>
 	<field name="company_name" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="company_name"/>
 		<property name="com.jaspersoft.studio.field.label" value="company_name"/>
@@ -122,16 +122,10 @@
 		<element kind="staticText" uuid="260cb242-025e-4092-996d-9dd25b091c73" x="0" y="90" width="70" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Left" vTextAlign="Middle">
 			<text><![CDATA[Phone   :]]></text>
 		</element>
-		<element kind="staticText" uuid="3658130a-17be-44bd-95e5-19bf76d265df" x="0" y="120" width="70" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Left" vTextAlign="Middle">
-			<text><![CDATA[E-mail   :]]></text>
-		</element>
 		<element kind="textField" uuid="eb05eeeb-232a-40c9-8e88-30cfa315c622" x="70" y="30" width="210" height="30" fontName="Calibri" fontSize="14.0" vTextAlign="Middle">
 			<expression><![CDATA[$F{company_name}]]></expression>
 		</element>
 		<element kind="textField" uuid="de761bfa-5a92-4b76-8df8-d22df1795867" x="70" y="60" width="210" height="30" fontName="Calibri" fontSize="14.0" vTextAlign="Middle">
-			<expression><![CDATA[$F{county}]]></expression>
-		</element>
-		<element kind="textField" uuid="44ca54c9-47e5-4cd7-ab32-afc83b5c9fcc" x="70" y="90" width="210" height="30" fontName="Calibri" fontSize="14.0" vTextAlign="Middle">
 			<expression><![CDATA[$F{county}]]></expression>
 		</element>
 		<element kind="textField" uuid="6cb8b2dd-dc20-43ad-8f7f-1cb58cf17376" x="70" y="120" width="210" height="30" fontName="Calibri" fontSize="14.0" vTextAlign="Middle">
@@ -139,6 +133,12 @@
 		</element>
 		<element kind="textField" uuid="4975eafc-c439-47f7-a78d-4b369b643968" x="450" y="0" width="100" height="30" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
 			<expression><![CDATA[$P{P_Date}]]></expression>
+		</element>
+		<element kind="textField" uuid="12d83a24-b5da-4585-861f-5443f8860e08" x="70" y="90" width="209" height="30" fontName="Calibri" fontSize="12.0" vTextAlign="Middle">
+			<expression><![CDATA[$F{contact}]]></expression>
+		</element>
+		<element kind="staticText" uuid="d1e88b13-f80a-4526-800c-1fcd889b0726" x="0" y="120" width="70" height="30" fontName="Calibri" fontSize="16.0" bold="true" hTextAlign="Left" vTextAlign="Middle">
+			<text><![CDATA[E-mail   :]]></text>
 		</element>
 	</pageHeader>
 	<columnHeader height="39" splitType="Stretch">
