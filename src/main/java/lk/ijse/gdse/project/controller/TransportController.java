@@ -176,7 +176,7 @@ public class TransportController implements Initializable {
     void saveTransport(ActionEvent event) throws SQLException, ClassNotFoundException {
         String driverId = cmdDriverID.getValue();
         String transportId = lblTransportID.getText();
-        String startDate = lblTransportID.getText();
+        String startDate = txtStartDate.getText();
         String endDate = txtEndDate.getText();
 
         String transportType;
@@ -205,6 +205,7 @@ public class TransportController implements Initializable {
         if (endDate != null && !endDate.isEmpty()) {
             isValidEndDate = endDate.matches(datePattern);
         }
+
         String errorStyle = "-fx-border-color: red; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
         String style = "-fx-border-color: #1e3799; -fx-border-width: 0 0 1 0; -fx-background-color: transparent;";
 
@@ -227,7 +228,6 @@ public class TransportController implements Initializable {
                     endDate,
                     driverId
             );
-
             boolean isSaved = transportModel.saveTransport(transportDTO);
             if (isSaved) {
                 refeshpage();
