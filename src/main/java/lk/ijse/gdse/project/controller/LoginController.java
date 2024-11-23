@@ -29,12 +29,10 @@ public class LoginController {
     @FXML
     private PasswordField txtPassword;
 
+    MenuController menuController = new MenuController();
+
     @FXML
     private TextField txtUserName;
-
-//    String userNamePatter = "^[a-zA-Z0-9_]{3,16}$";
-//    String passwordPatter = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,20}$\n";
-
     private final String username = "Aloka";
     private final String password = "A@1";
 
@@ -68,6 +66,7 @@ public class LoginController {
                 if (username.equals(u) && password.equals(p)) {
                     AnchorPane load = FXMLLoader.load(getClass().getResource("/view/MenuView.fxml"));
                     Scene scene = new Scene(load);
+
                     Stage stage = (Stage) txtUserName.getScene().getWindow();
                     stage.setScene(scene);
                     stage.setTitle("Dashboard Form");
